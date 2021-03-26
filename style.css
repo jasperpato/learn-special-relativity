@@ -1,1 +1,11 @@
-style
+body {
+    background-image: url('hubble.png');
+    background-size: cover;
+    background-position-y:top;
+}
+
+.mynav {
+    background-color: white;
+    color: orange;
+    opacity: 20%;
+}
