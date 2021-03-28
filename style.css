@@ -233,6 +233,8 @@ header nav ul li a.active {
 }
 /*----------------------------------------------------------------------------------------------------------*/
 
+/*Learning selection page*/
+/*----------------------------------------------------------------------------------------------------------*/
 .learn {
   display: flex;
   justify-content: center;
@@ -259,6 +261,8 @@ header nav ul li a.active {
     5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
   border-radius: 15px;
   margin: 30px;
+  background: #2a2b2f;
+  opacity: 0.85;
 }
 
 .learnContainer .learnCard .learnBox {
@@ -343,3 +347,4 @@ header nav ul li a.active {
 .learnContainer .learnCard:nth-child(3) .learnBox .learnContent a {
   background: #9823db;
 }
+/*----------------------------------------------------------------------------------------------------------*/
