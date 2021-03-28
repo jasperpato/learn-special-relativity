@@ -235,13 +235,6 @@ header nav ul li a.active {
 
 /*Learning selection page*/
 /*----------------------------------------------------------------------------------------------------------*/
-.learn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: center;
-  min-height: 100vh;
-}
 
 .learnContainer {
   display: flex;
