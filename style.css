@@ -42,6 +42,8 @@ header .logo {
   font-weight: bold;
 }
 
+header .logopic {height: 37px;}
+
 header nav {
   float: right;
 }
