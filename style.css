@@ -66,8 +66,8 @@ header nav ul li a {
   letter-spacing: 2px;
 }
 
-header nav ul li a.login {
-  border-left: 4px double rgba(238, 12, 238, 0.5);
+header nav ul li:last-of-type a {
+  border-left: 6px double rgba(238, 12, 238, 0.5);
 }
 
 header nav ul li a:hover,
