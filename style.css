@@ -12,6 +12,8 @@ body {
 }
 
 .title {
+  margin-top: 10%;
+  margin-bottom: 10%;
   font-weight: bold;
   color: #fff;
   text-decoration: wavy;
@@ -35,14 +37,15 @@ header {
 
 header .logo {
   color: #fff;
-  height: 50px;
+  height: 40px;
   line-height: 50px;
-  font-size: 24px;
+  font-size: 30px;
   float: left;
-  font-weight: bold;
+  font-weight: bolder;
+  letter-spacing: 3px;
 }
 
-header .logopic {height: 37px;}
+.logopic {height: 35px;}
 
 header nav {
   float: right;
