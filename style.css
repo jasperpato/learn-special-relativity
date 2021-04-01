@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   color: #fff;
-  background-image: url("Background1.jpg");
+  background-image: url("BackgroundBlue.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -45,7 +45,9 @@ header .logo {
   letter-spacing: 3px;
 }
 
-.logopic {height: 35px;}
+.logopic {
+  height: 38px;
+}
 
 header nav {
   float: right;
@@ -72,13 +74,13 @@ header nav ul li a {
 }
 
 header nav ul li:last-of-type a {
-  border-left: 6px double rgba(238, 12, 238, 0.5);
+  border-left: 6px double rgba(19, 192, 163, 0.5);
 }
 
 header nav ul li a:hover,
 header nav ul li a.active {
   color: #fff;
-  background: linear-gradient(90deg, #9823db, #d82cbb);
+  background: linear-gradient(90deg, #1da9eb, #0fe0be);
 }
 
 .menu-toggle {
@@ -140,7 +142,7 @@ header nav ul li a.active {
   top: 0;
   right: 0;
   width: 10px;
-  background: linear-gradient(to top, #8301be, #a8108f);
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
   animation: progressbarAnimate 5s linear infinite;
 }
 @keyframes progressbarAnimate {
@@ -159,7 +161,7 @@ header nav ul li a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #8301be, #a8108f);
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
   filter: blur(10px);
 }
 #progressbar::after {
@@ -169,7 +171,7 @@ header nav ul li a.active {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, #8301be, #a8108f);
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
   filter: blur(30px);
 }
 /*----------------------------------------------------------------------------------------------------------*/
@@ -185,8 +187,8 @@ header nav ul li a.active {
   padding: 40px;
   background: rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
-  box-shadow: 0 0 205px rgba(238, 12, 238, 0.5);
-  box-shadow: 0 0 205px rgba(238, 12, 238, 0.5);
+  box-shadow: 0 0 205px rgba(19, 192, 163, 0.5);
+  box-shadow: 0 0 205px rgba(19, 192, 163, 0.5);
   border-radius: 10px;
 }
 
@@ -209,7 +211,7 @@ header nav ul li a.active {
   letter-spacing: 1px;
   margin-bottom: 30px;
   border: none;
-  border-bottom: 1px solid #9823db;
+  border-bottom: 1px solid #13c0a3;
   outline: none;
   background: transparent;
 }
@@ -229,7 +231,7 @@ header nav ul li a.active {
 .loginBox .inputBox input:valid ~ label {
   top: -20px;
   left: 0;
-  color: #9823db;
+  color: #23dbd2;
   font-size: 12px;
 }
 .loginBox input[type="submit"] {
@@ -237,7 +239,7 @@ header nav ul li a.active {
   border: none;
   outline: none;
   color: #fff;
-  background: #9823db;
+  background: linear-gradient(90deg, #1da9eb, #0fe0be);
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 5px;
@@ -331,15 +333,15 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard:nth-child(1) .learnBox .learnContent a {
-  background: #9823db;
+  background: #13c0a3;
 }
 
 .learnContainer .learnCard:nth-child(2) .learnBox .learnContent a {
-  background: #9823db;
+  background: #13c0a3;
 }
 
 .learnContainer .learnCard:nth-child(3) .learnBox .learnContent a {
-  background: #9823db;
+  background: #13c0a3;
 }
 /*----------------------------------------------------------------------------------------------------------*/
 
@@ -420,7 +422,7 @@ header nav ul li a.active {
   transform: translateX(-50%);
   text-align: center;
   padding: 30px 20px 10px;
-  background: #9823db;
+  background: #13c0a3;
   border-radius: 10px;
   font-weight: 800;
   font-size: 18px;
@@ -443,15 +445,15 @@ header nav ul li a.active {
 }
 
 .progressCard:nth-child(1) .progressText {
-  background: #9823db;
+  background: #13c0a3;
 }
 
 .progressCard:nth-child(2) .progressText {
-  background: #9823db;
+  background: #13c0a3;
 }
 
 .progressCard:nth-child(3) .progressText {
-  background: #9823db;
+  background: #13c0a3;
 }
 
 svg {
