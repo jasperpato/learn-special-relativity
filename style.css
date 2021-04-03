@@ -9,16 +9,21 @@ body {
   background-attachment: fixed;
   padding-right: 10px;
   padding-bottom: 50px;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
-.title {
+#title {
   margin-top: 10%;
   margin-bottom: 10%;
+  font-family: "Orbitron";
+  text-shadow: #13c0a3 1px 0 10px;
+  font-size: 400%;
   font-weight: bold;
   color: #fff;
   text-decoration: wavy;
   text-align: center;
-  padding-top: 3em;
+  padding-top: 2.5em;
 }
 
 /*Navigation Bar*/
@@ -37,6 +42,7 @@ header {
 
 header .logo {
   color: #fff;
+  font-family: "Orbitron";
   height: 40px;
   line-height: 50px;
   font-size: 30px;
@@ -121,13 +127,12 @@ header nav ul li a.active {
 }
 /*----------------------------------------------------------------------------------------------------------*/
 
-/*Rainbow scrollbar*/
+/*Scrollbar*/
 /*----------------------------------------------------------------------------------------------------------*/
 ::-webkit-scrollbar {
   width: 0;
 }
 
-/*Rainbow scrollbar*/
 #scrollPath {
   position: fixed;
   top: 0;
@@ -187,7 +192,6 @@ header nav ul li a.active {
   padding: 40px;
   background: rgba(0, 0, 0, 0.8);
   box-sizing: border-box;
-  box-shadow: 0 0 205px rgba(19, 192, 163, 0.5);
   box-shadow: 0 0 205px rgba(19, 192, 163, 0.5);
   border-radius: 10px;
 }
@@ -488,4 +492,79 @@ svg circle:nth-child(2) {
 
 .progressCard:nth-child(3) svg circle:nth-child(2) {
   stroke-dashoffset: calc(440px - (440px * 30) / 100);
+}
+
+/*Rocket*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.rocketIcon {
+  max-height: 28px;
+}
+
+.rocket {
+  position: absolute;
+}
+
+.rocket1 {
+  animation: rocketShake1 0.2s ease infinite, rocketTranslate1 22s;
+  animation-fill-mode: forwards;
+  z-index: -1;
+}
+
+.rocket2 {
+  animation: rocketShake2 0.2s ease infinite, rocketTranslate2 22s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rocketTranslate1 {
+  0% {
+    left: 0;
+    bottom: 0;
+  }
+  100% {
+    left: 130%;
+    bottom: 130%;
+  }
+}
+
+@keyframes rocketTranslate2 {
+  0% {
+    right: 0;
+    bottom: 0;
+  }
+  100% {
+    right: 130%;
+    bottom: 130%;
+  }
+}
+
+@keyframes rocketShake1 {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(48deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(48deg);
+  }
+}
+
+@keyframes rocketShake2 {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(-48deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(-48deg);
+  }
+}
+
+.rocket::before {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 80px;
+  background: linear-gradient(#00d0ff, transparent);
 }
