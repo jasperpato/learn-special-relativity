@@ -17,9 +17,11 @@ def learn():
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     error = None
+    user = None
     if request.method == 'POST':
-        if request.form['username'] != 'max' or request.form['password'] != 'password':
+        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
             error = "You are not allowed here"
+            user = "admin"
         else:
             return redirect(url_for('learn'))
 
