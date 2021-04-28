@@ -21,6 +21,31 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" type="text/css" href="style.css" />
+    //This function checkAnswers can go into script.js but for flask it wasn't working
+    //Would be good to have the questionAnswers array in the individual test files
+    //Needs to be made pretty
+    <script>
+      var questionAnswers = ["Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe"]
+      function checkAnswers(questionNumber, questionAnswers){
+        var question1 = document.quiz.question1.value;
+        var question2 = document.quiz.question2.value;
+        var question3 = document.quiz.question3.value;
+        var question4 = document.quiz.question4.value;
+        var submit_ans = [ question1, question2, question3, question4];
+        var score = 0;
+
+        for(var i = 0; i < questionAnswers.length; i++){
+          if(submit_ans[i] == questionAnswers[i]){
+            score++;
+          }
+        }
+
+        document.getElementById("answers_correct").innerHTML = "You got " + score + " correct";  
+        document.getElementById("form_submitted").style.visibility = "visible";
+ 
+      }
+
+  </script>
   </head>
   <body onload="init();">
     <div id="progressbar"></div>
@@ -41,6 +66,37 @@
     </header>
     <div class="col-md-4"></div>
     <div class="col-md-4 content">
+      <p>Who discovered special relativity?</p>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Stein">Albert Stein<br>
+
+        <p>Who discovered special relativity?</p>
+        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question2" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Stein">Albert Stein<br>
+
+        <p>Who discovered special relativity?</p>
+        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question3" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Stein">Albert Stein<br>
+
+        <p>Who discovered special relativity?</p>
+        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question4" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Stein">Albert Stein<br>
+
+
+        <button type = "button" id = "button" value = "submit" onclick = "checkAnswers(4,questionAnswers); return false;"></button>
+    </form>
+
+    <p id = "answers_correct"></p>  
+    <p id = "ans"></p> 
+    </div>
      
     </div>
     <div class="col-md-4"></div>
