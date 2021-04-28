@@ -29,27 +29,5 @@ function titleParallax() {
       transform: "translate(" + valueX + "px," + valueY + "px)",
     });
   });
-  
- function makeQuiz(){
-   myQuestions.forEach(
-     (currentQuestion, QNum) => {
-       const ans = [];
-       
-       for(letter in currentQuestion.ans){
-         ans.push(
-           <label>
-            <input type="radio" name="question${questionNumber}" value="${letter}">
-            ${letter} :
-           ${currentQuestion.ans[letter]}
-           </label> 
-         );
-       }       
-       output.push(
-         <div class="question"> ${currentQuestion.question} </div>
-         <div class="answers"> ${answers.join('')} </div>
-      );
-    }
-  );
-  quizCont.innerHTML = output.join('');
-}  
+//Need to add quiz function to this page
 
