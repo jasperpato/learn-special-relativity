@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn Special Relativity</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body onload="init();">
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <header>
+      <div class="logo"><img src="logoi.png" class="logopic" /> LSR</div>
+      <nav>
+        <ul>
+          <li><a class="navButton" href="home.html">Home</a></li>
+          <li><a class="navButton active" href="#">Learn</a></li>
+          <li><a class="navButton" href="#">Stats</a></li>
+          <li><a class="navButton login" href="login.html">Login</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="col-md-4"></div>
+    <div class="col-md-4 container">
+      <p class = "content">
+        Consider an observer who is inside a moving train, and another observer standing stationary outside of the train.
+        <br><br>
+        Using the theory of special relativity, they can perform many experiments with light waves that show that ‘time’ is flowing at different relative speeds 
+        between them. 
+        <br><br>
+        Here is one such experiment. The observer on the train places a mirror flat on the train floor, and flashes a light bulb on the roof of the train such
+        that a light wave travels from the bulb, directly down onto the mirror, and back up to the bulb.
+      </p>
+      <img src="diagrams/Diagram_1.1.png" alt="Diagram 1">
+      <img src="diagrams/Diagram_1.2.png" alt="Diagram 1">
+      <p>
+        From the observer inside the train’s perspective, the light travelled directly downwards and then directly upwards. The distance traveled by the light beam
+        is d0=2h, and the speed it travelled at is always constant at c. Using time = distance / speed, the time elapsed for this observer is t0 = 2h/c.
+        <br><br>
+        However the observer outside the train would witness this event in a different way because while the light is making its journey up and down, the train is
+        also moving within their reference frame from left to right.
+      </p>
+      <img src="diagrams/Diagram_2.1.png" alt="Diagram 2">
+      <img src="diagrams/Diagram_2.2.png" alt="Diagram 2">
+      <img src="diagrams/Diagram_2.3.png" alt="Diagram 2">
+      <p>
+        The light must travel a larger distance from the stationary observer’s perspective, but the speed of light would still be observed to be constant at c.
+        Therefore, the time elapsed between the flash of the bulb and the light returning back to the bulb must be larger for the stationary observer than the time
+        elapsed for the observer inside the train.
+        <br><br>
+        The train, lightbulb and light beam all travel a horizontal distance of vt1 during the elapsed time t1, and a vertical distance of 2h. Using trigonometry
+        we can <span id="distance-calc">derive an expression</span> for the distance travelled by the light beam as d1 = sqrt(4h^2+v^2t1^2).
+      </p>
+      <img src="diagrams/Diagram_3.png" alt="Diagram 3">
+      <p>
+        Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time as t1 = 2h/sqrt(c^2-v^2).
+        <br><br>
+        This experiment shows how time is a <span id="rel-quantity">relative quantity</span> between observers moving at different relative speeds; time passes
+        at different rates for each of them.
+        <br><br>
+        The two differing elapsed times calculated by the two observers can be <span id="time-dilation">related to each other</span>, resulting in the equation
+        t1 = γ * t0, where t1 is the time elapsed as observed by the stationary observer, t0 is the time elapsed for the observer inside the train, and γ is a
+        quantity known as the Lorentz factor.
+        <br><br>
+        In this formula, t0 is named the proper time and always refers to the time observed by the potential observer who witnessed the beginning event (the flash
+        of the light bulb) and the ending event (the light wave returning to the bulb) at the same point in space.
+
+        In this example the observer who was inside the train was the one who witnessed these events occurring in the same place, so they recorded the proper time.
+        The stationary observer witnessed them occurring at different places, because the train was moving within their reference frame.
+        <br><br>
+        The ‘proper time’ t0 is no more 'proper' than any observed t1; both elapsed times that were calculated were equally valid within their own frames of
+        reference.
+      </p>
+    </div>
+    <div class="col-md-4"></div>
+  </body>
+</html>
