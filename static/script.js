@@ -29,4 +29,5 @@ function titleParallax() {
       transform: "translate(" + valueX + "px," + valueY + "px)",
     });
   });
-}
+//Need to add quiz function to this page
+
