@@ -25,13 +25,16 @@
     //Would be good to have the questionAnswers array in the individual test files
     //Needs to be made pretty
     <script>
-      var questionAnswers = ["Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe"]
+      var questionAnswers = ["Albert Einstein", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe"]
+
       function checkAnswers(questionNumber, questionAnswers){
         var question1 = document.quiz.question1.value;
         var question2 = document.quiz.question2.value;
         var question3 = document.quiz.question3.value;
         var question4 = document.quiz.question4.value;
-        var submit_ans = [ question1, question2, question3, question4];
+
+        var submit_ans = [ question1, question2, question3, question4, question5, question6];
+        
         var score = 0;
 
         for(var i = 0; i < questionAnswers.length; i++){
@@ -68,28 +71,44 @@
     <div class="col-md-4 content">
       <p>Who discovered special relativity?</p>
         <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Stein">Albert Stein<br>
 
-        <p>Who discovered special relativity?</p>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Einstein">"Albert Einstein"<br>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Fish">Albert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question1" value = "John Gauss">John Gauss<br>
+
+        <p>What is the assumption special relativity is based on?</p>
+
         <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Einstibe">Albert Einstibe<br>
         <input type = "radio" id = "multiChoice" name = "question2" value = "Jon Gauss">Jon Gauss<br>
         <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Fish">ALbert Fish<br>
         <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Stein">Albert Stein<br>
 
-        <p>Who discovered special relativity?</p>
+
+        <p>What is an inertial frame of reference?</p>
+
         <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Einstibe">Albert Einstibe<br>
         <input type = "radio" id = "multiChoice" name = "question3" value = "Jon Gauss">Jon Gauss<br>
         <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Fish">ALbert Fish<br>
         <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Stein">Albert Stein<br>
 
-        <p>Who discovered special relativity?</p>
+        <p>What is space-time?</p>
+
         <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Einstibe">Albert Einstibe<br>
         <input type = "radio" id = "multiChoice" name = "question4" value = "Jon Gauss">Jon Gauss<br>
         <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Fish">ALbert Fish<br>
         <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Stein">Albert Stein<br>
 
+        <p>When are quantities that are considered constant, actually relative?</p>
+        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question5" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Stein">Albert Stein<br>
+
+        <p>The objects considered have ________ relative speeds</p>
+        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Einstibe">Albert Einstibe<br>
+        <input type = "radio" id = "multiChoice" name = "question6" value = "Jon Gauss">Jon Gauss<br>
+        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Fish">ALbert Fish<br>
+        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Stein">Albert Stein<br>
 
         <button type = "button" id = "button" value = "submit" onclick = "checkAnswers(4,questionAnswers); return false;"></button>
     </form>

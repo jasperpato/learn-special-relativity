@@ -1,0 +1,570 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  color: #fff;
+  background-image: url("BackgroundBlue.jpg");
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  padding-right: 10px;
+  padding-bottom: 50px;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+#title {
+  margin-top: 10%;
+  margin-bottom: 10%;
+  font-family: "Orbitron";
+  text-shadow: #13c0a3 1px 0 10px;
+  font-size: 400%;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: wavy;
+  text-align: center;
+  padding-top: 2.5em;
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------------------------------------------------------------*/
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 100px;
+  background: #262626;
+  width: 100%;
+  box-sizing: border-box;
+  opacity: 0.9;
+  z-index: 3;
+}
+
+header .logo {
+  color: #fff;
+  font-family: "Orbitron";
+  height: 40px;
+  line-height: 50px;
+  font-size: 30px;
+  float: left;
+  font-weight: bolder;
+  letter-spacing: 3px;
+}
+
+.logopic {
+  height: 38px;
+}
+
+header nav {
+  float: right;
+}
+
+header nav ul {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+header nav ul li {
+  list-style: none;
+}
+header nav ul li a {
+  height: 50px;
+  line-height: 50px;
+  padding: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+header nav ul li:last-of-type a {
+  border-left: 6px double rgba(19, 192, 163, 0.5);
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+  color: #fff;
+  background: linear-gradient(90deg, #1da9eb, #0fe0be);
+}
+
+.menu-toggle {
+  color: #fff;
+  float: right;
+  line-height: 50px;
+  font-size: 24px;
+  cursor: pointer;
+  display: none;
+}
+
+@media (max-width: 991px) {
+  header {
+    padding: 0 20px;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  header nav {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: #333;
+    top: 50px;
+    left: -100%;
+    transition: 0.5s;
+  }
+  header nav.active {
+    left: 0;
+  }
+  header nav ul {
+    display: block;
+    text-align: center;
+  }
+  header nav ul li a {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Scrollbar*/
+/*----------------------------------------------------------------------------------------------------------*/
+::-webkit-scrollbar {
+  width: 0;
+}
+
+#scrollPath {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 10px;
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
+  animation: progressbarAnimate 5s linear infinite;
+}
+@keyframes progressbarAnimate {
+  0%,
+  100% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(34deg);
+  }
+}
+#progressbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
+  filter: blur(10px);
+}
+#progressbar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, #1da9eb, #0fe0be);
+  filter: blur(30px);
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Log in*/
+/*----------------------------------------------------------------------------------------------------------*/
+.loginBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(0, 0, 0, 0.8);
+  box-sizing: border-box;
+  box-shadow: 0 0 205px rgba(19, 192, 163, 0.5);
+  border-radius: 10px;
+}
+
+.loginBox h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.loginBox .inputBox {
+  position: relative;
+}
+
+.loginBox .inputBox input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #13c0a3;
+  outline: none;
+  background: transparent;
+}
+
+.loginBox .inputBox label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  pointer-events: none;
+  transition: 0.5s;
+}
+.loginBox .inputBox input:focus ~ label,
+.loginBox .inputBox input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #23dbd2;
+  font-size: 12px;
+}
+.loginBox input[type="submit"] {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: linear-gradient(90deg, #1da9eb, #0fe0be);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Learning selection page*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.learnContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 470px;
+  margin: 40px 0;
+  margin-bottom: 0;
+}
+
+.learnContainer .learnCard {
+  position: relative;
+  min-width: 320px;
+  height: 370px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  background: #2a2b2f;
+  opacity: 0.88;
+}
+
+.learnContainer .learnCard .learnBox {
+  position: absolute;
+  top: 20px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: #2a2b2f;
+  border: 2px solid #1e1f23;
+  border-radius: 15px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  transition: 0.5s;
+  overflow: hidden;
+}
+
+.learnContainer .learnCard .learnBox:hover {
+  transform: translateY(-50px);
+  box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+}
+
+.learnContainer .learnCard .learnBox .learnContent {
+  padding: 20px;
+  text-align: center;
+}
+
+.learnContainer .learnCard .learnBox .learnContent h2 {
+  position: absolute;
+  top: -10px;
+  right: 30px;
+  font-size: 8em;
+  color: rgba(255, 255, 255, 0.05);
+}
+
+.learnContainer .learnCard .learnBox .learnContent h3 {
+  font-size: 1.8em;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.learnContainer .learnCard .learnBox .learnContent p {
+  font-size: 16px;
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 1;
+  transition: 0.5s;
+}
+
+.learnContainer .learnCard .learnBox .learnContent a {
+  position: relative;
+  display: inline-block;
+  padding: 8px 20px;
+  background: #000;
+  margin-top: 15px;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 400;
+  color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.learnContainer .learnCard:nth-child(1) .learnBox .learnContent a {
+  background: #13c0a3;
+}
+
+.learnContainer .learnCard:nth-child(2) .learnBox .learnContent a {
+  background: #13c0a3;
+}
+
+.learnContainer .learnCard:nth-child(3) .learnBox .learnContent a {
+  background: #13c0a3;
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Learn progress*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.progressContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 40px 0;
+  margin-top: 0;
+}
+
+.progressContainer .progressCard {
+  position: relative;
+  width: 250px;
+  height: 300px;
+  text-align: center;
+  z-index: 10;
+  margin-left: 65px;
+  margin-right: 65px;
+  margin-bottom: 75px;
+}
+
+.progressContainer .progressCard .progressBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.progressPercent {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  z-index: 100;
+}
+
+.progressPercent .progressNumber {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.progressPercent .progressNumber h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+.progressPercent .progressNumber h2 span {
+  font-size: 24px;
+}
+
+.progressText {
+  position: absolute;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 30px 20px 10px;
+  background: #13c0a3;
+  border-radius: 10px;
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+  pointer-events: none;
+  transition: bottom 0.5s, z-index 0s, transform 0.5s, padding 0.5s;
+  transition-delay: 0.5s, 0.5s, 0s, 0.5s;
+  color: #fff;
+}
+
+.progressCard:hover .progressText {
+  transition-delay: 0s, 0.5s, 0.5s, 0s;
+  bottom: -70px;
+  z-index: 11;
+  transform: translateX(-50%) translateY(-50px);
+  padding: 10px 20px 10px;
+}
+
+.progressCard:nth-child(1) .progressText {
+  background: #13c0a3;
+}
+
+.progressCard:nth-child(2) .progressText {
+  background: #13c0a3;
+}
+
+.progressCard:nth-child(3) .progressText {
+  background: #13c0a3;
+}
+
+svg {
+  position: relative;
+  width: 150px;
+  height: 150px;
+}
+
+svg circle {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 10;
+  stroke: rgba(255, 255, 255, 0.05);
+  transform: translate(5px, 5px);
+  stroke-linecap: round;
+}
+
+svg circle:nth-child(2) {
+  stroke: #fff;
+  stroke-dasharray: 440px;
+  stroke-dashoffset: 80px;
+}
+
+.progressCard:nth-child(1) svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440px - (440px * 90) / 100);
+}
+
+.progressCard:nth-child(2) svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440px - (440px * 82) / 100);
+}
+
+.progressCard:nth-child(3) svg circle:nth-child(2) {
+  stroke-dashoffset: calc(440px - (440px * 30) / 100);
+}
+
+/*Rocket*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.rocketIcon {
+  max-height: 28px;
+}
+
+.rocket {
+  position: absolute;
+}
+
+.rocket1 {
+  animation: rocketShake1 0.2s ease infinite, rocketTranslate1 22s;
+  animation-fill-mode: forwards;
+  z-index: -1;
+}
+
+.rocket2 {
+  animation: rocketShake2 0.2s ease infinite, rocketTranslate2 22s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes rocketTranslate1 {
+  0% {
+    left: 0;
+    bottom: 0;
+  }
+  100% {
+    left: 130%;
+    bottom: 130%;
+  }
+}
+
+@keyframes rocketTranslate2 {
+  0% {
+    right: 0;
+    bottom: 0;
+  }
+  100% {
+    right: 130%;
+    bottom: 130%;
+  }
+}
+
+@keyframes rocketShake1 {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(48deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(48deg);
+  }
+}
+
+@keyframes rocketShake2 {
+  0%,
+  100% {
+    transform: translateY(-2px) rotate(-48deg);
+  }
+  50% {
+    transform: translateY(2px) rotate(-48deg);
+  }
+}
+
+.rocket::before {
+  content: "";
+  position: absolute;
+  bottom: -80px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 80px;
+  background: linear-gradient(#00d0ff, transparent);
+}
