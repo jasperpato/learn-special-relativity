@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Learn Special Relativity</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}" />
+  </head>
+  <body onload="init();">
+    <div id="progressbar"></div>
+    <div id="scrollPath"></div>
+    <header>
+      <div class="logo"><img src="{{ url_for('static', filename='logoi.png') }}" class="logopic" /> LSR</div>
+      <nav>
+        <ul>
+          <li><a class="navButton" href="{{ url_for('home')}}">Home</a></li>
+          <li><a class="navButton active" href="#">Learn</a></li>
+          <li><a class="navButton" href="#">Stats</a></li>
+          <li><a class="navButton login" href="{{ url_for('login')}}">Login</a></li>
+        </ul>
+      </nav>
+      <div class="menu-toggle">
+        <i class="fa fa-bars" aria-hidden="true"></i>
+      </div>
+    </header>
+    <div class="learnContainer">
+      <div class="learnCard">
+        <div class="learnBox">
+          <div class="learnContent">
+            <h2>01</h2>
+            <h3>Lesson One</h3>
+            <p>describing the lesson...</p>
+            <a href="#">Go to Lesson</a>
+            <a href="#">Test Yourself</a>
+          </div>
+        </div>
+      </div>
+      <div class="learnCard">
+        <div class="learnBox">
+          <div class="learnContent">
+            <h2>02</h2>
+            <h3>Lesson Two</h3>
+            <p>describing the lesson...</p>
+            <a href="#">Go to Lesson</a>
+            <a href="#">Test Yourself</a>
+          </div>
+        </div>
+      </div>
+      <div class="learnCard">
+        <div class="learnBox">
+          <div class="learnContent">
+            <h2>03</h2>
+            <h3>Lesson Three</h3>
+            <p>describing the lesson...</p>
+            <a href="#">Go to Lesson</a>
+            <a href="#">Test Yourself</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="progressContainer">
+      <div class="progressCard">
+        <div class="progressBox">
+          <div>
+            <div class="progressPercent">
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="progressNumber">
+                <h2>90<span>%</span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="progressText">Part 1</div>
+      </div>
+      <div class="progressCard">
+        <div class="progressBox">
+          <div>
+            <div class="progressPercent">
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="progressNumber">
+                <h2>82<span>%</span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="progressText">Part 2</div>
+      </div>
+      <div class="progressCard">
+        <div class="progressBox">
+          <div>
+            <div class="progressPercent">
+              <svg>
+                <circle cx="70" cy="70" r="70"></circle>
+                <circle cx="70" cy="70" r="70"></circle>
+              </svg>
+              <div class="progressNumber">
+                <h2>30<span>%</span></h2>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="progressText">Part 3</div>
+      </div>
+    </div>
+  </body>
+</html>
