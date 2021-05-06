@@ -15,24 +15,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
   </head>
   <body onload="init();">
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
     <header>
-      <div class="logo"><img src="logoi.png" class="logopic" /> LSR</div>
+      <div class="logo"><img src="{{ url_for('static', filename='logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
-          <li><a class="navButton" href="home.html">Home</a></li>
-          <li><a class="navButton active" href="#">Learn</a></li>
+          <li><a class="navButton active" href="{{ url_for('home')}}">Home</a></li>
+          <li><a class="navButton" href="{{ url_for('learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
-          <li><a class="navButton login" href="login.html">Login</a></li>
+          <li><a class="navButton login" href="{{ url_for('login')}}">Login</a></li>
         </ul>
       </nav>
       <div class="menu-toggle">
