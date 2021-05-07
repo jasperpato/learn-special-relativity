@@ -57,10 +57,10 @@
       <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
-          <li><a class="navButton active" href="{{ url_for('home')}}">Home</a></li>
-          <li><a class="navButton" href="{{ url_for('learn')}}">Learn</a></li>
+          <li><a class="navButton active" href="{{ url_for('routes.home')}}">Home</a></li>
+          <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
-          <li><a class="navButton login" href="{{ url_for('login')}}">Login</a></li>
+          <li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
         </ul>
       </nav>
       <div class="menu-toggle">

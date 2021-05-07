@@ -15,12 +15,12 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='script.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css?v=1.0.0') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
   </head>
   <body onload="init();">
     <div id="progressbar"></div>
@@ -29,22 +29,32 @@
       <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
-          <li><a class="navButton active" href="{{ url_for('home')}}">Home</a></li>
-          <li><a class="navButton" href="{{ url_for('learn')}}">Learn</a></li>
+          <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
+          <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
-          <li><a class="navButton login" href="{{ url_for('login')}}">Login</a></li>
+          <li><a class="navButton login active" href="{{ url_for('auth.login')}}">Login</a></li>
         </ul>
       </nav>
       <div class="menu-toggle">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
     </header>
-    <h1 id="title">Learn Special Relativity</h1>
-    <div class="rocket rocket1">
-      <img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
-    </div>
-    <div class="rocket rocket2">
-      <img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
+    <div class="loginBox">
+      <h2>Login</h2>
+      <form action="" method="post">
+        <div class="inputBox">
+          <input type="text" name="username" value="{{request.form.username}}" />
+          <label>Username</label>
+        </div>
+        <div class="inputBox">
+          <input type="Password" name="password" value="{{request.form.password}}" />
+          <label>Password</label>
+        </div>
+        <input type="submit" name="" value="Login" />
+      </form></br>
+      {% if error %}
+        <p class="error">Error: {{error}}</p>
+      {% endif %}
     </div>
   </body>
 </html>

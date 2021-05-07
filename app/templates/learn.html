@@ -29,10 +29,10 @@
       <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
-          <li><a class="navButton" href="{{ url_for('home')}}">Home</a></li>
-          <li><a class="navButton active" href="{{ url_for('learn')}}">Learn</a></li>
+          <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
+          <li><a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
-          <li><a class="navButton login" href="{{ url_for('login')}}">Login</a></li>
+          <li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
         </ul>
       </nav>
       <div class="menu-toggle">
@@ -46,8 +46,8 @@
             <h2>01</h2>
             <h3>Lesson One</h3>
             <p>describing the lesson...</p>
-            <a href="{{ url_for('lesson1')}}">Go to Lesson</a>
-            <a href="{{ url_for('test1')}}">Test Yourself</a>
+            <a href="{{ url_for('routes.lesson1')}}">Go to Lesson</a>
+            <a href="{{ url_for('routes.test1')}}">Test Yourself</a>
           </div>
         </div>
       </div>
@@ -57,8 +57,8 @@
             <h2>02</h2>
             <h3>Lesson Two</h3>
             <p>describing the lesson...</p>
-            <a href="{{ url_for('lesson2')}}">Go to Lesson</a>
-            <a href="{{ url_for('test2')}}">Test Yourself</a>
+            <a href="{{ url_for('routes.lesson2')}}">Go to Lesson</a>
+            <a href="{{ url_for('routes.test2')}}">Test Yourself</a>
           </div>
         </div>
       </div>
@@ -68,8 +68,8 @@
             <h2>03</h2>
             <h3>Lesson Three</h3>
             <p>describing the lesson...</p>
-            <a href="{{ url_for('lesson3')}}">Go to Lesson</a>
-            <a href="{{ url_for('test3')}}">Test Yourself</a>
+            <a href="{{ url_for('routes.lesson3')}}">Go to Lesson</a>
+            <a href="{{ url_for('routes.test3')}}">Test Yourself</a>
           </div>
         </div>
       </div>
