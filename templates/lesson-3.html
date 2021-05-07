@@ -16,16 +16,17 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}"/>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
   </head>
   <body onload="init();">
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
     <header>
-      <div class="logo"><img src="{{ url_for('static', filename='logoi.png') }}" class="logopic" /> LSR</div>
+      <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
           <li><a class="navButton" href="{{ url_for('home')}}">Home</a></li>

@@ -26,7 +26,7 @@
     <div id="progressbar"></div>
     <div id="scrollPath"></div>
     <header>
-      <div class="logo"><img src="{{ url_for('static', filename='logoi.png') }}" class="logopic" /> LSR</div>
+      <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
       <nav>
         <ul>
           <li><a class="navButton" href="{{ url_for('home')}}">Home</a></li>
@@ -41,20 +41,20 @@
     </header>
     <div class="loginBox">
       <h2>Login</h2>
-      <form>
+      <form action="" method="post">
         <div class="inputBox">
-          <input type="text" name="" required="" />
+          <input type="text" name="username" value="{{request.form.username}}" />
           <label>Username</label>
         </div>
         <div class="inputBox">
-          <input type="Password" name="" required="" />
+          <input type="Password" name="password" value="{{request.form.password}}" />
           <label>Password</label>
         </div>
-        <input type="submit" name="" value="Submit" />
-      </form>
+        <input type="submit" name="" value="Login" />
+      </form></br>
+      {% if error %}
+        <p class="error">Error: {{error}}</p>
+      {% endif %}
     </div>
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
   </body>
 </html>

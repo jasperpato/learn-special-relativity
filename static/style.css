@@ -3,7 +3,7 @@ body {
   padding: 0;
   font-family: sans-serif;
   color: #fff;
-  background-image: url("BackgroundBlue.jpg");
+  background-image: url("backgrounds/BackgroundBlue.jpg");
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -18,7 +18,7 @@ body {
   margin-bottom: 10%;
   font-family: "Orbitron";
   text-shadow: #13c0a3 1px 0 10px;
-  font-size: 400%;
+  font-size: 500%;
   font-weight: bold;
   color: #fff;
   text-decoration: wavy;
@@ -291,7 +291,7 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard .learnBox:hover {
-  transform: translateY(-50px);
+  transform: translateY(-20px);
   box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
 }
 
@@ -566,5 +566,5 @@ svg circle:nth-child(2) {
   transform: translateX(-50%);
   width: 4px;
   height: 80px;
-  background: linear-gradient(#00d0ff, transparent);
+  background: linear-gradient(#f34814, #f3d214, transparent);
 }
