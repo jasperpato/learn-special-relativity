@@ -43,7 +43,7 @@ def sign_up():
         elif len(username) < MIN_USERNAME_LENGTH:
             flash("Username must be at least 4 characters", category='error')
         elif len(password) < MIN_PASSWORD_LENGTH:
-            flash("Passwor must be at least 7 characters", category='error')
+            flash("Password must be at least 7 characters", category='error')
         elif password != passwordConfirm:
             flash("Passwords do not match", category='error')
         else:
