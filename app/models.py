@@ -6,7 +6,7 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
 
     username = db.Column(db.String(64), index=True, unique=True)
-    password = db.Column(db.String(128)) # need to hash
+    password_hash = db.Column(db.String(128))
     testAttempts = db.relationship('TestAttempt', backref = 'student', lazy = 'dynamic')
 
     def __repr__(self):

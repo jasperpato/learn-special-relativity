@@ -32,9 +32,34 @@
           <li><a class="navButton active" href="{{ url_for('routes.home')}}">Home</a></li>
           <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
+          {% if user.is_authenticated %}
+          <li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
+          {% else %}
           <li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
+          {% endif %}
         </ul>
       </nav>
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          {% if category == "error" %}
+            <div class="alert alert-danger alert-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+               <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+          {% else %}
+            <div class="alert alert-success alert-dismissable fade show" role="alert">
+              {{ message }}
+              <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+              </button>
+           </div>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      {% endwith %}
       <div class="menu-toggle">
         <i class="fa fa-bars" aria-hidden="true"></i>
       </div>
