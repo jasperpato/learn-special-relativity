@@ -2,6 +2,7 @@ function init() {
   scroll();
   dropMenu();
   titleParallax();
+  setInterval(animate, 2000);
 }
 
 function scroll() {
@@ -29,4 +30,11 @@ function titleParallax() {
       transform: "translate(" + valueX + "px," + valueY + "px)",
     });
   });
+}
+
+function animate() {
+  $("#animate-1").html(
+    '<img class="diagram" src="{{ url_for("static", filename="diagrams/Diagram_1.1.png") }}">' );
+  setTimeout(function() {$("#animate-1").html(
+    '<img class="diagram" src="{{ url_for("static", filename="diagrams/Diagram_1.2.png") }}">')}, 1000);
 }
