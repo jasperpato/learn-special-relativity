@@ -1,4 +1,7 @@
-from flask import Blueprint, Flask, render_template, request, redirect, url_for
+from flask import Blueprint, render_template, request, redirect, url_for, flash
+
+MIN_USERNAME_LENGTH = 4
+MIN_PASSWORD_LENGTH = 7
 
 auth = Blueprint('auth', __name__)
 
@@ -15,10 +18,21 @@ def login():
 
     return render_template('login.html', error = error)
 
-@auth.route('/logout')
-def logout():
-    return "<p>Log Out<p>"
-
-@auth.route('/sign-up')
+@auth.route('/sign-up', methods=['GET', 'POST'])
 def sign_up():
-    return "<p>Sign-Up<p>"
+    if request.method == 'POST':
+        username = request.form.get('username')
+        password = request.form.get('password')
+        passwordConfirm = request.form.get('passwordConfirm')
+
+        if len(username) < MIN_USERNAME_LENGTH:
+            flash("Username must be at least 4 characters", category='error')
+        elif len(password) < MIN_PASSWORD_LENGTH:
+            flash("Passwor must be at least 7 characters", category='error')
+        elif password != passwordConfirm:
+            flash("Passwords do not match", category='error')
+        else:
+            flash("Account created!", category='success')
+
+
+    return render_template('sign-up.html')

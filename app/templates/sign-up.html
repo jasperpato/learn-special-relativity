@@ -32,7 +32,7 @@
           <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
           <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
-          <li><a class="navButton login active" href="{{ url_for('auth.login')}}">Login</a></li>
+          <li><a class="navButton login active" href="{{ url_for('auth.login')}}">Sign Up</a></li>
         </ul>
       </nav>
 
@@ -63,22 +63,26 @@
       </div>
     </header>
     <div class="loginBox">
-      <h2>Login</h2>
+      <h2>Sign up</h2>
       <form method="POST">
         <div class="inputBox">
           <input type="text" name="username" id="username" value="{{request.form.username}}" required="" autocomplete="off"/>
           <label for="username">Username</label>
         </div>
         <div class="inputBox">
-          <input type="Password" name="password" id="password" value="{{request.form.password}}" required="" />
+          <input type="Password" name="password" id="password" value="{{request.form.password}}" required=""/>
           <label for="password">Password</label>
         </div>
-        <input type="submit" name="" value="Login" />
+        <div class="inputBox">
+          <input type="Password" name="passwordConfirm" id="passwordConfrim" value="{{request.form.password}}" required="" />
+          <label for="passwordConfirm">Confirm Password</label>
+        </div>
+        <input type="submit" name="" value="Sign Up" />
       </form></br>
+      <p>Already have an account? <a href="{{ url_for('auth.login')}}">Click here to login.</a></p>
       {% if error %}
         <p class="error">Error: {{error}}</p>
       {% endif %}
-      <p>Don't have an account? <a href="{{ url_for('auth.sign_up')}}">Click here to sign up.</a></p>
     </div>
   </body>
 </html>
