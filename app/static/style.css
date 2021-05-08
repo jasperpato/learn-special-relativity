@@ -570,3 +570,7 @@ svg circle:nth-child(2) {
   height: 80px;
   background: linear-gradient(#f34814, #f3d214, transparent);
 }
+
+.diagram {
+  max-width: fit-content;
+}
