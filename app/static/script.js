@@ -64,6 +64,7 @@ function loadContent() {
 }
 
 function animate() {
+	// animation 1
 	if ($("#animate-1").find("img")[0].id == "img-1.1") {
 		$("#animate-1").find("img")[0].id = "img-1.2";
 		$("#animate-1").find("img")[0].src = "/static/diagrams/Diagram_1.2.png";
@@ -72,6 +73,7 @@ function animate() {
 		$("#animate-1").find("img")[0].src = "/static/diagrams/Diagram_1.1.png";
 	}
 
+	// animation 2
 	if ($("#animate-2").find("img")[0].id == "img-2.1") {
 		$("#animate-2").find("img")[0].id = "img-2.2";
 		$("#animate-2").find("img")[0].src = "/static/diagrams/Diagram_2.2.png";
