@@ -574,9 +574,12 @@ svg circle:nth-child(2) {
 /*----------------------------------------------------------------------------------------------------------*/
 
 .lessonBox {
-	position: relative;
+	/*position: relative;
 	width: 400px;
-	height: 500px;
+	height: 500px;*/
+	margin: auto;
+	margin-top: 60px;
+	width: 550px;
 	transition: 0.5s;
 	background: linear-gradient(90deg, #1da9eb, #0fe0be);
 }
@@ -587,14 +590,14 @@ svg circle:nth-child(2) {
 }
 
 .lessonBox .lessonContent {
-	position: absolute;
+	/*position: absolute;
 	top: 10px;
 	left: 10px;
 	right: 10px;
-	bottom: 10px;
+	bottom: 10px;*/
 	background: #000;
 	padding: 20px;
-	overflow: hidden;
+	/*overflow: hidden;*/
 	text-align: center;
 	border: 2px solid#fff;
 }
@@ -631,5 +634,5 @@ svg circle:nth-child(2) {
 }
 
 .diagram {
-  max-width: fit-content;
+	max-width: 500px;
 }
