@@ -3,6 +3,8 @@ function init() {
 	dropMenu();
 	titleParallax();
 	setInterval(animate, 1500);
+	$("#prev").click(loadPrevPage);
+	$("#next").click(loadNextPage);
 }
 
 function scroll() {
@@ -83,5 +85,31 @@ function animate() {
 	} else {
 		$("#animate-2").find("img")[0].id = "img-2.1";
 		$("#animate-2").find("img")[0].src = "/static/diagrams/Diagram_2.1.png";
+	}
+}
+
+function loadPrevPage() {
+	if ($("#lesson-2.2").display == "block") {
+		$("#lesson-2.2").display = "none";
+		$("#lesson-2.1").display = "block";
+	} else if ($("#lesson-2.3").display == "block") {
+		$("#lesson-2.3").display = "none";
+		$("#lesson-2.2").display = "block";
+	} else if ($("#lesson-2.4").display == "block") {
+		$("#lesson-2.4").display = "none";
+		$("#lesson-2.3").display = "block";
+	}
+}
+
+function loadNextPage() {
+	if ($("#lesson-2.1").display == "block") {
+		$("#lesson-2.1").display = "none";
+		$("#lesson-2.2").display = "block";
+	} else if ($("#lesson-2.2").display == "block") {
+		$("#lesson-2.2").display = "none";
+		$("#lesson-2.3").display = "block";
+	} else if ($("#lesson-2.3").display == "block") {
+		$("#lesson-2.3").display = "none";
+		$("#lesson-2.4").display = "block";
 	}
 }
