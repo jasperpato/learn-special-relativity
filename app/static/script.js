@@ -58,27 +58,31 @@ function animate() {
 }
 
 function loadPrevPage2() {
-	if ($("#lesson-2.2").is(":visible")) {
-		$("#lesson-2.2").toggle();
-		$("#lesson-2.1").toggle();
-	} else if ($("#lesson-2.3").is(":visible")) {
-		$("#lesson-2.3").toggle();
-		$("#lesson-2.2").toggle();
-	} else if ($("#lesson-2.4").is(":visible")) {
-		$("#lesson-2.4").toggle();
-		$("#lesson-2.3").toggle();
+	if ($("#l22").is(":visible")) {
+		$("#prev-2").toggle();
+		$("#l22").toggle();
+		$("#l21").toggle();
+	} else if ($("#l23").is(":visible")) {
+		$("#l23").toggle();
+		$("#l22").toggle();
+	} else if ($("#l24").is(":visible")) {
+		$("#next-2").toggle();
+		$("#l24").toggle();
+		$("#l23").toggle();
 	}
 }
 
 function loadNextPage2() {
-	if ($("#lesson-2.1").is(":visible")) {
-		$("#lesson-2.1").toggle();
-		$("#lesson-2.2").toggle();
-	} else if ($("#lesson-2.2").is(":visible")) {
-		$("#lesson-2.2").toggle();
-		$("#lesson-2.3").toggle();
-	} else if ($("#lesson-2.3").is(":visible")) {
-		$("#lesson-2.3").toggle();
-		$("#lesson-2.4").toggle();
+	if ($("#l21").is(":visible")) {
+		$("#prev-2").toggle();
+		$("#l21").toggle();
+		$("#l22").toggle();
+	} else if ($("#l22").is(":visible")) {
+		$("#l22").toggle();
+		$("#l23").toggle();
+	} else if ($("#l23").is(":visible")) {
+		$("#next-2").toggle();
+		$("#l23").toggle();
+		$("#l24").toggle();
 	}
 }

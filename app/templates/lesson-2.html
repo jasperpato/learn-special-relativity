@@ -66,7 +66,8 @@
 		</header>
 		<div class="lessonBox">
 			<div class="lessonContent">
-				<div id="lesson-2.1" style="display: block">
+				<h2>Lesson 2</h2>
+				<div id="l21" style="display: block">
 					<p>
 						Consider an observer who is inside a moving train, and another observer standing stationary
 						outside of the train.
@@ -77,14 +78,13 @@
 						Here is one such experiment. The observer on the train places a mirror flat on the train floor,
 						and flashes a light bulb on the roof of the train such that a light wave travels from the bulb,
 						directly down onto the mirror, and back up to the bulb.
-						<br /><br />
 					</p>
 					<div class="diagramBox" id="animate-1">
 						<img class="diagram" id="img-1.1" src="/static/diagrams/Diagram_1.1.png" />
 					</div>
 					<p><br /><br /></p>
 				</div>
-				<div id="lesson-2.2" style="display: none">
+				<div id="l22" style="display: none">
 					<p>
 						From the observer inside the train’s perspective, the light travelled directly downwards and then
 						directly upwards. The distance traveled by the light beam is d0=2h, and the speed it travelled at
@@ -94,14 +94,13 @@
 						However the observer outside the train would witness this event in a different way because while
 						the light is making its journey up and down, the train is also moving within their reference frame
 						from left to right.
-						<br /><br />
 					</p>
 					<div class="diagramBox" id="animate-2">
 						<img class="diagram" id="img-2.1" src="/static/diagrams/Diagram_2.1.png" />
 					</div>
 					<p><br /><br /></p>
 				</div>
-				<div id="lesson-2.3" style="display: none">
+				<div id="l23" style="display: none">
 					<p>
 						The light must travel a larger distance from the stationary observer’s perspective, but the speed
 						of light would still be observed to be constant at c. Therefore, the time elapsed between the
@@ -111,20 +110,17 @@
 						The train, lightbulb and light beam all travel a horizontal distance of vt1 during the elapsed
 						time t1, and a vertical distance of 2h. Using trigonometry we can
 						<span id="distance-calc">derive an expression</span> for the distance travelled by the light beam
-						as d1 = sqrt(4h^2+v^2t1^2). <br /><br />
+						as d1 = sqrt(4h^2+v^2t1^2).
 					</p>
 					<div class="diagramBox">
 						<img class="diagram" src="/static/diagrams/Diagram_3.1.png" />
 					</div>
 					<p><br /><br /></p>
 				</div>
-				<div id="lesson-2.4" style="display: none">
+				<div id="l24" style="display: none">
 					<p>
 						Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time
 						as t1 = 2h/sqrt(c^2-v^2). <br /><br />
-						This experiment shows how time is a <span id="rel-quantity">relative quantity</span> between
-						observers moving at different relative speeds; time passes at different rates for each of them.
-						<br /><br />
 						The two differing elapsed times calculated by the two observers can be
 						<span id="time-dilation">related to each other</span>, resulting in the equation t1 = γ * t0,
 						where t1 is the time elapsed as observed by the stationary observer, t0 is the time elapsed for
@@ -140,14 +136,13 @@
 						calculated were equally valid within their own frames of reference.
 						<br /><br />
 						<a href="{{ url_for('routes.test2') }}">Take the test</a> for this section.
-						<br />
 					</p>
 				</div>
 			</div>
 			<div class="switchPages row">
-				<div class="col-md-4" id="prev-2">Prev</div>
-				<div class="col-md-4 testButton" id="test-2">Test</div>
-				<div class="col-md-4" id="next-2">Next</div>
+				<div class="col-md-4 pageButton"><div id="prev-2" style="display: none">Prev</div></div>
+				<div class="col-md-4 pageButton" id="test-2"><a href="{{ url_for('routes.test2') }}"> Test</a></div>
+				<div class="col-md-4 pageButton"><div id="next-2">Next</div></div>
 			</div>
 		</div>
 	</body>
