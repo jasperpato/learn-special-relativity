@@ -3,8 +3,8 @@ function init() {
 	dropMenu();
 	titleParallax();
 	setInterval(animate, 1500);
-	$("#prev").click(loadPrevPage);
-	$("#next").click(loadNextPage);
+	$("#prev-2").click(loadPrevPage2);
+	$("#next-2").click(loadNextPage2);
 }
 
 function scroll() {
@@ -88,7 +88,7 @@ function animate() {
 	}
 }
 
-function loadPrevPage() {
+function loadPrevPage2() {
 	if ($("#lesson-2.2").display == "block") {
 		$("#lesson-2.2").display = "none";
 		$("#lesson-2.1").display = "block";
@@ -101,7 +101,7 @@ function loadPrevPage() {
 	}
 }
 
-function loadNextPage() {
+function loadNextPage2() {
 	if ($("#lesson-2.1").display == "block") {
 		$("#lesson-2.1").display = "none";
 		$("#lesson-2.2").display = "block";
