@@ -34,37 +34,6 @@ function titleParallax() {
 	});
 }
 
-function loadContent() {
-	let lesson2_1 =
-		'<p>\
-		Consider an observer who is inside a moving train, and another observer standing stationary outside \
-		of the train.\
-		<br /><br />\
-		Using the theory of special relativity, they can perform many experiments with light waves that show\
-		that ‘time’ is flowing at different relative speeds between them.\
-		<br /><br />\
-		Here is one such experiment. The observer on the train places a mirror flat on the train floor, and\
-		flashes a light bulb on the roof of the train such that a light wave travels from the bulb, directly\
-		down onto the mirror, and back up to the bulb.\
-		<br /><br />\
-	</p>\
-	<div class="diagramBox" id="animate-1">\
-		<img class="diagram" id="img-1" src="/static/diagrams/Diagram_1.1.png" />\
-	</div>';
-
-	let lesson2_2 =
-		"<p>\
-		From the observer inside the train’s perspective, the light travelled directly downwards and then\
-		directly upwards. The distance traveled by the light beam is d0=2h, and the speed it travelled at is\
-		always constant at c. Using time = distance / speed, the time elapsed for this observer is t0 =\
-		2h/c.\
-		<br /><br />\
-		However the observer outside the train would witness this event in a different way because while the\
-		light is making its journey up and down, the train is also moving within their reference frame from\
-		left to right.\
-	</p>";
-}
-
 function animate() {
 	// animation 1
 	if ($("#animate-1").find("img")[0].id == "img-1.1") {
@@ -89,27 +58,27 @@ function animate() {
 }
 
 function loadPrevPage2() {
-	if ($("#lesson-2.2").display == "block") {
-		$("#lesson-2.2").display = "none";
-		$("#lesson-2.1").display = "block";
-	} else if ($("#lesson-2.3").display == "block") {
-		$("#lesson-2.3").display = "none";
-		$("#lesson-2.2").display = "block";
-	} else if ($("#lesson-2.4").display == "block") {
-		$("#lesson-2.4").display = "none";
-		$("#lesson-2.3").display = "block";
+	if ($("#lesson-2.2").is(":visible")) {
+		$("#lesson-2.2").toggle();
+		$("#lesson-2.1").toggle();
+	} else if ($("#lesson-2.3").is(":visible")) {
+		$("#lesson-2.3").toggle();
+		$("#lesson-2.2").toggle();
+	} else if ($("#lesson-2.4").is(":visible")) {
+		$("#lesson-2.4").toggle();
+		$("#lesson-2.3").toggle();
 	}
 }
 
 function loadNextPage2() {
-	if ($("#lesson-2.1").display == "block") {
-		$("#lesson-2.1").display = "none";
-		$("#lesson-2.2").display = "block";
-	} else if ($("#lesson-2.2").display == "block") {
-		$("#lesson-2.2").display = "none";
-		$("#lesson-2.3").display = "block";
-	} else if ($("#lesson-2.3").display == "block") {
-		$("#lesson-2.3").display = "none";
-		$("#lesson-2.4").display = "block";
+	if ($("#lesson-2.1").is(":visible")) {
+		$("#lesson-2.1").toggle();
+		$("#lesson-2.2").toggle();
+	} else if ($("#lesson-2.2").is(":visible")) {
+		$("#lesson-2.2").toggle();
+		$("#lesson-2.3").toggle();
+	} else if ($("#lesson-2.3").is(":visible")) {
+		$("#lesson-2.3").toggle();
+		$("#lesson-2.4").toggle();
 	}
 }

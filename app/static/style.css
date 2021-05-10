@@ -643,6 +643,7 @@ svg circle:nth-child(2) {
 	margin: auto;
 }
 
-.switchPages a {
+.switchPages {
 	color: white;
+	text-align: center;
 }
