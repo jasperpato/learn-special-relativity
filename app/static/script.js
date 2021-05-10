@@ -82,6 +82,7 @@ function loadNextPage2() {
 		$("#l23").toggle();
 	} else if ($("#l23").is(":visible")) {
 		$("#next-2").toggle();
+		$("#go-test-2").show();
 		$("#l23").toggle();
 		$("#l24").toggle();
 	}
