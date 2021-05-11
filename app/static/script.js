@@ -4,8 +4,8 @@ function init() {
 	titleParallax();
 	setInterval(animate, 1500);
 
-	$("#prev-2").click(loadPrevPage("2", 4));
-	$("#next-2").click(loadNextPage("2", 4));
+	$("#prev-2").click({ lNum: "2", numPages: 4 }, loadPrevPage);
+	$("#next-2").click({ lNum: "2", numPages: 4 }, loadNextPage);
 }
 
 function scroll() {
@@ -58,8 +58,11 @@ function animate() {
 	}
 }
 
-function loadPrevPage(lNum, numPages) {
+function loadPrevPage(lessonData) {
+	let lNum = lessonData.data.lNum;
+	let numPages = lessonData.data.numPages;
 	let lid = "#l" + lNum;
+
 	for (p = 2; p <= numPages; ++p) {
 		if (p == 2) $("#prev-" + lNum).toggle();
 		if (p == numPages) {
@@ -71,8 +74,11 @@ function loadPrevPage(lNum, numPages) {
 	}
 }
 
-function loadNextPage(lNum, numPages) {
+function loadNextPage(lessonData) {
+	let lNum = lessonData.data.lNum;
+	let numPages = lessonData.data.numPages;
 	let lid = "#l" + lNum;
+
 	for (p = 1; p < numPages; ++p) {
 		if (p == 1) $("#prev-" + lNum).toggle();
 		if (p == numPages - 1) {
