@@ -273,8 +273,8 @@ header nav ul li a.active {
 	position: relative;
 	min-width: 320px;
 	height: 370px;
-	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1), 5px 5px 15px rgba(0, 0, 0, 0.3),
-		-5px -5px 15px rgba(255, 255, 255, 0.1);
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
 	border-radius: 15px;
 	margin: 30px;
 	background: #2a2b2f;
@@ -579,7 +579,7 @@ svg circle:nth-child(2) {
 
 .lessonBox {
 	margin: auto;
-	margin-top: 80px;
+	margin-top: 60px;
 	width: 650px;
 	transition: 0.5s;
 	border: 1px solid#fff;
@@ -634,7 +634,7 @@ svg circle:nth-child(2) {
 .pageButton {
 	position: relative;
 	width: 300px;
-	padding: 15px 30px;
+	padding: 8px 10px;
 	margin: 20px;
 	text-transform: uppercase;
 	text-decoration: none;

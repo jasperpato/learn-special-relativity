@@ -80,8 +80,8 @@
       {% endwith %}
 
         <ul>
-          <li><a class="navButton active" href="{{ url_for('routes.home')}}">Home</a></li>
-          <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
+          <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
+          <li><a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
           {% if user.is_authenticated %}
           <li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
