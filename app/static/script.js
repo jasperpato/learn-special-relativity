@@ -4,8 +4,12 @@ function init() {
 	titleParallax();
 	setInterval(animate, 1500);
 
+	$("#prev-1").click({ lessonNum: "1", numPages: 2 }, loadPrevPage);
+	$("#next-1").click({ lessonNum: "1", numPages: 2 }, loadNextPage);
 	$("#prev-2").click({ lessonNum: "2", numPages: 4 }, loadPrevPage);
 	$("#next-2").click({ lessonNum: "2", numPages: 4 }, loadNextPage);
+	$("#prev-3").click({ lessonNum: "3", numPages: 3 }, loadPrevPage);
+	$("#next-3").click({ lessonNum: "3", numPages: 3 }, loadNextPage);
 }
 
 function scroll() {
