@@ -10,10 +10,7 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 		<script src="{{ url_for('static', filename='script.js') }}"></script>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
 	</head>
 	<body onload="init()">
@@ -44,8 +41,8 @@
 					{% endif %}
 				</ul>
 			</nav>
-			{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
-			message in messages %} {% if category == "error" %}
+			{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+			{% if category == "error" %}
 			<div class="alert alert-danger alert-dismissable fade show" role="alert">
 				{{ message }}
 				<button type="button" class="close" data-dismiss="alert">
@@ -68,15 +65,14 @@
 			<h2>Lesson 2</h2>
 			<div id="l21" style="display: block">
 				<p>
-					Consider an observer who is inside a moving train, and another observer standing stationary outside
-					of the train.
+					Consider an observer who is inside a moving train, and another observer standing stationary outside of the train.
 					<br /><br />
-					Using the theory of special relativity, they can perform many experiments with light waves that show
-					that time is flowing at different rates for each of them.
+					Using the theory of special relativity, they can perform many experiments with light waves that show that time is
+					flowing at different rates for each of them.
 					<br /><br />
-					Here is one such experiment. The observer on the train places a mirror flat on the train floor, and
-					flashes a light bulb on the roof of the train such that a light wave travels from the bulb, directly
-					down onto the mirror, and back up to the bulb.
+					Here is one such experiment. The observer on the train places a mirror flat on the train floor, and flashes a light bulb
+					on the roof of the train such that a light wave travels from the bulb, directly down onto the mirror, and back up to the
+					bulb.
 				</p>
 				<div class="diagramBox" id="animate-1">
 					<img class="diagram" id="img-1.1" src="/static/diagrams/Diagram_1.1.png" />
@@ -84,14 +80,12 @@
 			</div>
 			<div id="l22" style="display: none">
 				<p>
-					From the observer inside the train’s perspective, the light travelled directly downwards and then
-					directly upwards. The distance traveled by the light beam is d0=2h, and the speed it travelled at is
-					always constant at c. Using time = distance / speed, the time elapsed for this observer is t0 =
-					2h/c.
+					From the observer inside the train’s perspective, the light travelled directly downwards and then directly upwards. The
+					distance traveled by the light beam is d0=2h, and the speed it travelled at is always constant at c. Using time =
+					distance / speed, the time elapsed for this observer is t0 = 2h/c.
 					<br /><br />
-					However the observer outside the train would witness this event in a different way because while the
-					light is making its journey up and down, the train is also moving within their reference frame from
-					left to right.
+					However the observer outside the train would witness this event in a different way because while the light is making its
+					journey up and down, the train is also moving within their reference frame from left to right.
 				</p>
 				<div class="diagramBox" id="animate-2">
 					<img class="diagram" id="img-2.1" src="/static/diagrams/Diagram_2.1.png" />
@@ -99,15 +93,14 @@
 			</div>
 			<div id="l23" style="display: none">
 				<p>
-					The light must travel a larger distance from the stationary observer’s perspective, but the speed of
-					light would still be observed to be constant at c. Therefore, the time elapsed between the flash of
-					the bulb and the light returning back to the bulb must be larger for the stationary observer than
-					the time elapsed for the observer inside the train.
+					The light must travel a larger distance from the stationary observer’s perspective, but the speed of light would still
+					be observed to be constant at c. Therefore, the time elapsed between the flash of the bulb and the light returning back
+					to the bulb must be larger for the stationary observer than the time elapsed for the observer inside the train.
 					<br /><br />
-					The train, lightbulb and light beam all travel a horizontal distance of vt1 during the elapsed time
-					t1, and a vertical distance of 2h. Using trigonometry we can
-					<span id="distance-calc">derive an expression</span> for the distance travelled by the light beam as
-					d1 = sqrt(4h^2+v^2t1^2).
+					The train, lightbulb and light beam all travel a horizontal distance of vt1 during the elapsed time t1, and a vertical
+					distance of 2h. Using trigonometry we can
+					<span id="distance-calc">derive an expression</span> for the distance travelled by the light beam as d1 =
+					sqrt(4h^2+v^2t1^2).
 				</p>
 				<div class="diagramBox">
 					<img class="diagram" src="/static/diagrams/Diagram_3.1.png" />
@@ -115,32 +108,31 @@
 			</div>
 			<div id="l24" style="display: none">
 				<p>
-					Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time
-					as t1 = 2h/sqrt(c^2-v^2). <br /><br />
+					Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time as t1 =
+					2h/sqrt(c^2-v^2). <br /><br />
 					The two differing elapsed times calculated by the two observers can be
-					<span id="time-dilation">related to each other</span>, resulting in the equation t1 = γ * t0, where
-					t1 is the time elapsed as observed by the stationary observer, t0 is the time elapsed for the
-					observer inside the train, and γ is a quantity known as the Lorentz factor. <br /><br />
-					In this formula, t0 is named the proper time and always refers to the time observed by the potential
-					observer who witnessed the beginning event (the flash of the light bulb) and the ending event (the
-					light wave returning to the bulb) at the same point in space. In this example the observer who was
-					inside the train was the one who witnessed these events occurring in the same place, so they
-					recorded the proper time. The stationary observer witnessed them occurring at different places,
-					because the train was moving within their reference frame.
+					<span id="time-dilation">related to each other</span>, resulting in the equation t1 = γ * t0, where t1 is the time
+					elapsed as observed by the stationary observer, t0 is the time elapsed for the observer inside the train, and γ is a
+					quantity known as the Lorentz factor. <br /><br />
+					In this formula, t0 is named the proper time and always refers to the time observed by the potential observer who
+					witnessed the beginning event (the flash of the light bulb) and the ending event (the light wave returning to the bulb)
+					at the same point in space. In this example the observer who was inside the train was the one who witnessed these events
+					occurring in the same place, so they recorded the proper time. The stationary observer witnessed them occurring at
+					different places, because the train was moving within their reference frame.
 					<br /><br />
-					The ‘proper time’ t0 is no more 'proper' than any observed t1; both elapsed times that were
-					calculated were equally valid within their own frames of reference.
+					The ‘proper time’ t0 is no more 'proper' than any observed t1; both elapsed times that were calculated were equally
+					valid within their own frames of reference.
 					<br /><br />
 					<a href="{{ url_for('routes.test2') }}">Take the test</a> for this section.
 				</p>
 			</div>
 		</div>
-		<div class="switchPages row">
-			<div class="col-md-4 pageButton"><div id="prev-2" style="display: none">prev</div></div>
-			<div class="col-md-4 pageButton">
-				<div id="go-test-2" style="display: none"><a href="{{ url_for('routes.test2') }}"> Test</a></div>
+		<div class="row switchPages">
+			<div id="prev-2" class="pageButton" style="display: none">PREV</div>
+			<div id="go-test-2" class="pageButton" style="display: none">
+				<a href="{{ url_for('routes.test2') }}">TEST</a>
 			</div>
-			<div class="col-md-4 pageButton"><div id="next-2">next</div></div>
+			<div id="next-2" class="pageButton" style="display: block">NEXT</div>
 		</div>
 	</body>
 </html>
