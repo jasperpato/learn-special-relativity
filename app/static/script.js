@@ -4,8 +4,8 @@ function init() {
 	titleParallax();
 	setInterval(animate, 1500);
 
-	$("#prev-2").click({ lNum: "2", numPages: 4 }, loadPrevPage);
-	$("#next-2").click({ lNum: "2", numPages: 4 }, loadNextPage);
+	$("#prev-2").click({ lessonNum: "2", numPages: 4 }, loadPrevPage);
+	$("#next-2").click({ lessonNum: "2", numPages: 4 }, loadNextPage);
 }
 
 function scroll() {
@@ -59,33 +59,41 @@ function animate() {
 }
 
 function loadPrevPage(lessonData) {
-	let lNum = lessonData.data.lNum;
+	let lessonNum = lessonData.data.lessonNum;
 	let numPages = lessonData.data.numPages;
-	let lid = "#l" + lNum;
+	let pageNum = 1;
 
-	for (p = 2; p <= numPages; ++p) {
-		if (p == 2) $("#prev-" + lNum).toggle();
-		if (p == numPages) {
-			$("#next-" + lNum).toggle();
-			$("#go-test-" + lNum).toggle();
-		}
-		$(lid + p).toggle();
-		$(lid + (p - 1)).toggle();
+	// find visible page
+	for (pageNum; pageNum < numPages; ++pageNum) {
+		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
 	}
+
+	if (pageNum == 1) return;
+	if (pageNum == 2) $("#prev-" + lessonNum).toggle();
+	if (pageNum == numPages) {
+		$("#next-" + lessonNum).toggle();
+		$("#go-test-" + lessonNum).toggle();
+	}
+	$("#l" + lessonNum + pageNum).toggle();
+	$("#l" + lessonNum + (pageNum - 1)).toggle();
 }
 
 function loadNextPage(lessonData) {
-	let lNum = lessonData.data.lNum;
+	let lessonNum = lessonData.data.lessonNum;
 	let numPages = lessonData.data.numPages;
-	let lid = "#l" + lNum;
+	let pageNum = 1;
 
-	for (p = 1; p < numPages; ++p) {
-		if (p == 1) $("#prev-" + lNum).toggle();
-		if (p == numPages - 1) {
-			$("#next-" + lNum).toggle();
-			$("#go-test-" + lNum).toggle();
-		}
-		$(lid + p).toggle();
-		$(lid + (p + 1)).toggle();
+	// find visible page
+	for (pageNum; pageNum < numPages; ++pageNum) {
+		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
 	}
+
+	if (pageNum == numPages) return;
+	if (pageNum == 1) $("#prev-" + lessonNum).toggle();
+	if (pageNum == numPages - 1) {
+		$("#next-" + lessonNum).toggle();
+		$("#go-test-" + lessonNum).toggle();
+	}
+	$("#l" + lessonNum + pageNum).toggle();
+	$("#l" + lessonNum + (pageNum + 1)).toggle();
 }
