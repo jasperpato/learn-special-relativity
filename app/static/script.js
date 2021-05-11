@@ -3,8 +3,9 @@ function init() {
 	dropMenu();
 	titleParallax();
 	setInterval(animate, 1500);
-	$("#prev-2").click(loadPrevPage2);
-	$("#next-2").click(loadNextPage2);
+
+	$("#prev-2").click({ lessonNum: "2", numPages: 4 }, loadPrevPage);
+	$("#next-2").click({ lessonNum: "2", numPages: 4 }, loadNextPage);
 }
 
 function scroll() {
@@ -57,33 +58,42 @@ function animate() {
 	}
 }
 
-function loadPrevPage2() {
-	if ($("#l22").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l22").toggle();
-		$("#l21").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#l23").toggle();
-		$("#l22").toggle();
-	} else if ($("#l24").is(":visible")) {
-		$("#next-2").toggle();
-		$("#l24").toggle();
-		$("#l23").toggle();
+function loadPrevPage(lessonData) {
+	let lessonNum = lessonData.data.lessonNum;
+	let numPages = lessonData.data.numPages;
+	let pageNum = 1;
+
+	// find visible page
+	for (pageNum; pageNum < numPages; ++pageNum) {
+		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
 	}
+
+	if (pageNum == 1) return;
+	if (pageNum == 2) $("#prev-" + lessonNum).toggle();
+	if (pageNum == numPages) {
+		$("#next-" + lessonNum).toggle();
+		$("#go-test-" + lessonNum).toggle();
+	}
+	$("#l" + lessonNum + pageNum).toggle();
+	$("#l" + lessonNum + (pageNum - 1)).toggle();
 }
 
-function loadNextPage2() {
-	if ($("#l21").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l21").toggle();
-		$("#l22").toggle();
-	} else if ($("#l22").is(":visible")) {
-		$("#l22").toggle();
-		$("#l23").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#next-2").toggle();
-		$("#go-test-2").show();
-		$("#l23").toggle();
-		$("#l24").toggle();
+function loadNextPage(lessonData) {
+	let lessonNum = lessonData.data.lessonNum;
+	let numPages = lessonData.data.numPages;
+	let pageNum = 1;
+
+	// find visible page
+	for (pageNum; pageNum < numPages; ++pageNum) {
+		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
 	}
+
+	if (pageNum == numPages) return;
+	if (pageNum == 1) $("#prev-" + lessonNum).toggle();
+	if (pageNum == numPages - 1) {
+		$("#next-" + lessonNum).toggle();
+		$("#go-test-" + lessonNum).toggle();
+	}
+	$("#l" + lessonNum + pageNum).toggle();
+	$("#l" + lessonNum + (pageNum + 1)).toggle();
 }
