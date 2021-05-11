@@ -3,8 +3,9 @@ function init() {
 	dropMenu();
 	titleParallax();
 	setInterval(animate, 1500);
-	$("#prev-2").click(loadPrevPage2);
-	$("#next-2").click(loadNextPage2);
+
+	$("#prev-2").click(loadPrevPage("2"));
+	$("#next-2").click(loadNextPage("2"));
 }
 
 function scroll() {
@@ -57,33 +58,36 @@ function animate() {
 	}
 }
 
-function loadPrevPage2() {
-	if ($("#l22").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l22").toggle();
-		$("#l21").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#l23").toggle();
-		$("#l22").toggle();
-	} else if ($("#l24").is(":visible")) {
-		$("#next-2").toggle();
-		$("#l24").toggle();
-		$("#l23").toggle();
+function loadPrevPage(lNum) {
+	let lid = "#l" + lNum;
+	if ($(lid + "2").is(":visible")) {
+		$("#prev-" + lNum).toggle();
+		$(lid + "2").toggle();
+		$(lid + "1").toggle();
+	} else if ($(lid + "3").is(":visible")) {
+		$(lid + "3").toggle();
+		$(lid + "2").toggle();
+	} else if ($(lid + "4").is(":visible")) {
+		$("#next-" + lNum).toggle();
+		$("#go-test-" + lNum).toggle();
+		$(lid + "4").toggle();
+		$(lid + "3").toggle();
 	}
 }
 
-function loadNextPage2() {
-	if ($("#l21").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l21").toggle();
-		$("#l22").toggle();
-	} else if ($("#l22").is(":visible")) {
-		$("#l22").toggle();
-		$("#l23").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#next-2").toggle();
-		$("#go-test-2").show();
-		$("#l23").toggle();
-		$("#l24").toggle();
+function loadNextPage(lNum) {
+	let lid = "#l" + lNum;
+	if ($(lid + "1").is(":visible")) {
+		$("#prev-" + lNum).toggle();
+		$(lid + "1").toggle();
+		$(lid + "2").toggle();
+	} else if ($(lid + "2").is(":visible")) {
+		$(lid + "2").toggle();
+		$(lid + "3").toggle();
+	} else if ($(lid + "3").is(":visible")) {
+		$("#next-" + lNum).toggle();
+		$("#go-test-" + lNum).toggle();
+		$(lid + "3").toggle();
+		$(lid + "4").toggle();
 	}
 }
