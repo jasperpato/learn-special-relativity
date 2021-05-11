@@ -33,9 +33,9 @@
           <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
           <li><a class="navButton" href="#">Stats</a></li>
           {% if user.is_authenticated %}
-          <li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
+          <li><a class="navButton active" href="{{ url_for('auth.logout')}}">Logout</a></li>
           {% else %}
-          <li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
+          <li><a class="navButton login active" href="{{ url_for('auth.login')}}">Login</a></li>
           {% endif %}
         </ul>
       </nav>
