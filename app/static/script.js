@@ -4,8 +4,8 @@ function init() {
 	titleParallax();
 	setInterval(animate, 1500);
 
-	$("#prev-2").click(loadPrevPage("2"));
-	$("#next-2").click(loadNextPage("2"));
+	$("#prev-2").click({ param1: "2" }, loadPrevPage);
+	$("#next-2").click({ param1: "2" }, loadNextPage);
 }
 
 function scroll() {
@@ -58,35 +58,35 @@ function animate() {
 	}
 }
 
-function loadPrevPage(lNum) {
-	let lid = "#l" + lNum;
+function loadPrevPage(lnum) {
+	let lid = "#l" + lnum.data.param1;
 	if ($(lid + "2").is(":visible")) {
-		$("#prev-" + lNum).toggle();
+		$("#prev-" + lnum.data.param1).toggle();
 		$(lid + "2").toggle();
 		$(lid + "1").toggle();
 	} else if ($(lid + "3").is(":visible")) {
 		$(lid + "3").toggle();
 		$(lid + "2").toggle();
 	} else if ($(lid + "4").is(":visible")) {
-		$("#next-" + lNum).toggle();
-		$("#go-test-" + lNum).toggle();
+		$("#next-" + lnum.data.param1).toggle();
+		$("#go-test-" + lnum.data.param1).toggle();
 		$(lid + "4").toggle();
 		$(lid + "3").toggle();
 	}
 }
 
-function loadNextPage(lNum) {
-	let lid = "#l" + lNum;
+function loadNextPage(lnum) {
+	let lid = "#l" + lnum.data.param1;
 	if ($(lid + "1").is(":visible")) {
-		$("#prev-" + lNum).toggle();
+		$("#prev-" + lnum.data.param1).toggle();
 		$(lid + "1").toggle();
 		$(lid + "2").toggle();
 	} else if ($(lid + "2").is(":visible")) {
 		$(lid + "2").toggle();
 		$(lid + "3").toggle();
 	} else if ($(lid + "3").is(":visible")) {
-		$("#next-" + lNum).toggle();
-		$("#go-test-" + lNum).toggle();
+		$("#next-" + lnum.data.param1).toggle();
+		$("#go-test-" + lnum.data.param1).toggle();
 		$(lid + "3").toggle();
 		$(lid + "4").toggle();
 	}
