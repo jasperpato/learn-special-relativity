@@ -4,8 +4,8 @@ function init() {
 	titleParallax();
 	setInterval(animate, 1500);
 
-	$("#prev-2").click(loadPrevPage("2"));
-	$("#next-2").click(loadNextPage("2"));
+	$("#prev-2").click(loadPrevPage("2", 4));
+	$("#next-2").click(loadNextPage("2", 4));
 }
 
 function scroll() {
@@ -58,36 +58,28 @@ function animate() {
 	}
 }
 
-function loadPrevPage(lNum) {
+function loadPrevPage(lNum, numPages) {
 	let lid = "#l" + lNum;
-	if ($(lid + "2").is(":visible")) {
-		$("#prev-" + lNum).toggle();
-		$(lid + "2").toggle();
-		$(lid + "1").toggle();
-	} else if ($(lid + "3").is(":visible")) {
-		$(lid + "3").toggle();
-		$(lid + "2").toggle();
-	} else if ($(lid + "4").is(":visible")) {
-		$("#next-" + lNum).toggle();
-		$("#go-test-" + lNum).toggle();
-		$(lid + "4").toggle();
-		$(lid + "3").toggle();
+	for (p = 2; p <= numPages; ++p) {
+		if (p == 2) $("#prev-" + lNum).toggle();
+		if (p == numPages) {
+			$("#next-" + lNum).toggle();
+			$("#go-test-" + lNum).toggle();
+		}
+		$(lid + p).toggle();
+		$(lid + (p - 1)).toggle();
 	}
 }
 
-function loadNextPage(lNum) {
+function loadNextPage(lNum, numPages) {
 	let lid = "#l" + lNum;
-	if ($(lid + "1").is(":visible")) {
-		$("#prev-" + lNum).toggle();
-		$(lid + "1").toggle();
-		$(lid + "2").toggle();
-	} else if ($(lid + "2").is(":visible")) {
-		$(lid + "2").toggle();
-		$(lid + "3").toggle();
-	} else if ($(lid + "3").is(":visible")) {
-		$("#next-" + lNum).toggle();
-		$("#go-test-" + lNum).toggle();
-		$(lid + "3").toggle();
-		$(lid + "4").toggle();
+	for (p = 1; p < numPages; ++p) {
+		if (p == 1) $("#prev-" + lNum).toggle();
+		if (p == numPages - 1) {
+			$("#next-" + lNum).toggle();
+			$("#go-test-" + lNum).toggle();
+		}
+		$(lid + p).toggle();
+		$(lid + (p + 1)).toggle();
 	}
 }
