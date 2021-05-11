@@ -3,8 +3,9 @@ function init() {
 	dropMenu();
 	titleParallax();
 	setInterval(animate, 1500);
-	$("#prev-2").click(loadPrevPage2);
-	$("#next-2").click(loadNextPage2);
+
+	$("#prev-2").click({ lNum: "2", numPages: 4 }, loadPrevPage);
+	$("#next-2").click({ lNum: "2", numPages: 4 }, loadNextPage);
 }
 
 function scroll() {
@@ -57,33 +58,34 @@ function animate() {
 	}
 }
 
-function loadPrevPage2() {
-	if ($("#l22").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l22").toggle();
-		$("#l21").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#l23").toggle();
-		$("#l22").toggle();
-	} else if ($("#l24").is(":visible")) {
-		$("#next-2").toggle();
-		$("#l24").toggle();
-		$("#l23").toggle();
+function loadPrevPage(lessonData) {
+	let lNum = lessonData.data.lNum;
+	let numPages = lessonData.data.numPages;
+	let lid = "#l" + lNum;
+
+	for (p = 2; p <= numPages; ++p) {
+		if (p == 2) $("#prev-" + lNum).toggle();
+		if (p == numPages) {
+			$("#next-" + lNum).toggle();
+			$("#go-test-" + lNum).toggle();
+		}
+		$(lid + p).toggle();
+		$(lid + (p - 1)).toggle();
 	}
 }
 
-function loadNextPage2() {
-	if ($("#l21").is(":visible")) {
-		$("#prev-2").toggle();
-		$("#l21").toggle();
-		$("#l22").toggle();
-	} else if ($("#l22").is(":visible")) {
-		$("#l22").toggle();
-		$("#l23").toggle();
-	} else if ($("#l23").is(":visible")) {
-		$("#next-2").toggle();
-		$("#go-test-2").show();
-		$("#l23").toggle();
-		$("#l24").toggle();
+function loadNextPage(lessonData) {
+	let lNum = lessonData.data.lNum;
+	let numPages = lessonData.data.numPages;
+	let lid = "#l" + lNum;
+
+	for (p = 1; p < numPages; ++p) {
+		if (p == 1) $("#prev-" + lNum).toggle();
+		if (p == numPages - 1) {
+			$("#next-" + lNum).toggle();
+			$("#go-test-" + lNum).toggle();
+		}
+		$(lid + p).toggle();
+		$(lid + (p + 1)).toggle();
 	}
 }
