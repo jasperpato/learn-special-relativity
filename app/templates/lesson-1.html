@@ -65,41 +65,39 @@
 			</div>
 		</header>
 		<div class="lessonBox">
-			<div class="lessonContent">
-				<div id="lesson-1.1" style="display: block">
-					<h2>Theory</h2>
-					<p>
-						<br />
-						The theory of special relativity was developed by Albert Einstein in 1905. It is based on the
-						assumption that the
-						<span id="speed-of-light">speed of light</span> is observed to be the same no matter the
-						<span id="rel-motion">relative motion</span> between the observer and the light source. The theory
-						of special relativity holds within and between
-						<span id="inertial">inertial frames of reference</span>. We will only consider objects that have
-						constant relative speeds — no acceleration is involved. <br /><br />
-					</p>
-					<div class="diagramBox">
-						<img class="diagram" src="{{ url_for('static', filename='pictures/einstein.jpeg') }}" />
-					</div>
-				</div>
-				<div class="lesson-1.2" style="display: none">
-					<p>
-						The assumption that the speed of light is constant in all reference frames implies that other
-						quantities, that might ordinarily appear to be constant, are actually relative between observers
-						within different reference frames. To preserve a constant speed of light between observers moving
-						at a relative speed,
-						<span id="space-time">space-time </span> must appear different to each of them. In the following
-						lesson we will use examples to present this.
-						<a href="{{ url_for('routes.test1') }}">Take the test</a> for this section.
-						<br />
-					</p>
+			<h2>Lesson 1</h2>
+			<div id="l11" style="display: block">
+				<p>
+					The theory of special relativity was developed by Albert Einstein in 1905. It is based on the
+					assumption that the
+					<span id="speed-of-light">speed of light</span> is observed to be the same no matter the
+					<span id="rel-motion">relative motion</span> between the observer and the light source. The theory
+					of special relativity holds within and between
+					<span id="inertial">inertial frames of reference</span>. We will only consider objects that have
+					constant relative speeds — no acceleration is involved. <br /><br />
+				</p>
+				<div class="diagramBox">
+					<img class="diagram" src="{{ url_for('static', filename='pictures/einstein.jpeg') }}" />
 				</div>
 			</div>
-			<div class="switchPages row">
-				<div class="col-md-4 pageButton" id="prev-2">Prev</div>
-				<div class="col-md-4 pageButton" id="test-2">Test</div>
-				<div class="col-md-4 pageButton" id="next-2">Next</div>
+			<div id="l12" style="display: none">
+				<p>
+					The assumption that the speed of light is constant in all reference frames implies that other
+					quantities, that might ordinarily appear to be constant, are actually relative between observers
+					within different reference frames. To preserve a constant speed of light between observers moving at
+					a relative speed,
+					<span id="space-time">space-time </span> must appear different to each of them. In the following
+					lesson we will use examples to present this.
+					<a href="{{ url_for('routes.test1') }}">Take the test</a> for this section.
+				</p>
 			</div>
+		</div>
+		<div class="row switchPages">
+			<div id="prev-1" class="pageButton" style="display: none">PREV</div>
+			<div id="go-test-1" class="pageButton" style="display: none">
+				<a href="{{ url_for('routes.test1') }}">TEST</a>
+			</div>
+			<div id="next-1" class="pageButton" style="display: block">NEXT</div>
 		</div>
 	</body>
 </html>
