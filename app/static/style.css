@@ -237,6 +237,7 @@ header nav ul li a.active {
 	pointer-events: none;
 	transition: 0.5s;
 }
+
 .loginBox .inputBox input:focus ~ label,
 .loginBox .inputBox input:valid ~ label {
 	top: -20px;
@@ -521,6 +522,12 @@ svg circle:nth-child(2) {
 	animation-fill-mode: forwards;
 }
 
+.rocket3 {
+	animation: rocketShake3 0.2s ease infinite, rocketTranslate3 22s;
+	animation-fill-mode: forwards;
+	z-index: -2;
+}
+
 @keyframes rocketTranslate1 {
 	0% {
 		left: 0;
@@ -543,6 +550,17 @@ svg circle:nth-child(2) {
 	}
 }
 
+@keyframes rocketTranslate3 {
+	0% {
+		top: 0;
+		left: 0;
+	}
+	100% {
+		top: 130%;
+		left: 130%;
+	}
+}
+
 @keyframes rocketShake1 {
 	0%,
 	100% {
@@ -560,6 +578,16 @@ svg circle:nth-child(2) {
 	}
 	50% {
 		transform: translateY(2px) rotate(-48deg);
+	}
+}
+
+@keyframes rocketShake3 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(124deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(124deg);
 	}
 }
 
@@ -687,4 +715,86 @@ svg circle:nth-child(2) {
 	transition: transform 0.5s;
 	transform-origin: bottom right;
 	transform: scale(0);
+}
+
+.pageArrow {
+	position: absolute;
+	width: 150px;
+	height: 150px;
+	transform: translateY(-80px) translateX(-50%) rotate(45deg);
+}
+
+.pageArrow span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-bottom: 8px solid #fff;
+	border-right: 8px solid #fff;
+	animation: pageArrowAnimate 1.5s linear infinite;
+	opacity: 0;
+}
+
+.pageArrow span:nth-child(1) {
+	transform: translate(-30px, -30px);
+	animation-delay: -0.4s;
+}
+
+.pageArrow span:nth-child(2) {
+	transform: translate(0, 0);
+	animation-delay: -0.2s;
+}
+
+.pageArrow span:nth-child(3) {
+	transform: translate(30px, 30px);
+	animation-delay: 0s;
+}
+
+@keyframes pageArrowAnimate {
+	0% {
+		top: -5px;
+		left: -5px;
+		opacity: 0;
+	}
+	25% {
+		top: 0;
+		left: 0;
+		opacity: 1;
+	}
+	50%,
+	100% {
+		top: 5px;
+		left: 5px;
+		opacity: 0;
+	}
+}
+
+.pageArrowRight {
+	transform: rotate(315deg);
+	bottom: 50%;
+	left: 80%;
+}
+
+.pageArrowLeft {
+	transform: rotate(135deg);
+	bottom: 50%;
+	right: 80%;
+}
+
+.pageArrowRightLabel {
+	position: absolute;
+	font-family: "Orbitron";
+	text-shadow: #13c0a3 1px 0 10px;
+	bottom: 72%;
+	left: 85%;
+}
+
+.pageArrowLeftLabel {
+	position: absolute;
+	font-family: "Orbitron";
+	text-shadow: #13c0a3 1px 0 10px;
+	bottom: 72%;
+	right: 85%;
 }
