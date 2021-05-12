@@ -866,8 +866,13 @@ svg circle:nth-child(2) {
 .questionContainer {
 	position: relative;
 	display: flex;
+	width: 50%;
 	justify-content: center;
 	align-items: center;
+	text-align: center;
+	margin: 70px;
+	margin-left: auto;
+	margin-right: auto;
 	background: rgba(0.3, 0.3, 0.3, 0.6);
 }
 
