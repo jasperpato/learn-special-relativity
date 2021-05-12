@@ -1,150 +1,212 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Learn Special Relativity</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-    <!--This function checkAnswers can go into script.js but for flask it wasn't working
+	<head>
+		<title>Learn Special Relativity</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+		<link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+		<!--This function checkAnswers can go into script.js but for flask it wasn't working
     Would be good to have the questionAnswers array in the individual test files
     Needs to be made pretty-->
-    <script>
-      var questionAnswers = ["Albert Einstein", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe", "Albert Einstibe"]
+		<script>
+			var questionAnswers = [
+				"Albert Einstein",
+				"Albert Einstibe",
+				"Albert Einstibe",
+				"Albert Einstibe",
+				"Albert Einstibe",
+				"Albert Einstibe",
+			];
 
-      function checkAnswers(questionNumber, questionAnswers){
-        var question1 = document.quiz.question1.value;
-        var question2 = document.quiz.question2.value;
-        var question3 = document.quiz.question3.value;
-        var question4 = document.quiz.question4.value;
+			function checkAnswers(questionNumber, questionAnswers) {
+				var question1 = document.quiz.question1.value;
+				var question2 = document.quiz.question2.value;
+				var question3 = document.quiz.question3.value;
+				var question4 = document.quiz.question4.value;
 
-        var submit_ans = [ question1, question2, question3, question4, question5, question6];
-        
-        var score = 0;
+				var submit_ans = [question1, question2, question3, question4, question5, question6];
 
-        for(var i = 0; i < questionAnswers.length; i++){
-          if(submit_ans[i] == questionAnswers[i]){
-            score++;
-          }
-        }
+				var score = 0;
 
-        document.getElementById("answers_correct").innerHTML = "You got " + score + " correct";  
-        document.getElementById("form_submitted").style.visibility = "visible";
- 
-      }
+				for (var i = 0; i < questionAnswers.length; i++) {
+					if (submit_ans[i] == questionAnswers[i]) {
+						score++;
+					}
+				}
 
-  </script>
-  </head>
-  <body onload="init();">
-    <div id="progressbar"></div>
-    <div id="scrollPath"></div>
-    <header>
-      <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
-      <nav>
+				document.getElementById("answers_correct").innerHTML = "You got " + score + " correct";
+				document.getElementById("form_submitted").style.visibility = "visible";
+			}
+		</script>
+	</head>
+	<body onload="init();">
+		<div class="progressbar"></div>
+		<div class="scrollPath"></div>
+		<header>
+			<div class="logo">
+				<img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR
+			</div>
+			<nav>
+				{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
+				message in messages %} {% if category == "error" %}
+				<div class="alert alert-danger alert-dismissable fade show" role="alert">
+					{{ message }}
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{% else %}
+				<div class="alert alert-success alert-dismissable fade show" role="alert">
+					{{ message }}
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				{% endif %} {% endfor %} {% endif %} {% endwith %}
 
-      {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          {% if category == "error" %}
-            <div class="alert alert-danger alert-dismissable fade show" role="alert">
-              {{ message }}
-              <button type="button" class="close" data-dismiss="alert">
-               <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          {% else %}
-            <div class="alert alert-success alert-dismissable fade show" role="alert">
-              {{ message }}
-              <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span>
-              </button>
-           </div>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% endwith %}
-
-        <ul>
-          <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
-          <li><a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a></li>
-          <li><a class="navButton" href="#">Stats</a></li>
-          {% if user.is_authenticated %}
-          <li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
-          {% else %}
-          <li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
-          {% endif %}
-        </ul>
-      </nav>
-      <div class="menu-toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </div>
-    </header>
-    <div class="col-md-4"></div>
-    <div class="col-md-4 content">
-      <p>Who discovered special relativity?</p>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Einstibe">Albert Einstibe<br>
-
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Einstein">"Albert Einstein"<br>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "Albert Fish">Albert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question1" value = "John Gauss">John Gauss<br>
-
-        <p>What is the assumption special relativity is based on?</p>
-
-        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question2" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question2" value = "Albert Stein">Albert Stein<br>
-
-
-        <p>What is an inertial frame of reference?</p>
-
-        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question3" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question3" value = "Albert Stein">Albert Stein<br>
-
-        <p>What is space-time?</p>
-
-        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question4" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question4" value = "Albert Stein">Albert Stein<br>
-
-        <p>When are quantities that are considered constant, actually relative?</p>
-        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question5" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question5" value = "Albert Stein">Albert Stein<br>
-
-        <p>The objects considered have ________ relative speeds</p>
-        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Einstibe">Albert Einstibe<br>
-        <input type = "radio" id = "multiChoice" name = "question6" value = "Jon Gauss">Jon Gauss<br>
-        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Fish">ALbert Fish<br>
-        <input type = "radio" id = "multiChoice" name = "question6" value = "Albert Stein">Albert Stein<br>
-
-        <button type = "button" id = "button" value = "submit" onclick = "checkAnswers(4,questionAnswers); return false;"></button>
-    </form>
-
-    <p id = "answers_correct"></p>  
-    <p id = "ans"></p> 
-    </div>
-     
-    </div>
-    <div class="col-md-4"></div>
-  </body>
+				<ul>
+					<li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
+					<li><a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a></li>
+					<li><a class="navButton" href="#">Stats</a></li>
+					{% if user.is_authenticated %}
+					<li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
+					{% else %}
+					<li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
+					{% endif %}
+				</ul>
+			</nav>
+			<div class="menu-toggle">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</div>
+		</header>
+		<form>
+			<div class="questionContainer">
+				<p>Who discovered special relativity?</p>
+				<label>
+					<input type="radio" name="question1" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question1" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question1" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question1" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+			<div class="questionContainer">
+				<p>What is the assumption special relativity is based on?</p>
+				<label>
+					<input type="radio" name="question2" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question2" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question2" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question2" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+			<div class="questionContainer">
+				<p>What is an inertial frame of reference?</p>
+				<label>
+					<input type="radio" name="question3" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question3" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question3" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question3" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+			<div class="questionContainer">
+				<p>What is space-time?</p>
+				<label>
+					<input type="radio" name="question4" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question4" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question4" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question4" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+			<div class="questionContainer">
+				<p>When are quantities that are considered constant, actually relative?</p>
+				<label>
+					<input type="radio" name="question5" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question5" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question5" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question5" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+			<div class="questionContainer">
+				<p>The objects considered have ________ relative speeds</p>
+				<label>
+					<input type="radio" name="question6" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question6" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question6" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+				<label>
+					<input type="radio" name="question6" value="" />
+					<i class="fa fa-eercast" aria-hidden="true"></i>
+				</label>
+			</div>
+		</form>
+		<p id="answers_correct"></p>
+		<p id="ans"></p>
+	</body>
 </html>

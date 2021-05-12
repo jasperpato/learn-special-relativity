@@ -6,6 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
 		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+		<link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
@@ -94,10 +95,11 @@
 		</div>
 		<div class="row switchPages">
 			<div id="prev-1" class="pageButton" style="display: none">PREV</div>
-			<div id="go-test-1" class="pageButton" style="display: none">
-				<a href="{{ url_for('routes.test1') }}">TEST</a>
-			</div>
 			<div id="next-1" class="pageButton" style="display: block">NEXT</div>
+		</div>
+		<div class="takeTest">
+			<h3 class="takeTest">Think you're ready? Test your knowledge!</h3>
+			<a href="{{ url_for('routes.test1') }}"><div class="pageButton">LESSON 1 TEST</div></a>
 		</div>
 		<h2 class="pageArrowRightLabel">Lesson 2</h2>
 		<a href="{{ url_for('routes.lesson2') }}">
