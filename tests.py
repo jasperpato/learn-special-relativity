@@ -1,6 +1,6 @@
-import unittest
-import main
-from app import auth, db
+import unittest, os
+from . import main
+from app import app, db
 from app.models import User, TestAttempt
 from datetime import datetime, timedelta
 # from selenium import webdriver #Not currently used but useful for further testing

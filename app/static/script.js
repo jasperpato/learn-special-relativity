@@ -1,7 +1,7 @@
 function init() {
 	scroll();
 	dropMenu();
-	titleParallax();
+	titleMove();
 	setInterval(animate, 1500);
 
 	$("#prev-1").click({ lessonNum: "1", numPages: 2 }, loadPrevPage);
@@ -28,7 +28,7 @@ function dropMenu() {
 	});
 }
 
-function titleParallax() {
+function titleMove() {
 	$("body").mousemove(function (e) {
 		var valueX = (e.pageX * -1) / 75;
 		var valueY = (e.pageY * -1) / 75;
