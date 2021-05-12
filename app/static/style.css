@@ -302,6 +302,7 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard .learnBox .learnContent {
+	font-family: "Orbitron";
 	padding: 20px;
 	text-align: center;
 }
@@ -322,6 +323,7 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard .learnBox .learnContent p {
+	font-family: sans-serif;
 	font-size: 16px;
 	font-weight: 300;
 	color: rgba(255, 255, 255, 0.5);
@@ -334,7 +336,7 @@ header nav ul li a.active {
 	display: inline-block;
 	padding: 8px 20px;
 	background: #000;
-	margin-top: 15px;
+	margin-top: 30px;
 	border-radius: 20px;
 	text-decoration: none;
 	font-weight: 400;
@@ -396,6 +398,14 @@ header nav ul li a.active {
 	border-radius: 10px;
 }
 
+.progressContainer .progressCard h4 {
+	margin-top: 20px;
+	font-family: "Orbitron";
+	text-shadow: #13c0a3 1px 0 10px;
+	position: relative;
+	z-index: 100;
+}
+
 .progressPercent {
 	position: relative;
 	width: 150px;
@@ -406,6 +416,7 @@ header nav ul li a.active {
 
 .progressPercent .progressNumber {
 	position: absolute;
+	font-family: "Orbitron";
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -432,6 +443,7 @@ header nav ul li a.active {
 	transform: translateX(-50%);
 	text-align: center;
 	padding: 30px 20px 10px;
+	font-family: "Orbitron";
 	background: #13c0a3;
 	border-radius: 10px;
 	font-weight: 800;
@@ -528,6 +540,12 @@ svg circle:nth-child(2) {
 	z-index: -2;
 }
 
+.rocket4 {
+	animation: rocketShake4 0.2s ease infinite, rocketTranslate4 22s;
+	animation-fill-mode: forwards;
+	z-index: -2;
+}
+
 @keyframes rocketTranslate1 {
 	0% {
 		left: 0;
@@ -561,6 +579,17 @@ svg circle:nth-child(2) {
 	}
 }
 
+@keyframes rocketTranslate4 {
+	0% {
+		top: 40%;
+		right: 0;
+	}
+	100% {
+		top: 130%;
+		right: 130%;
+	}
+}
+
 @keyframes rocketShake1 {
 	0%,
 	100% {
@@ -584,10 +613,20 @@ svg circle:nth-child(2) {
 @keyframes rocketShake3 {
 	0%,
 	100% {
-		transform: translateY(-2px) rotate(124deg);
+		transform: translateY(-2px) rotate(125deg);
 	}
 	50% {
-		transform: translateY(2px) rotate(124deg);
+		transform: translateY(2px) rotate(125deg);
+	}
+}
+
+@keyframes rocketShake4 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(235deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(235deg);
 	}
 }
 
