@@ -94,10 +94,11 @@
 		</div>
 		<div class="row switchPages">
 			<div id="prev-1" class="pageButton" style="display: none">PREV</div>
-			<div id="go-test-1" class="pageButton" style="display: none">
-				<a href="{{ url_for('routes.test1') }}">TEST</a>
-			</div>
 			<div id="next-1" class="pageButton" style="display: block">NEXT</div>
+		</div>
+		<div class="takeTest">
+			<h3 class="takeTest">Think you're ready? Test your knowledge!</h3>
+			<a href="{{ url_for('routes.test1') }}"><div class="pageButton">LESSON 1 TEST</div></a>
 		</div>
 		<h2 class="pageArrowRightLabel">Lesson 2</h2>
 		<a href="{{ url_for('routes.lesson2') }}">

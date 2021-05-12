@@ -100,10 +100,11 @@
 		</div>
 		<div class="row switchPages">
 			<div id="prev-3" class="pageButton" style="display: none">PREV</div>
-			<div id="go-test-3" class="pageButton" style="display: none">
-				<a href="{{ url_for('routes.test3') }}">TEST</a>
-			</div>
 			<div id="next-3" class="pageButton" style="display: block">NEXT</div>
+		</div>
+		<div class="takeTest">
+			<h3 class="takeTest">Think you're ready? Test your knowledge!</h3>
+			<a href="{{ url_for('routes.test3') }}"><div class="pageButton">LESSON 3 TEST</div></a>
 		</div>
 		<h2 class="pageArrowLeftLabel">Lesson 2</h2>
 		<a href="{{ url_for('routes.lesson2') }}">

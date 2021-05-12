@@ -137,13 +137,14 @@
 		</div>
 		<div class="row switchPages">
 			<div id="prev-2" class="pageButton" style="display: none">PREV</div>
-			<div id="go-test-2" class="pageButton" style="display: none">
-				<a href="{{ url_for('routes.test2') }}">TEST</a>
-			</div>
 			<div id="next-2" class="pageButton" style="display: block">NEXT</div>
 		</div>
 		<div class="rocket rocket3">
 			<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
+		</div>
+		<div class="takeTest">
+			<h3 class="takeTest">Think you're ready? Test your knowledge!</h3>
+			<a href="{{ url_for('routes.test1') }}"><div class="pageButton">LESSON 2 TEST</div></a>
 		</div>
 		<h2 class="pageArrowRightLabel">Lesson 3</h2>
 		<a href="{{ url_for('routes.lesson3') }}">

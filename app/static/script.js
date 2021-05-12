@@ -76,7 +76,7 @@ function loadPrevPage(lessonData) {
 	if (pageNum == 2) $("#prev-" + lessonNum).toggle();
 	if (pageNum == numPages) {
 		$("#next-" + lessonNum).toggle();
-		$("#go-test-" + lessonNum).toggle();
+		//$("#go-test-" + lessonNum).toggle();
 	}
 	$("#l" + lessonNum + pageNum).toggle();
 	$("#l" + lessonNum + (pageNum - 1)).toggle();
@@ -96,7 +96,7 @@ function loadNextPage(lessonData) {
 	if (pageNum == 1) $("#prev-" + lessonNum).toggle();
 	if (pageNum == numPages - 1) {
 		$("#next-" + lessonNum).toggle();
-		$("#go-test-" + lessonNum).toggle();
+		//$("#go-test-" + lessonNum).toggle();
 	}
 	$("#l" + lessonNum + pageNum).toggle();
 	$("#l" + lessonNum + (pageNum + 1)).toggle();

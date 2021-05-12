@@ -751,8 +751,6 @@ svg circle:nth-child(2) {
 }
 
 .pageButton:hover:after {
-	transition: transform 0.5s;
-	transform-origin: bottom right;
 	transform: scale(0);
 }
 
@@ -836,4 +834,22 @@ svg circle:nth-child(2) {
 	text-shadow: #13c0a3 1px 0 10px;
 	bottom: 72%;
 	right: 85%;
+}
+
+.takeTest {
+	display: block;
+	margin: 30px;
+	align-items: center;
+}
+
+.takeTest h3 {
+	font-family: "Orbitron";
+	text-align: center;
+}
+
+.takeTest .pageButton {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
 }
