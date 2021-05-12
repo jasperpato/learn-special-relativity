@@ -782,3 +782,19 @@ svg circle:nth-child(2) {
 	bottom: 50%;
 	right: 80%;
 }
+
+.pageArrowRightLabel {
+	position: absolute;
+	font-family: "Orbitron";
+	text-shadow: #13c0a3 1px 0 10px;
+	bottom: 72%;
+	left: 85%;
+}
+
+.pageArrowLeftLabel {
+	position: absolute;
+	font-family: "Orbitron";
+	text-shadow: #13c0a3 1px 0 10px;
+	bottom: 72%;
+	right: 85%;
+}
