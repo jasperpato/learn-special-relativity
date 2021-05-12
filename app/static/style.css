@@ -698,6 +698,9 @@ svg circle:nth-child(2) {
 	flex-wrap: wrap;
 }
 
+/*Lesson Next/Prev Page Buttons*/
+/*----------------------------------------------------------------------------------------------------------*/
+
 .pageButton {
 	position: relative;
 	width: 300px;
@@ -754,10 +757,31 @@ svg circle:nth-child(2) {
 	transform: scale(0);
 }
 
+.takeTest {
+	display: block;
+	margin: 30px;
+	align-items: center;
+}
+
+.takeTest h3 {
+	font-family: "Orbitron";
+	text-align: center;
+}
+
+.takeTest .pageButton {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Lesson Page Arrows*/
+/*----------------------------------------------------------------------------------------------------------*/
+
 .pageArrow {
 	position: absolute;
-	width: 150px;
-	height: 150px;
+	width: 120px;
+	height: 120px;
 	transform: translateY(-80px) translateX(-50%) rotate(45deg);
 }
 
@@ -811,13 +835,13 @@ svg circle:nth-child(2) {
 .pageArrowRight {
 	transform: rotate(315deg);
 	bottom: 50%;
-	left: 80%;
+	left: 85%;
 }
 
 .pageArrowLeft {
 	transform: rotate(135deg);
 	bottom: 50%;
-	right: 80%;
+	right: 85%;
 }
 
 .pageArrowRightLabel {
@@ -836,20 +860,55 @@ svg circle:nth-child(2) {
 	right: 85%;
 }
 
-.takeTest {
-	display: block;
-	margin: 30px;
+/*Test Page Radio Buttons*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.questionContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
 	align-items: center;
+	background: rgba(0.3, 0.3, 0.3, 0.6);
 }
 
-.takeTest h3 {
-	font-family: "Orbitron";
-	text-align: center;
+.questionContainer p {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 5px;
 }
 
-.takeTest .pageButton {
+.questionContainer label {
+	position: relative;
+}
+
+.questionContainer label input {
+	appearance: none;
+	-webkit-apppearance: none;
+	cursor: pointer;
+}
+
+.questionContainer label .fa {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
 	text-align: center;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 4px;
+	color: rgba(126, 126, 126, 0.44);
+	font-size: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.questionContainer label .fa:hover {
+	box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.8),
+		inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset -2px -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.questionContainer label input:checked ~ .fa {
+	color: #00fff1;
+	box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 1);
+	text-shadow: 0 0 5px #00fff1, 0 0 20px #00fff1;
 }
