@@ -870,10 +870,12 @@ svg circle:nth-child(2) {
 	justify-content: center;
 	align-items: center;
 	text-align: center;
-	margin: 70px;
+	padding: 15px;
+	margin: 60px;
 	margin-left: auto;
 	margin-right: auto;
-	background: rgba(0.3, 0.3, 0.3, 0.6);
+	background: rgba(53, 53, 53, 0.8);
+	border: #000 10px solid;
 }
 
 .questionContainer p {
@@ -881,6 +883,7 @@ svg circle:nth-child(2) {
 	font-size: 20px;
 	font-weight: 500;
 	margin-bottom: 5px;
+	padding-right: 20px;
 }
 
 .questionContainer label {
