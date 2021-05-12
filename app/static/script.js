@@ -12,7 +12,7 @@ function init() {
 	$("#next-3").click({ lessonNum: "3", numPages: 3 }, loadNextPage);
 
 	$(".logo").click(function () {
-		document.documentURI = "{{ url_for('routes.home')}}";
+		window.location.href = "http://127.0.0.1:5000";
 	});
 }
 
