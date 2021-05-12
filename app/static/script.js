@@ -2,7 +2,7 @@ function init() {
 	scroll();
 	dropMenu();
 	titleMove();
-	setInterval(animate, 1500);
+	setInterval(animations, 1500);
 
 	$("#prev-1").click({ lessonNum: "1", numPages: 2 }, loadPrevPage);
 	$("#next-1").click({ lessonNum: "1", numPages: 2 }, loadNextPage);
@@ -10,6 +10,10 @@ function init() {
 	$("#next-2").click({ lessonNum: "2", numPages: 4 }, loadNextPage);
 	$("#prev-3").click({ lessonNum: "3", numPages: 3 }, loadPrevPage);
 	$("#next-3").click({ lessonNum: "3", numPages: 3 }, loadNextPage);
+
+	$(".logo").click(function () {
+		document.documentURI = "{{ url_for('routes.home')}}";
+	});
 }
 
 function scroll() {
@@ -39,7 +43,7 @@ function titleMove() {
 	});
 }
 
-function animate() {
+function animations() {
 	// animation 1
 	if ($("#animate-1").find("img")[0].id == "img-1.1") {
 		$("#animate-1").find("img")[0].id = "img-1.2";

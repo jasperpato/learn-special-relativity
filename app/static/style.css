@@ -54,6 +54,7 @@ header .logo {
 	float: left;
 	font-weight: bolder;
 	letter-spacing: 3px;
+	cursor: pointer;
 }
 
 .logopic {
@@ -650,7 +651,7 @@ svg circle:nth-child(2) {
 	width: 650px;
 	transition: 0.5s;
 	border: 1px solid#fff;
-	background: rgba(0.3, 0.3, 0.3, 0.6);
+	background: rgba(0.3, 0.3, 0.3, 0.3);
 	padding: 20px;
 	height: 580px;
 	text-align: justify;
