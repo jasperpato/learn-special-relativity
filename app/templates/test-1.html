@@ -16,39 +16,6 @@
 			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
 		/>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-		<!--This function checkAnswers can go into script.js but for flask it wasn't working
-    Would be good to have the questionAnswers array in the individual test files
-    Needs to be made pretty-->
-		<script>
-			var questionAnswers = [
-				"Albert Einstein",
-				"Albert Einstibe",
-				"Albert Einstibe",
-				"Albert Einstibe",
-				"Albert Einstibe",
-				"Albert Einstibe",
-			];
-
-			function checkAnswers(questionNumber, questionAnswers) {
-				var question1 = document.quiz.question1.value;
-				var question2 = document.quiz.question2.value;
-				var question3 = document.quiz.question3.value;
-				var question4 = document.quiz.question4.value;
-
-				var submit_ans = [question1, question2, question3, question4, question5, question6];
-
-				var score = 0;
-
-				for (var i = 0; i < questionAnswers.length; i++) {
-					if (submit_ans[i] == questionAnswers[i]) {
-						score++;
-					}
-				}
-
-				document.getElementById("answers_correct").innerHTML = "You got " + score + " correct";
-				document.getElementById("form_submitted").style.visibility = "visible";
-			}
-		</script>
 	</head>
 	<body onload="init();">
 		<div class="progressbar"></div>
@@ -91,122 +58,67 @@
 			</div>
 		</header>
 		<form>
-			<div class="questionContainer">
-				<p>Who discovered special relativity?</p>
-				<label>
-					<input type="radio" name="question1" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question1" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question1" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question1" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-			</div>
-			<div class="questionContainer">
-				<p>What is the assumption special relativity is based on?</p>
-				<label>
-					<input type="radio" name="question2" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question2" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question2" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question2" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-			</div>
-			<div class="questionContainer">
-				<p>What is an inertial frame of reference?</p>
-				<label>
-					<input type="radio" name="question3" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question3" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question3" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question3" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-			</div>
-			<div class="questionContainer">
-				<p>What is space-time?</p>
-				<label>
-					<input type="radio" name="question4" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question4" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question4" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question4" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-			</div>
-			<div class="questionContainer">
-				<p>When are quantities that are considered constant, actually relative?</p>
-				<label>
-					<input type="radio" name="question5" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question5" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question5" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question5" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-			</div>
-			<div class="questionContainer">
-				<p>The objects considered have ________ relative speeds</p>
-				<label>
-					<input type="radio" name="question6" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question6" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question6" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
-				<label>
-					<input type="radio" name="question6" value="" />
-					<i class="fa fa-eercast" aria-hidden="true"></i>
-				</label>
+			<div class="quizBox">
+				<h2>Test 1</h2>
+
+				<h3>Question 1</h3>
+				<p>
+					A spaceship is travelling towards a star at 100,000m/s. In the reference frame inside the spaceship,
+					the speed of the light rays from the star to the spaceship would be closest to…
+					<br />
+				</p>
+				<input id="11A" type="radio" name="question1" value="A" />
+				<label for="11A"><span class="quizLetter">A</span> 299,892,458 m/s</label>
+
+				<input id="11B" type="radio" name="question1" value="B" />
+				<label for="11B"><span class="quizLetter">B</span> 299,792,458 m/s</label>
+				<br />
+				<input id="11C" type="radio" name="question1" value="C" />
+				<label for="11C"><span class="quizLetter">C</span> 299,692,458 m/s</label>
+
+				<input id="11D" type="radio" name="question1" value="D" />
+				<label for="11D"><span class="quizLetter">D</span> 299,992,458 m/s</label>
+
+				<h3>Question 2</h3>
+				<p>
+					A person running away from a light bulb and a person running towards a light bulb would measure the
+					speed of the emitted light to be…
+					<br />
+				</p>
+				<input id="12A" type="radio" name="question2" value="A" />
+				<label for="12A"><span class="quizLetter">A</span> The same</label>
+
+				<input id="12B" type="radio" name="question2" value="B" />
+				<label for="12B"><span class="quizLetter">B</span> Different</label>
+
+				<h3>Question 3</h3>
+				<p>
+					True or False? A person accelerating in their car can use the theory of special relativity to
+					measure space-time.
+					<br />
+				</p>
+				<input id="13A" type="radio" name="question3" value="A" />
+				<label for="13A"><span class="quizLetter">True</span></label>
+
+				<input id="13B" type="radio" name="question3" value="B" />
+				<label for="13B"><span class="quizLetter">False</span></label>
+
+				<h3>Question 4</h3>
+				<p>
+					True or false? The speed of a spaceship is the same in all reference frames.
+					<br />
+				</p>
+				<input id="14A" type="radio" name="question4" value="A" />
+				<label for="14A"><span class="quizLetter">True</span></label>
+
+				<input id="14B" type="radio" name="question4" value="B" />
+				<label for="14B"><span class="quizLetter">False</span></label>
+
+				<h3>Question 5</h3>
+				Space-time permeates how many dimensions?
+				<input id="15" type="text" name="question5" />
+				<input class="submit" id="submit1" type="submit" value="Submit" />
 			</div>
 		</form>
-		<p id="answers_correct"></p>
-		<p id="ans"></p>
 	</body>
 </html>

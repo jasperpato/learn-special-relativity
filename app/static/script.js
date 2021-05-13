@@ -116,4 +116,28 @@ function loadNextPage(lessonData) {
 	$("#l" + lessonNum + (pageNum + 1)).toggle();
 }
 
-function test1() {}
+function test1() {
+	var questionAnswers = [
+		"Albert Einstein",
+		"Albert Einstibe",
+		"Albert Einstibe",
+		"Albert Einstibe",
+		"Albert Einstibe",
+		"Albert Einstibe",
+	];
+	var question1 = document.quiz.question1.value;
+	var question2 = document.quiz.question2.value;
+	var question3 = document.quiz.question3.value;
+	var question4 = document.quiz.question4.value;
+	var question5 = document.quiz.question5.value;
+
+	var submit_ans = [question1, question2, question3, question4, question5, question6];
+
+	var score = 0;
+
+	for (var i = 0; i < questionAnswers.length; i++) {
+		if (submit_ans[i] == questionAnswers[i]) {
+			score++;
+		}
+	}
+}

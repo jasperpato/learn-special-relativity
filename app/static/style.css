@@ -929,3 +929,47 @@ svg circle:nth-child(2) {
 	box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 1);
 	text-shadow: 0 0 5px #00fff1, 0 0 20px #00fff1;
 }
+
+.quizBox {
+	margin: auto;
+	margin-top: 60px;
+	width: 650px;
+	transition: 0.5s;
+	border: 1px solid#fff;
+	background: rgba(0.3, 0.3, 0.3, 0.3);
+	padding: 20px;
+	height: 580px;
+	text-align: justify;
+	box-shadow: 0 0 205px rgba(9, 241, 203, 0.6);
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.quizBox h2 {
+	font-family: "orbitron";
+	text-align: center;
+}
+
+.quizBox h3 {
+	margin-top: 30px;
+	font-family: "orbitron";
+	color: #00ffd1;
+	font-size: medium;
+}
+
+.quizLetter {
+	color: #00ffd1;
+	font-weight: bolder;
+}
+
+.submit {
+	width: 100px;
+	margin: auto;
+	display: block;
+	margin-top: 30px;
+	background: linear-gradient(90deg, #1da9eb, #0fe0be);
+	font-family: "orbitron";
+	font-size: medium;
+	color: white;
+	border: none;
+}
