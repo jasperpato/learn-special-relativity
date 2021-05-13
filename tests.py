@@ -1,6 +1,8 @@
 import unittest, os
 from . import main
 from app import app, db
+from flask import Flask
+from flask_sqlalchemy import SQLAlchemy
 from app.models import User, TestAttempt
 from datetime import datetime, timedelta
 # from selenium import webdriver #Not currently used but useful for further testing
@@ -8,6 +10,7 @@ from datetime import datetime, timedelta
 class UsersTest(unittest.TestCase):
 
     def setUp(self):
+        app = Flask(__name__)
         app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'
         db.create_all()
 
