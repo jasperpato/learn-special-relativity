@@ -14,6 +14,16 @@ function init() {
 	$(".logo").click(function () {
 		window.location.href = "http://127.0.0.1:5000";
 	});
+
+	$(".pageArrowLeftLabel").click(function () {
+		hr = window.location.href;
+		window.location.href = hr.slice(0, hr.length - 1) + (parseInt(hr[hr.length - 1]) - 1);
+	});
+
+	$(".pageArrowRightLabel").click(function () {
+		hr = window.location.href;
+		window.location.href = hr.slice(0, hr.length - 1) + (parseInt(hr[hr.length - 1]) + 1);
+	});
 }
 
 function scroll() {
