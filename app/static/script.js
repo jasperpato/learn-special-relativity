@@ -115,3 +115,5 @@ function loadNextPage(lessonData) {
 	$("#l" + lessonNum + pageNum).toggle();
 	$("#l" + lessonNum + (pageNum + 1)).toggle();
 }
+
+function test1() {}

@@ -769,6 +769,10 @@ svg circle:nth-child(2) {
 	text-align: center;
 }
 
+.takeTest a {
+	text-decoration: none;
+}
+
 .takeTest .pageButton {
 	text-align: center;
 	display: block;
