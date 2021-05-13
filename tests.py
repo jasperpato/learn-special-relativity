@@ -20,8 +20,8 @@ class UsersTest(unittest.TestCase):
         u = User(username = 'checkingUser')
         u.password_hash('passw0rd')
         
-        self.assertFalse(u1.check_password_hash('password'))
-        self.asserTrue(u1.check_password_hash('passw0rd'))
+        self.assertFalse(u.check_password_hash('password'))
+        self.asserTrue(u.check_password_hash('passw0rd'))
 
     def test_usernames(self):
         u1 = User(username = 'user1')
@@ -36,9 +36,30 @@ class UsersTest(unittest.TestCase):
     def test_test_scores(self):
         u1 = User(username = 'user1')
         u2 = User(username = 'user2')
-
+        u1.password_hash('password1')
+        u2.password_hash('password2')
         db.session.add(u1)
         db.session.add(u2)
+        db.seesion.commit()
+
+        test1u1 = TestAttempt(id = u1, testId = 1, score = 100, date = datetime.date())
+        test2u1 = TestAttempt(id = u1, testId = 2, score = 100, date = datetime.date())
+        test3u1 = TestAttempt(id = u1, testId = 3, score = 100, date = datetime.date())
+
+        test1u2 = TestAttempt(id = u2, testId = 1, score = 100, date = datetime.date())
+        test2u2 = TestAttempt(id = u2, testId = 2, score = 100, date = datetime.date())
+        test3u2 = TestAttempt(id = u2, testId = 3, score = 100, date = datetime.date())
+        u1.testAttempts(test1u1)
+        u1.testAttempts(test2u1)
+        u1.testAttempts(test3u1)
+        u2.testAttempts(test1u1)
+        u2.testAttempts(test2u1)
+        u2.testAttempts(test3u1)
+        db.session.commit()
+
+        
+    
+
         
         
 
