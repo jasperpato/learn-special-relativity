@@ -9,7 +9,7 @@ function init() {
 
 	if (title.includes("Test") || title.includes("Lesson")) {
 		num = parseInt(title[title.length - 1]);
-
+		console.log("grell");
 		if (title.includes("Lesson")) {
 			let numPages = [2, 4, 3];
 
@@ -29,9 +29,10 @@ function init() {
 			});
 
 			if (title.includes("Lesson 2")) setInterval(animations, 1500);
-		}
-		if (title.includes("Test")) {
+		} else {
+			console.log("lipus");
 			document.getElementById("quiz").onsubmit = function () {
+				console.log("simmer");
 				scoreTest(num);
 			};
 		}
