@@ -21,7 +21,7 @@ def login():
             if user.check_password(password):
                 flash("Logged in successfully!", category="success")
                 login_user(user, remember=True)
-                return redirect(url_for('routes.home'))
+                return redirect(url_for('routes.learn'))
             else:
                 flash("Incorrect password, try again.", category="error")
         else:
