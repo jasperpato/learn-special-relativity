@@ -18,7 +18,7 @@ def login():
 
         user = User.query.filter_by(username=username).first()
         if user:
-            if check_password_hash(user.password_hash, password):
+            if user.check_password(password):
                 flash("Logged in successfully!", category="success")
                 login_user(user, remember=True)
                 return redirect(url_for('routes.home'))
@@ -47,7 +47,8 @@ def sign_up():
         elif password != passwordConfirm:
             flash("Passwords do not match", category='error')
         else:
-            new_user = User(username=username, password_hash=generate_password_hash(password, method='sha256'))
+            new_user = User(username=username)
+            new_user.set_password(password)
             db.session.add(new_user)
             db.session.commit()
 

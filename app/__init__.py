@@ -3,11 +3,12 @@ from flask_sqlalchemy import SQLAlchemy
 from os import path
 from flask_login import LoginManager
 
-db = SQLAlchemy()
+app = Flask(__name__)
+db = SQLAlchemy(app)
 DB_NAME = "database.db"
 
 def create_app():
-  app = Flask(__name__)
+  
   app.config['SECRET_KEY'] = 'admin'
   app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///{}'.format(DB_NAME)
   db.init_app(app)
