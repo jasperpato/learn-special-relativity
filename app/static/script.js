@@ -24,6 +24,10 @@ function init() {
 		hr = window.location.href;
 		window.location.href = hr.slice(0, hr.length - 1) + (parseInt(hr[hr.length - 1]) + 1);
 	});
+
+	$("form").onsubmit(function () {
+		scoreTest(1);
+	});
 }
 
 function scroll() {
@@ -116,28 +120,22 @@ function loadNextPage(lessonData) {
 	$("#l" + lessonNum + (pageNum + 1)).toggle();
 }
 
-function test1() {
-	var questionAnswers = [
-		"Albert Einstein",
-		"Albert Einstibe",
-		"Albert Einstibe",
-		"Albert Einstibe",
-		"Albert Einstibe",
-		"Albert Einstibe",
+function scoreTest(testNum) {
+	var answers = [
+		["B", "A", "B", "B", 4],
+		["A", "A", "B", "A", "A"],
+		[2, "A", "A", 20, 20],
 	];
-	var question1 = document.quiz.question1.value;
-	var question2 = document.quiz.question2.value;
-	var question3 = document.quiz.question3.value;
-	var question4 = document.quiz.question4.value;
-	var question5 = document.quiz.question5.value;
 
-	var submit_ans = [question1, question2, question3, question4, question5, question6];
+	answers = answers[testNum - 1];
 
 	var score = 0;
 
-	for (var i = 0; i < questionAnswers.length; i++) {
-		if (submit_ans[i] == questionAnswers[i]) {
+	for (var i = 0; i < answers.length; i++) {
+		if ($("form").elements[i] == answers[i]) {
+			console.log($("form").elements[i]);
 			score++;
 		}
 	}
+	console.log(score);
 }
