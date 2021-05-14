@@ -26,10 +26,10 @@ class UsersTest(unittest.TestCase):
         
     def test_password_hashing(self):
 
-        u = User(username = 'checkingUser',password_hash=generate_password_hash("passw0rd", method='sha256'))
-        
-        self.assertFalse(check_password_hash(u.password_hash,'password'))
-        self.assertTrue(check_password_hash(u.password_hash,'passw0rd'))
+        u = User(username = 'checkingUser')
+        u.set_password("passw0rd")
+        self.assertFalse(u.check_password('password'))
+        self.assertTrue(u.check_password('passw0rd'))
         self.assertNotEqual(u.password_hash, 'passw0rd')
 
     def test_usernames(self):
@@ -48,23 +48,41 @@ class UsersTest(unittest.TestCase):
         db.session.add(u1)
         db.session.add(u2)
         db.session.commit()
-        print("This is attempt",u1.testAttempts)
+      
         # Need a test_attempt function!
         # self.assertEqual(len(u1.testAttempts), 0) #Need to make sure test scores start at 0 for all of them
-        u1.testAttempts(id = u1, testId = 1, score = 100)
-        # test1u1 = TestAttempt(id = u1, testId = 1, score = 100)
-        # test2u1 = TestAttempt(id = u1, testId = 2, score = 100, date = datetime.date())
-        # test3u1 = TestAttempt(id = u1, testId = 3, score = 100, date = datetime.date())
+        t1 = TestAttempt(testId = 1, student = u1)
+        t1_1 = TestAttempt(testId = 1, student = u1)
+        t2 = TestAttempt(testId = 2, student = u1)
+        t3 = TestAttempt(testId = 3, student = u1)
 
-        # test1u2 = TestAttempt(id = u2, testId = 1, score = 100, date = datetime.date())
-        # test2u2 = TestAttempt(id = u2, testId = 2, score = 100, date = datetime.date())
-        # test3u2 = TestAttempt(id = u2, testId = 3, score = 100, date = datetime.date())
-        # u1.testAttempts(test1u1)
-        # u1.testAttempts(test2u1)
-        # u1.testAttempts(test3u1)
-        # u2.testAttempts(test1u1)
-        # u2.testAttempts(test2u1)
-        # u2.testAttempts(test3u1)
+        test1u2 = TestAttempt(testId = 1, score = 100,student = u2)
+        test2u2 = TestAttempt(testId = 2, score = 100,student = u2)
+        test3u2 = TestAttempt(testId = 3, score = 100,student = u2)
+
+
+        db.session.add(t1)
+        db.session.add(t1_1)
+        db.session.add(t2)
+        db.session.add(t3)
+        db.session.add(test1u2)
+        db.session.add(test2u2)
+        db.session.add(test3u2)
+        db.session.commit()
+        t1.addTestScore(10)
+        t2.addTestScore(55)
+        t1_1.addTestScore(100)
+        test = u1.testAttempts.all()
+        for i in test:
+            print(i)
+
+        self.assertEqual(test[0].testId, 1)
+        self.assertEqual(test[0].score, 10)
+        self.assertEqual(test[1].score, 100)
+        self.assertNotEqual(test[1],55)
+        self.assertTrue(t1.checkCorrectScore(10))
+        self.assertFalse(t1.checkCorrectScore(0))       
+ 
         db.session.commit()       
         
 
