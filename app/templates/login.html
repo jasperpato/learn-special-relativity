@@ -1,86 +1,90 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Learn Special Relativity</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-  </head>
-  <body onload="init();">
-    <div id="progressbar"></div>
-    <div id="scrollPath"></div>
-    <header>
-      <div class="logo"><img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR</div>
-      <nav>
-        <ul>
-          <li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
-          <li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
-          <li><a class="navButton" href="#">Stats</a></li>
-          {% if user.is_authenticated %}
-          <li><a class="navButton active" href="{{ url_for('auth.logout')}}">Logout</a></li>
-          {% else %}
-          <li><a class="navButton login active" href="{{ url_for('auth.login')}}">Login</a></li>
-          {% endif %}
-        </ul>
-      </nav>
+	<head>
+		<title>LSR - Login</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
+		<link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+		<script src="{{ url_for('static', filename='script.js') }}"></script>
+		<link
+			rel="stylesheet"
+			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+		/>
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
+	</head>
+	<body onload="init();">
+		<div id="progressbar"></div>
+		<div id="scrollPath"></div>
+		<header>
+			<div class="logo">
+				<img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR
+			</div>
+			<nav>
+				<ul>
+					<li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
+					<li><a class="navButton" href="{{ url_for('routes.learn')}}">Learn</a></li>
+					<li><a class="navButton" href="#">Stats</a></li>
+					{% if user.is_authenticated %}
+					<li><a class="navButton active" href="{{ url_for('auth.logout')}}">Logout</a></li>
+					{% else %}
+					<li><a class="navButton login active" href="{{ url_for('auth.login')}}">Login</a></li>
+					{% endif %}
+				</ul>
+			</nav>
 
-      {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category, message in messages %}
-          {% if category == "error" %}
-            <div class="alert alert-danger alert-dismissable fade show" role="alert">
-              {{ message }}
-              <button type="button" class="close" data-dismiss="alert">
-               <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-          {% else %}
-            <div class="alert alert-success alert-dismissable fade show" role="alert">
-              {{ message }}
-              <button type="button" class="close" data-dismiss="alert">
-                <span aria-hidden="true">&times;</span>
-              </button>
-           </div>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% endwith %}
+			{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
+			message in messages %} {% if category == "error" %}
+			<div class="alert alert-danger alert-dismissable fade show" role="alert">
+				{{ message }}
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			{% else %}
+			<div class="alert alert-success alert-dismissable fade show" role="alert">
+				{{ message }}
+				<button type="button" class="close" data-dismiss="alert">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			{% endif %} {% endfor %} {% endif %} {% endwith %}
 
-      <div class="menu-toggle">
-        <i class="fa fa-bars" aria-hidden="true"></i>
-      </div>
-    </header>
-    <div class="loginBox">
-      <h2>Login</h2>
-      <form method="POST">
-        <div class="inputBox">
-          <input type="text" name="username" id="username" value="{{request.form.username}}" required="" autocomplete="off"/>
-          <label for="username">Username</label>
-        </div>
-        <div class="inputBox">
-          <input type="Password" name="password" id="password" value="{{request.form.password}}" required="" />
-          <label for="password">Password</label>
-        </div>
-        <input type="submit" name="" value="Login" />
-      </form></br>
-      <p>Don't have an account? <a href="{{ url_for('auth.sign_up')}}">Click here to sign up.</a></p>
-    </div>
-  </body>
+			<div class="menu-toggle">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</div>
+		</header>
+		<div class="loginBox">
+			<h2>Login</h2>
+			<form method="POST">
+				<div class="inputBox">
+					<input
+						type="text"
+						name="username"
+						id="username"
+						value="{{request.form.username}}"
+						required=""
+						autocomplete="off"
+					/>
+					<label for="username">Username</label>
+				</div>
+				<div class="inputBox">
+					<input
+						type="Password"
+						name="password"
+						id="password"
+						value="{{request.form.password}}"
+						required=""
+					/>
+					<label for="password">Password</label>
+				</div>
+				<input type="submit" name="" value="Login" />
+			</form>
+			<p>Don't have an account? <a href="{{ url_for('auth.sign_up')}}">Click here to sign up.</a></p>
+		</div>
+	</body>
 </html>
