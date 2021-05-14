@@ -962,6 +962,10 @@ svg circle:nth-child(2) {
 	font-weight: bolder;
 }
 
+.textAns {
+	width: 50px;
+}
+
 .submit {
 	width: 100px;
 	margin: auto;
