@@ -2,31 +2,43 @@ function init() {
 	scroll();
 	dropMenu();
 	titleMove();
-	setInterval(animations, 1500);
 
-	$("#prev-1").click({ lessonNum: "1", numPages: 2 }, loadPrevPage);
-	$("#next-1").click({ lessonNum: "1", numPages: 2 }, loadNextPage);
-	$("#prev-2").click({ lessonNum: "2", numPages: 4 }, loadPrevPage);
-	$("#next-2").click({ lessonNum: "2", numPages: 4 }, loadNextPage);
-	$("#prev-3").click({ lessonNum: "3", numPages: 3 }, loadPrevPage);
-	$("#next-3").click({ lessonNum: "3", numPages: 3 }, loadNextPage);
+	let hr = window.location.href;
+	let title = document.getElementById("title").innerHTML;
+	let num = 0;
+
+	if (title.includes("Test") || title.includes("Lesson")) {
+		num = parseInt(title[title.length - 1]);
+
+		if (title.includes("Lesson")) {
+			let numPages = [2, 4, 3];
+
+			$("#prev").click(function () {
+				loadPrevPage(numPages[num - 1]);
+			});
+			$("#next").click(function () {
+				loadNextPage(numPages[num - 1]);
+			});
+
+			$(".pageArrowLeftLabel").click(function () {
+				window.location.href = hr.slice(0, hr.length - 1) + (num - 1);
+			});
+
+			$(".pageArrowRightLabel").click(function () {
+				window.location.href = hr.slice(0, hr.length - 1) + (num + 1);
+			});
+
+			if (title.includes("Lesson 2")) setInterval(animations, 1500);
+		}
+		if (title.includes("Test")) {
+			document.getElementById("quiz").onsubmit = function () {
+				scoreTest(num);
+			};
+		}
+	}
 
 	$(".logo").click(function () {
 		window.location.href = "http://127.0.0.1:5000";
-	});
-
-	$(".pageArrowLeftLabel").click(function () {
-		hr = window.location.href;
-		window.location.href = hr.slice(0, hr.length - 1) + (parseInt(hr[hr.length - 1]) - 1);
-	});
-
-	$(".pageArrowRightLabel").click(function () {
-		hr = window.location.href;
-		window.location.href = hr.slice(0, hr.length - 1) + (parseInt(hr[hr.length - 1]) + 1);
-	});
-
-	$("form").onsubmit(function () {
-		scoreTest(1);
 	});
 }
 
@@ -80,60 +92,57 @@ function animations() {
 	}
 }
 
-function loadPrevPage(lessonData) {
-	let lessonNum = lessonData.data.lessonNum;
-	let numPages = lessonData.data.numPages;
+function loadPrevPage(numPages) {
 	let pageNum = 1;
 
 	// find visible page
 	for (pageNum; pageNum < numPages; ++pageNum) {
-		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
+		if ($("#l" + pageNum).is(":visible")) break;
 	}
 
 	if (pageNum == 1) return;
-	if (pageNum == 2) $("#prev-" + lessonNum).toggle();
+	if (pageNum == 2) $("#prev").toggle();
 	if (pageNum == numPages) {
-		$("#next-" + lessonNum).toggle();
+		$("#next").toggle();
 		//$("#go-test-" + lessonNum).toggle();
 	}
-	$("#l" + lessonNum + pageNum).toggle();
-	$("#l" + lessonNum + (pageNum - 1)).toggle();
+	$("#l" + pageNum).toggle();
+	$("#l" + (pageNum - 1)).toggle();
 }
 
-function loadNextPage(lessonData) {
-	let lessonNum = lessonData.data.lessonNum;
-	let numPages = lessonData.data.numPages;
+function loadNextPage(numPages) {
 	let pageNum = 1;
 
 	// find visible page
 	for (pageNum; pageNum < numPages; ++pageNum) {
-		if ($("#l" + lessonNum + pageNum).is(":visible")) break;
+		if ($("#l" + pageNum).is(":visible")) break;
 	}
 
 	if (pageNum == numPages) return;
-	if (pageNum == 1) $("#prev-" + lessonNum).toggle();
+	if (pageNum == 1) $("#prev").toggle();
 	if (pageNum == numPages - 1) {
-		$("#next-" + lessonNum).toggle();
+		$("#next").toggle();
 		//$("#go-test-" + lessonNum).toggle();
 	}
-	$("#l" + lessonNum + pageNum).toggle();
-	$("#l" + lessonNum + (pageNum + 1)).toggle();
+	$("#l" + pageNum).toggle();
+	$("#l" + (pageNum + 1)).toggle();
 }
 
 function scoreTest(testNum) {
-	var answers = [
+	let answers = [
 		["B", "A", "B", "B", 4],
 		["A", "A", "B", "A", "A"],
 		[2, "A", "A", 20, 20],
 	];
+	console.log("some");
 
 	answers = answers[testNum - 1];
 
 	var score = 0;
 
 	for (var i = 0; i < answers.length; i++) {
-		if ($("form").elements[i] == answers[i]) {
-			console.log($("form").elements[i]);
+		if (getElementById("quiz-" + testNum).elements[i] == answers[i]) {
+			console.log(getElementById("quiz-" + testNum).elements[i]);
 			score++;
 		}
 	}

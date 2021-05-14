@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Learn Special Relativity</title>
+		<title id="title">Learn Special Relativity - Lesson 2</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
@@ -67,7 +67,7 @@
 		</header>
 		<div class="lessonBox">
 			<h2>Lesson 2</h2>
-			<div id="l21" style="display: block">
+			<div id="l1" style="display: block">
 				<p>
 					Consider an observer who is inside a moving train, and another observer standing stationary outside
 					of the train.
@@ -83,7 +83,7 @@
 					<img class="diagram" id="img-1.1" src="/static/diagrams/Diagram_1.1.png" />
 				</div>
 			</div>
-			<div id="l22" style="display: none">
+			<div id="l2" style="display: none">
 				<p>
 					From the observer inside the train’s perspective, the light travelled directly downwards and then
 					directly upwards. The distance traveled by the light beam is d0=2h, and the speed it travelled at is
@@ -98,7 +98,7 @@
 					<img class="diagram" id="img-2.1" src="/static/diagrams/Diagram_2.1.png" />
 				</div>
 			</div>
-			<div id="l23" style="display: none">
+			<div id="l3" style="display: none">
 				<p>
 					The light must travel a larger distance from the stationary observer’s perspective, but the speed of
 					light would still be observed to be constant at c. Therefore, the time elapsed between the flash of
@@ -114,7 +114,7 @@
 					<img class="diagram" src="/static/diagrams/Diagram_3.1.png" />
 				</div>
 			</div>
-			<div id="l24" style="display: none">
+			<div id="l4" style="display: none">
 				<p>
 					Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time
 					as t1 = 2h/sqrt(c^2-v^2). <br /><br />
@@ -137,8 +137,8 @@
 			</div>
 		</div>
 		<div class="row switchPages">
-			<div id="prev-2" class="pageButton" style="display: none">PREV</div>
-			<div id="next-2" class="pageButton" style="display: block">NEXT</div>
+			<div id="prev" class="pageButton" style="display: none">PREV</div>
+			<div id="next" class="pageButton" style="display: block">NEXT</div>
 		</div>
 		<div class="rocket rocket3">
 			<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
