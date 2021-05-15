@@ -430,7 +430,7 @@ header nav ul li a.active {
 .progressPercent .progressNumber h2 {
 	color: #fff;
 	font-weight: 700;
-	font-size: 50px;
+	font-size: 45px;
 }
 
 .progressPercent .progressNumber h2 span {
@@ -500,18 +500,6 @@ svg circle:nth-child(2) {
 	stroke-dasharray: 440px;
 	stroke-dashoffset: 80px;
 }
-
-/*.progressCard:nth-child(1) svg circle:nth-child(2) {
-	stroke-dashoffset: calc(440px - (440px * 90) / 100);
-}
-
-.progressCard:nth-child(2) svg circle:nth-child(2) {
-	stroke-dashoffset: calc(440px - (440px * 82) / 100);
-}
-
-.progressCard:nth-child(3) svg circle:nth-child(2) {
-	stroke-dashoffset: calc(440px - (440px * 30) / 100);
-}*/
 
 /*Rocket*/
 /*----------------------------------------------------------------------------------------------------------*/
@@ -649,11 +637,11 @@ svg circle:nth-child(2) {
 	margin: auto;
 	margin-top: 60px;
 	width: 650px;
+	height: 580px;
 	transition: 0.5s;
 	border: 1px solid#fff;
 	background: rgba(0.3, 0.3, 0.3, 0.3);
 	padding: 20px;
-	height: 580px;
 	text-align: justify;
 	box-shadow: 0 0 205px rgba(9, 241, 203, 0.6);
 }
@@ -735,7 +723,7 @@ svg circle:nth-child(2) {
 	position: relative;
 	width: 300px;
 	padding: 8px 10px;
-	margin: 20px;
+	margin: 15px;
 	text-transform: uppercase;
 	text-decoration: none;
 	color: #fff;
@@ -789,7 +777,7 @@ svg circle:nth-child(2) {
 
 .takeTest {
 	display: block;
-	margin: 30px;
+	margin: 10px;
 	align-items: center;
 }
 

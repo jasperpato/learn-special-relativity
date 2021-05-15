@@ -1,139 +1,68 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title id="title">LSR - Lesson 1</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-		<link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="{{ url_for('static', filename='script.js') }}"></script>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-	</head>
-	<body onload="init();">
-		<div id="progressbar"></div>
-		<div id="scrollPath"></div>
-		<header>
-			<div class="logo">
-				<img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" />
-				LSR
-			</div>
-			<nav>
-				<ul>
-					<li>
-						<a class="navButton" href="{{ url_for('routes.home')}}">Home</a>
-					</li>
-					<li>
-						<a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a>
-					</li>
-					<li><a class="navButton" href="#">Stats</a></li>
-					{% if user.is_authenticated %}
-					<li>
-						<a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a>
-					</li>
-					{% else %}
-					<li>
-						<a class="navButton login" href="{{ url_for('auth.login')}}">Login</a>
-					</li>
-					{% endif %}
-				</ul>
-			</nav>
-			{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
-			message in messages %} {% if category == "error" %}
-			<div class="alert alert-danger alert-dismissable fade show" role="alert">
-				{{ message }}
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			{% else %}
-			<div class="alert alert-success alert-dismissable fade show" role="alert">
-				{{ message }}
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			{% endif %} {% endfor %} {% endif %} {% endwith %}
-			<div class="menu-toggle">
-				<i class="fa fa-bars" aria-hidden="true"></i>
-			</div>
-		</header>
-		<div class="lessonBox">
-			<h2>Lesson 1</h2>
-			<div id="l1" style="display: block">
-				<p>
-					The theory of special relativity was developed by Albert Einstein in 1905. It is based on the
-					assumption that the
-					<span class="hoverBoxLabel" id="speedOfLightLabel"
-						>speed of light
-						<span class="hoverBox" id="speedOfLight" style="display: none"
-							>The speed of light is constant at 299,792,458 m/s.</span
-						></span
-					>
-					is observed to be the same no matter the relative motion between the observer and the light source.
-					<br /><br />
-					The theory of special relativity holds within and between
-					<span class="hoverBoxLabel" id="inertialLabel"
-						>inertial frames of reference
-						<span class="hoverBox" id="inertial" style="display: none; width: 350px"
-							>An inertial frame of reference is a ‘place’ such as on Earth or inside a rocket ship in which
-							all of Newton’s laws are valid. Inside an inertial frame of reference an object with no forces
-							acting on it will travel at a constant velocity in a straight line.
-						</span> </span
-					>. We will only consider objects that have constant relative speeds — no acceleration is involved.
-				</p>
-				<div class="diagramBox">
-					<img
-						class="diagram"
-						alt="einstein"
-						src="{{ url_for('static', filename='pictures/einstein.jpeg') }}"
-					/>
-				</div>
-			</div>
-			<div id="l2" style="display: none">
-				<p>
-					The assumption that the speed of light is constant in all reference frames implies that other
-					quantities, that might ordinarily appear to be constant, are actually relative between observers
-					within different reference frames.
-					<br /><br />
-					To preserve a constant speed of light between observers moving at a relative speed,
-					<span class="hoverBoxLabel" id="spaceTimeLabel"
-						>space-time
-						<span class="hoverBox" id="spaceTime" style="display: none; width: 350px"
-							>Space-time refers to the 4-dimensional expanse that consists of up/down, left/right, in/out and
-							also the one-dimensional flow of time from past towards future. It is the combination of space
-							and time into one ‘place’ that objects can exist within.</span
-						>
-					</span>
-					must appear different to each of them. In the following lesson we will use examples to present this.
-					<br /><br />
-					<a href="{{ url_for('routes.test1') }}">Take the test</a> for this section.
-				</p>
-			</div>
+{% extends "base.html" %}{% block title %} LSR - Lesson 1{% endblock %} {% block content %}
+<div class="lessonBox">
+	<h2>Lesson 1</h2>
+	<div id="l1" style="display: block">
+		<p>
+			The theory of special relativity was developed by Albert Einstein in 1905. It is based on the assumption
+			that the
+			<span class="hoverBoxLabel" id="speedOfLightLabel"
+				>speed of light
+				<span class="hoverBox" id="speedOfLight" style="display: none"
+					>The speed of light is constant at 299,792,458 m/s.</span
+				></span
+			>
+			is observed to be the same no matter the relative motion between the observer and the light source.
+			<br /><br />
+			The theory of special relativity holds within and between
+			<span class="hoverBoxLabel" id="inertialLabel"
+				>inertial frames of reference
+				<span class="hoverBox" id="inertial" style="display: none; width: 350px"
+					>An inertial frame of reference is a ‘place’ such as on Earth or inside a rocket ship in which all
+					of Newton’s laws are valid. Inside an inertial frame of reference an object with no forces acting on
+					it will travel at a constant velocity in a straight line.
+				</span> </span
+			>. We will only consider objects that have constant relative speeds — no acceleration is involved.
+		</p>
+		<div class="diagramBox">
+			<img class="diagram" alt="einstein" src="{{ url_for('static', filename='pictures/einstein.jpeg') }}" />
 		</div>
-		<div class="row switchPages">
-			<div id="prev" class="pageButton" style="display: none">PREV</div>
-			<div id="next" class="pageButton" style="display: block">NEXT</div>
-		</div>
-		<div class="takeTest">
-			<h3>Think you're ready? Test your knowledge!</h3>
-			<a href="{{ url_for('routes.test1') }}"><div class="pageButton">LESSON 1 TEST</div></a>
-		</div>
-		<h2 class="pageArrowRightLabel">Lesson 2</h2>
+	</div>
+	<div id="l2" style="display: none">
+		<p>
+			The assumption that the speed of light is constant in all reference frames implies that other
+			quantities, that might ordinarily appear to be constant, are actually relative between observers within
+			different reference frames.
+			<br /><br />
+			To preserve a constant speed of light between observers moving at a relative speed,
+			<span class="hoverBoxLabel" id="spaceTimeLabel"
+				>space-time
+				<span class="hoverBox" id="spaceTime" style="display: none; width: 350px"
+					>Space-time refers to the 4-dimensional expanse that consists of up/down, left/right, in/out and
+					also the one-dimensional flow of time from past towards future. It is the combination of space and
+					time into one ‘place’ that objects can exist within.</span
+				>
+			</span>
+			must appear different to each of them. In the following lesson we will use examples to present this.
+			<br /><br />
+			<a href="{{ url_for('routes.test1') }}">Take the test</a> for this section.
+		</p>
+	</div>
+</div>
+<div class="row switchPages">
+	<div id="prev" class="pageButton" style="display: none">PREV</div>
+	<div id="next" class="pageButton" style="display: block">NEXT</div>
+</div>
+<div class="takeTest">
+	<h3>Think you're ready? Test your knowledge!</h3>
+	<a href="{{ url_for('routes.test1') }}"><div class="pageButton">LESSON 1 TEST</div></a>
+</div>
+<h2 class="pageArrowRightLabel">Lesson 2</h2>
 
-		<a href="{{ url_for('routes.lesson2') }}">
-			<div class="pageArrow pageArrowRight">
-				<span></span>
-				<span></span>
-				<span></span>
-			</div>
-		</a>
-	</body>
-</html>
+<a href="{{ url_for('routes.lesson2') }}">
+	<div class="pageArrow pageArrowRight">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
+{% endblock %}
