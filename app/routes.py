@@ -83,7 +83,7 @@ def test2():
 def test3():
     if request.method == 'POST':
 
-        correct_answers = [2, "A", "A", 20, 20]
+        correct_answers = ['2', "A", "A", '20', '20']
         score = 0;
 
         for i in range(len(correct_answers)):

@@ -50,6 +50,28 @@ function init() {
 	});
 }
 
+function validateSignUp() {
+	let username = document.getElementById("username").value;
+	let password = document.getElementById("password").value;
+	let passwordConfirm = document.getElementById("passwordConfirm").value;
+	let message = "";
+	if (username.length < 4) {
+		message = "Username must be at least 4 characters";
+	}
+	if (password.length < 7) {
+		message = "Password must be at least 7 characters";
+	}
+	if (password != passwordConfirm) {
+		message = "Passwords do not match";
+	}
+	if (message) {
+		document.getElementById("message").innerHTML = message;
+		$("#message").toggle();
+		return false;
+	}
+	return true;
+}
+
 function scroll() {
 	let progress = document.getElementById("progressbar");
 	let totalHeight = document.body.scrollHeight - window.innerHeight;
@@ -189,5 +211,11 @@ function hoverBoxes(num) {
 			$("#dilation").toggle();
 		});
 	} else if (num == 3) {
+		$("#lorentzLabel").mouseenter(function () {
+			$("#lorentz").toggle();
+		});
+		$("#lorentzLabel").mouseleave(function () {
+			$("#lorentz").toggle();
+		});
 	}
 }

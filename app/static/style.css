@@ -256,6 +256,12 @@ header nav ul li a.active {
 	cursor: pointer;
 	border-radius: 5px;
 }
+
+.signUpMessage {
+	color: red;
+	margin-bottom: 4px;
+}
+
 /*----------------------------------------------------------------------------------------------------------*/
 
 /*Learning selection page*/

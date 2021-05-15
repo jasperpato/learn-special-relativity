@@ -40,12 +40,12 @@ def sign_up():
 
         if user:
             flash("Username already exists", category="error")
-        elif len(username) < MIN_USERNAME_LENGTH:
-            flash("Username must be at least 4 characters", category='error')
-        elif len(password) < MIN_PASSWORD_LENGTH:
-            flash("Password must be at least 7 characters", category='error')
-        elif password != passwordConfirm:
-            flash("Passwords do not match", category='error')
+     #   elif len(username) < MIN_USERNAME_LENGTH:
+     #       flash("Username must be at least 4 characters", category='error')
+     #   elif len(password) < MIN_PASSWORD_LENGTH:
+     #       flash("Password must be at least 7 characters", category='error')
+     #   elif password != passwordConfirm:
+     #       flash("Passwords do not match", category='error')
         else:
             new_user = User(username=username)
             new_user.set_password(password)
