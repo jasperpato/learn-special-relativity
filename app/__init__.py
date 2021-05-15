@@ -4,8 +4,10 @@ from os import path
 from flask_login import LoginManager
 
 app = Flask(__name__)
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 DB_NAME = "database.db"
+
 
 def create_app():
   
