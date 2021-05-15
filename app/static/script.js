@@ -32,6 +32,7 @@ function init() {
 			if (title.includes("Lesson 2")) setInterval(animations, 1500);
 		} else {
 			console.log("lipus");
+
 			document.getElementById("quiz").onsubmit = function () {
 				console.log("simmer");
 				scoreTest(num);
