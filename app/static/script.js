@@ -6,6 +6,8 @@ function init() {
 	let hr = window.location.href;
 	let title = document.getElementById("title").innerHTML;
 
+	//$(".").css("", "");
+
 	if (title.includes("Test") || title.includes("Lesson")) {
 		let num = parseInt(title[title.length - 1]);
 		console.log("grell");
