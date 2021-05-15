@@ -913,6 +913,24 @@ svg circle:nth-child(2) {
 	right: 85%;
 }
 
+@media (max-width: 991px) {
+	.pageArrowLeftLabel {
+		display: none;
+	}
+
+	.pageArrowRightLabel {
+		display: none;
+	}
+
+	.pageArrowLeft {
+		display: none;
+	}
+
+	.pageArrowRight {
+		display: none;
+	}
+}
+
 /*Quiz pages*/
 /*----------------------------------------------------------------------------------------------------------*/
 
