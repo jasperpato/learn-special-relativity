@@ -5,12 +5,13 @@ function init() {
 
 	let hr = window.location.href;
 	let title = document.getElementById("title").innerHTML;
-	let num = 0;
 
 	if (title.includes("Test") || title.includes("Lesson")) {
-		num = parseInt(title[title.length - 1]);
+		let num = parseInt(title[title.length - 1]);
 		console.log("grell");
 		if (title.includes("Lesson")) {
+			hoverBoxes(num);
+
 			let numPages = [2, 4, 3];
 
 			$("#prev").click(function () {
@@ -71,26 +72,21 @@ function titleMove() {
 }
 
 function animations() {
+	let img = $("#animate-1").find("img")[0];
+	let len = img.id.length;
+	let num = parseInt(img.id[len - 1]);
+
 	// animation 1
-	if ($("#animate-1").find("img")[0].id == "img-1.1") {
-		$("#animate-1").find("img")[0].id = "img-1.2";
-		$("#animate-1").find("img")[0].src = "/static/diagrams/Diagram_1.2.png";
-	} else {
-		$("#animate-1").find("img")[0].id = "img-1.1";
-		$("#animate-1").find("img")[0].src = "/static/diagrams/Diagram_1.1.png";
-	}
+	img.id = img.id.slice(0, len - 1) + (3 - num);
+	img.src = img.src.slice(0, img.src.length - 5) + (3 - num) + ".png";
 
 	// animation 2
-	if ($("#animate-2").find("img")[0].id == "img-2.1") {
-		$("#animate-2").find("img")[0].id = "img-2.2";
-		$("#animate-2").find("img")[0].src = "/static/diagrams/Diagram_2.2.png";
-	} else if ($("#animate-2").find("img")[0].id == "img-2.2") {
-		$("#animate-2").find("img")[0].id = "img-2.3";
-		$("#animate-2").find("img")[0].src = "/static/diagrams/Diagram_2.3.png";
-	} else {
-		$("#animate-2").find("img")[0].id = "img-2.1";
-		$("#animate-2").find("img")[0].src = "/static/diagrams/Diagram_2.1.png";
-	}
+	img = $("#animate-2").find("img")[0];
+	len = img.id.length;
+	num = parseInt(img.id[len - 1]);
+
+	img.id = img.id.slice(0, len - 1) + ((num % 3) + 1);
+	img.src = img.src.slice(0, img.src.length - 5) + ((num % 3) + 1) + ".png";
 }
 
 function loadPrevPage(numPages) {
@@ -148,4 +144,12 @@ function scoreTest(testNum) {
 		}
 	}
 	console.log(score);
+}
+
+function hoverBoxes(num) {
+	if (num == 1) {
+		$("#speed-of-light").hover();
+	} else if (num == 2) {
+	} else if (num == 3) {
+	}
 }

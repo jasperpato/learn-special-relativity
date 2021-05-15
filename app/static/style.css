@@ -678,6 +678,15 @@ svg circle:nth-child(2) {
 	color: #fff;
 }
 
+.lessonBox a,
+.lessonBox a:hover {
+	color: #00fff1;
+}
+.hoverBox {
+	cursor: alias;
+	color: #00fff1;
+}
+
 .diagramBox {
 	width: 500px;
 	margin: auto;
