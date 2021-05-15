@@ -10,7 +10,7 @@ function init() {
 
 	if (title.includes("Test") || title.includes("Lesson")) {
 		let num = parseInt(title[title.length - 1]);
-		console.log("grell");
+
 		if (title.includes("Lesson")) {
 			hoverBoxes(num);
 
@@ -33,8 +33,6 @@ function init() {
 
 			if (title.includes("Lesson 2")) setInterval(animations, 1500);
 		} else {
-			console.log("lipus");
-
 			document.getElementById("quiz").onsubmit = function () {
 				console.log("simmer");
 				scoreTest(num);
@@ -151,8 +149,43 @@ function scoreTest(testNum) {
 
 function hoverBoxes(num) {
 	if (num == 1) {
-		$("#speed-of-light").hover();
+		$("#speedOfLightLabel").mouseenter(function () {
+			$("#speedOfLight").toggle();
+		});
+		$("#speedOfLightLabel").mouseleave(function () {
+			$("#speedOfLight").toggle();
+		});
+		$("#inertialLabel").mouseenter(function () {
+			$("#inertial").toggle();
+		});
+		$("#inertialLabel").mouseleave(function () {
+			$("#inertial").toggle();
+		});
+		$("#spaceTimeLabel").mouseenter(function () {
+			$("#spaceTime").toggle();
+		});
+		$("#spaceTimeLabel").mouseleave(function () {
+			$("#spaceTime").toggle();
+		});
 	} else if (num == 2) {
+		$("#trigLabel").mouseenter(function () {
+			$("#trig").toggle();
+		});
+		$("#trigLabel").mouseleave(function () {
+			$("#trig").toggle();
+		});
+		$("#timeLabel").mouseenter(function () {
+			$("#time").toggle();
+		});
+		$("#timeLabel").mouseleave(function () {
+			$("#time").toggle();
+		});
+		$("#dilationLabel").mouseenter(function () {
+			$("#dilation").toggle();
+		});
+		$("#dilationLabel").mouseleave(function () {
+			$("#dilation").toggle();
+		});
 	} else if (num == 3) {
 	}
 }

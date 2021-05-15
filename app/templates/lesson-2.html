@@ -86,10 +86,9 @@
 			<div id="l2" style="display: none">
 				<p>
 					From the observer inside the train’s perspective, the light travelled directly downwards and then
-					directly upwards. The distance traveled by the light beam is d0=2h, and the speed it travelled at is
-					always constant at c. Using time = distance / speed, the time elapsed for this observer is t0 =
-					2h/c.
-					<br /><br />
+					directly upwards. The distance traveled by the light beam is d<sub>0</sub> = 2h, and the speed it
+					travelled at is always constant at c. Using time = distance / speed, the time elapsed for this
+					observer is t<sub>0</sub> = 2h / c. <br /><br />
 					However the observer outside the train would witness this event in a different way because while the
 					light is making its journey up and down, the train is also moving within their reference frame from
 					left to right.
@@ -105,10 +104,18 @@
 					the bulb and the light returning back to the bulb must be larger for the stationary observer than
 					the time elapsed for the observer inside the train.
 					<br /><br />
-					The train, lightbulb and light beam all travel a horizontal distance of vt1 during the elapsed time
-					t1, and a vertical distance of 2h. Using trigonometry we can
-					<span id="distance-calc">derive an expression</span> for the distance travelled by the light beam as
-					d1 = sqrt(4h^2+v^2t1^2).
+					The train, lightbulb and light beam all travel a horizontal distance of vt<sub>1</sub> during the
+					elapsed time t<sub>1</sub>, and a vertical distance of 2h. Using trigonometry we can
+					<span class="hoverBoxLabel" id="trigLabel"
+						>derive an expression
+						<span class="hoverBox" id="trig" style="display: none">
+							(1/2 d<sub>1</sub>)^2 = h^2 + (vt<sub>1</sub>/2)^2<br />
+							1/4 d<sub>1</sub>^2 = h^2 + v^2t<sub>1</sub>^2 / 4<br />
+							d<sub>1</sub>^2 = h^2 + v^2 t<sub>1</sub>^2<br />
+							d<sub>1</sub> = sqrt( 4h^2 + v^2 t<sub>1</sub>^2 )
+						</span>
+					</span>
+					for the distance travelled by the light beam as d<sub>1</sub> = sqrt( 4h^2 + v^2 t<sub>1</sub>^2 ).
 				</p>
 				<div class="diagramBox">
 					<img alt="trigonometry" class="diagram" src="/static/diagrams/Diagram_3.1.png" />
@@ -116,22 +123,40 @@
 			</div>
 			<div id="l4" style="display: none">
 				<p>
-					Again using distance = speed * time, <span id="time-calc">we can calculate</span> the elapsed time
-					as t1 = 2h/sqrt(c^2-v^2). <br /><br />
+					Again using distance = speed * time,
+					<span class="hoverBoxLabel" id="timeLabel">
+						we can calculate
+						<span class="hoverBox" id="time" style="display: none">
+							d<sub>1</sub> = sqrt( 4h^2 + v^2 t<sub>1</sub>^2 ) = ct<sub>1</sub><br />
+							4h^2 + v^2 t<sub>1</sub>^2 = c^2 t<sub>1</sub>^2<br />
+							t<sub>1</sub>^2 (c^2 - v^2) = 4h^2 <br />t<sub>1</sub>
+							= 2h / sqrt( c^2 - v^2 )
+						</span>
+					</span>
+					the elapsed time as <br />t<sub>1</sub> = 2h / sqrt( c^2 - v^2 ). <br /><br />
 					The two differing elapsed times calculated by the two observers can be
-					<span id="time-dilation">related to each other</span>, resulting in the equation t1 = γ * t0, where
-					t1 is the time elapsed as observed by the stationary observer, t0 is the time elapsed for the
-					observer inside the train, and γ is a quantity known as the Lorentz factor. <br /><br />
-					In this formula, t0 is named the proper time interval and always refers to the time interval
-					observed by the potential observer who witnessed the beginning event (the flash of the light bulb)
-					and the ending event (the light wave returning to the bulb) at the same point in space. In this
-					example the observer who was inside the train was the one who witnessed these events occurring in
-					the same place, so they recorded the proper time interval. The stationary observer witnessed them
-					occurring at different places, because the train was moving within their reference frame.
-					<br /><br />
-					The ‘proper time’ t0 is no more 'proper' than any observed t1; both elapsed times that were
-					calculated were equally valid within their own frames of reference.
-					<br /><br />
+					<span class="hoverBoxLabel" id="dilationLabel"
+						>related to each other
+						<span class="hoverBox" id="dilation" style="display: none; width: 330px; left: 70%">
+							t<sub>0</sub> = 2h / c , t<sub>1</sub> = 2h / sqrt( c^2 - v^2 ) <br /><br />
+							t<sub>1</sub> = c / sqrt( c^2 - v^2 ) * 2h / c<br />
+							t<sub>1</sub> = c / sqrt( c^2 - v^2) * t<sub>0</sub><br />
+							t<sub>1</sub> = 1 / sqrt( (1 / c^2) (c^2 - v^2) ) * t<sub>0</sub><br />
+							t<sub>1</sub> = 1 / sqrt( 1 - v^2 / c^2 ) * t<sub>0</sub><br /><br />
+							γ = 1 / sqrt( 1 - v^2 / c^2 ) , t<sub>1</sub> = γ * t<sub>0</sub>
+						</span> </span
+					>, resulting in the equation t<sub>1</sub> = γ * t<sub>0</sub>, where t<sub>1</sub> is the time
+					elapsed as observed by the stationary observer, t<sub>0</sub> is the time elapsed for the observer
+					inside the train, and γ is a quantity known as the Lorentz factor. <br /><br />
+					In this formula, t<sub>0</sub> is named the proper time interval and always refers to the time
+					interval observed by the potential observer who witnessed the beginning event (the flash of the
+					light bulb) and the ending event (the light wave returning to the bulb) at the same point in space.
+					In this example the observer who was inside the train was the one who witnessed these events
+					occurring in the same place, so they recorded the proper time interval. The stationary observer
+					witnessed them occurring at different places, because the train was moving within their reference
+					frame. <br /><br />
+					The ‘proper time’ t<sub>0</sub> is no more 'proper' than any observed t<sub>1</sub>; both elapsed
+					times that were calculated were equally valid within their own frames of reference. <br /><br />
 					<a href="{{ url_for('routes.test2') }}">Take the test</a> for this section.
 				</p>
 			</div>

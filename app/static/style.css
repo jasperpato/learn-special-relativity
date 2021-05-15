@@ -682,9 +682,29 @@ svg circle:nth-child(2) {
 .lessonBox a:hover {
 	color: #00fff1;
 }
-.hoverBox {
+.hoverBoxLabel {
 	cursor: alias;
 	color: #00fff1;
+	position: relative;
+}
+
+.hoverBox {
+	position: absolute;
+	width: 270px;
+	top: 100%;
+	left: 50%;
+	margin-left: -60px;
+	padding: 12px;
+	text-align: justify;
+	/*border: 3px solid black;
+	color: white;
+	background: linear-gradient(90deg, #1da9eb, #0fe0be);*/
+
+	background-color: rgba(0, 0, 0, 0.85);
+	color: white;
+	border: 3px solid #00fff1;
+
+	z-index: 5;
 }
 
 .diagramBox {
