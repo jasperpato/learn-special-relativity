@@ -8,7 +8,8 @@ class User(db.Model, UserMixin):
 
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
-    testAttempts = db.relationship('TestAttempt', backref = 'student', lazy = 'dynamic')
+    testAttempts = db.relationship('TestAttempt', backref = "student", lazy = "dynamic")
+    
     def __repr__(self):
         return '<User {}>'.format(self.username)
 
@@ -18,7 +19,13 @@ class User(db.Model, UserMixin):
     def check_password(self, password):
         return check_password_hash(self.password_hash, password)
 
-
+    def best_attempt(self, test_num):
+        attempts = TestAttempt.query.filter_by(testId = test_num, user_id = self.id).all()
+        max = 0
+        for attempt in attempts:
+            if attempt.score > max:
+                max = attempt.score
+        return max
     
 class TestAttempt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -39,6 +46,3 @@ class TestAttempt(db.Model):
             
     def checkCorrectScore(self,inputScore):
         return(self.score == inputScore)
-
-            
-

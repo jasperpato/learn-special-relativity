@@ -43,6 +43,12 @@ function init() {
 	$(".logo").click(function () {
 		window.location.href = "http://127.0.0.1:5000";
 	});
+
+	$(".quizBox").on("scroll", function () {
+		if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+			$(".pageArrowDown").hide();
+		} else $(".pageArrowDown").show();
+	});
 }
 
 function scroll() {
