@@ -57,7 +57,7 @@
 				<i class="fa fa-bars" aria-hidden="true"></i>
 			</div>
 		</header>
-		<form id="quiz">
+		<form id="quiz" method="POST">
 			<div class="quizBox">
 				<h2>Test 3</h2>
 
@@ -109,5 +109,8 @@
 				<input class="submit" id="submit" type="submit" value="Submit" />
 			</div>
 		</form>
+		<div class="rocket rocket1">
+			<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
+		</div>
 	</body>
 </html>

@@ -6,6 +6,8 @@ function init() {
 	let hr = window.location.href;
 	let title = document.getElementById("title").innerHTML;
 
+	//$(".").css("", "");
+
 	if (title.includes("Test") || title.includes("Lesson")) {
 		let num = parseInt(title[title.length - 1]);
 
@@ -40,6 +42,12 @@ function init() {
 
 	$(".logo").click(function () {
 		window.location.href = "http://127.0.0.1:5000";
+	});
+
+	$(".quizBox").on("scroll", function () {
+		if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+			$(".pageArrowDown").hide();
+		} else $(".pageArrowDown").show();
 	});
 }
 
