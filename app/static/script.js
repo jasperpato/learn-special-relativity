@@ -2,11 +2,10 @@ function init() {
 	scroll();
 	dropMenu();
 	titleMove();
+	activateNavBar();
 
 	let hr = window.location.href;
 	let title = document.getElementById("title").innerHTML;
-
-	//$(".").css("", "");
 
 	if (title.includes("Test") || title.includes("Lesson")) {
 		let num = parseInt(title[title.length - 1]);
@@ -78,6 +77,24 @@ function titleMove() {
 	});
 }
 
+function activateNavBar() {
+	let navButtons = [".navHome", ".navLearn", ".navStats", ".navLogout", ".navLogin"];
+
+	let title = document.getElementById("title").innerHTML;
+
+	if (title.includes("Home")) {
+		$(navButtons[0]).addClass("active");
+	} else if (title.includes("Test") || title.includes("Lesson")) {
+		$(navButtons[1]).addClass("active");
+	} else if (title.includes("Stats")) {
+		$(navButtons[2]).addClass("active");
+	} else if (title.includes("Logout")) {
+		$(navButtons[3]).addClass("active");
+	} else if (title.includes("Login") || title.includes("Sign Up")) {
+		$(navButtons[4]).addClass("active");
+	}
+}
+
 function animations() {
 	let img = $("#animate-1").find("img")[0];
 	let len = img.id.length;
@@ -130,27 +147,6 @@ function loadNextPage(numPages) {
 	}
 	$("#l" + pageNum).toggle();
 	$("#l" + (pageNum + 1)).toggle();
-}
-
-function scoreTest(testNum) {
-	let answers = [
-		["B", "A", "B", "B", 4],
-		["A", "A", "B", "A", "A"],
-		[2, "A", "A", 20, 20],
-	];
-	console.log("some");
-
-	answers = answers[testNum - 1];
-
-	var score = 0;
-
-	for (var i = 0; i < answers.length; i++) {
-		if (getElementById("quiz-" + testNum).elements[i] == answers[i]) {
-			console.log(getElementById("quiz-" + testNum).elements[i]);
-			score++;
-		}
-	}
-	console.log(score);
 }
 
 function hoverBoxes(num) {

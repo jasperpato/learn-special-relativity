@@ -1,116 +1,67 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title id="title">LSR - Test 3</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-		<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet" />
-		<link rel="icon" href="{{ url_for('static', filename='pictures/logoi.png') }}" />
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-		<script src="{{ url_for('static', filename='script.js') }}"></script>
-		<link
-			rel="stylesheet"
-			href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-		/>
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
-	</head>
-	<body onload="init();">
-		<div class="progressbar"></div>
-		<div class="scrollPath"></div>
-		<header>
-			<div class="logo">
-				<img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR
-			</div>
-			<nav>
-				{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
-				message in messages %} {% if category == "error" %}
-				<div class="alert alert-danger alert-dismissable fade show" role="alert">
-					{{ message }}
-					<button type="button" class="close" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				{% else %}
-				<div class="alert alert-success alert-dismissable fade show" role="alert">
-					{{ message }}
-					<button type="button" class="close" data-dismiss="alert">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				{% endif %} {% endfor %} {% endif %} {% endwith %}
+{% extends "base.html" %}{% block title %} LSR - Test 3{% endblock %} {% block content %}
+<form id="quiz" method="POST">
+	<div class="quizBox">
+		<h2>Test 3</h2>
 
-				<ul>
-					<li><a class="navButton" href="{{ url_for('routes.home')}}">Home</a></li>
-					<li><a class="navButton active" href="{{ url_for('routes.learn')}}">Learn</a></li>
-					<li><a class="navButton" href="#">Stats</a></li>
-					{% if user.is_authenticated %}
-					<li><a class="navButton" href="{{ url_for('auth.logout')}}">Logout</a></li>
-					{% else %}
-					<li><a class="navButton login" href="{{ url_for('auth.login')}}">Login</a></li>
-					{% endif %}
-				</ul>
-			</nav>
-			<div class="menu-toggle">
-				<i class="fa fa-bars" aria-hidden="true"></i>
-			</div>
-		</header>
-		<form id="quiz" method="POST">
-			<div class="quizBox">
-				<h2>Test 3</h2>
+		<h3>Question 1</h3>
+		<p>
+			For v=0.866c, what is the value of the Lorentz factor as an integer?
+			<br />
+		</p>
+		<input class="textAns" id="1" type="text" name="question1" />
 
-				<h3>Question 1</h3>
-				<p>
-					For v=0.866c, what is the value of the Lorentz factor as an integer?
-					<br />
-				</p>
-				<input class="textAns" id="1" type="text" name="question1" />
+		<h3>Question 2</h3>
+		<p>
+			The duration of the journey from Earth to the planet is the time interval between two events: the
+			spaceship leaving Earth and the spaceship arriving on the other planet. Which observer witnesses these
+			two events at the same point in space within their reference frame?
+			<br />
+		</p>
+		<input id="2A" type="radio" name="question2" value="A" />
+		<label for="2A"><span class="quizLetter">A</span> Twin in the spaceship</label>
 
-				<h3>Question 2</h3>
-				<p>
-					The duration of the journey from Earth to the planet is the time interval between two events: the
-					spaceship leaving Earth and the spaceship arriving on the other planet. Which observer witnesses
-					these two events at the same point in space within their reference frame?
-					<br />
-				</p>
-				<input id="2A" type="radio" name="question2" value="A" />
-				<label for="2A"><span class="quizLetter">A</span> Twin in the spaceship</label>
+		<input id="2B" type="radio" name="question2" value="B" />
+		<label for="2B"><span class="quizLetter">B</span> Twin on Earth</label>
 
-				<input id="2B" type="radio" name="question2" value="B" />
-				<label for="2B"><span class="quizLetter">B</span> Twin on Earth</label>
+		<h3>Question 3</h3>
+		<p>
+			During the journey from the planet back to Earth, which twin observes proper time?
+			<br />
+		</p>
+		<input id="3A" type="radio" name="question3" value="A" />
+		<label for="3A"><span class="quizLetter">A</span> Twin in the spaceship</label>
 
-				<h3>Question 3</h3>
-				<p>
-					During the journey from the planet back to Earth, which twin observes proper time?
-					<br />
-				</p>
-				<input id="3A" type="radio" name="question3" value="A" />
-				<label for="3A"><span class="quizLetter">A</span> Twin in the spaceship</label>
+		<input id="3B" type="radio" name="question3" value="B" />
+		<label for="3B"><span class="quizLetter">B</span> Twin on Earth</label>
 
-				<input id="3B" type="radio" name="question3" value="B" />
-				<label for="3B"><span class="quizLetter">B</span> Twin on Earth</label>
+		<h3>Question 4</h3>
+		<p>
+			If the journey from Earth to the planet takes 10 years for the twin inside the spaceship, how many years
+			will it take for the twin on Earth?
+			<br />
+		</p>
+		<input class="textAns" id="4" type="text" name="question4" />
 
-				<h3>Question 4</h3>
-				<p>
-					If the journey from Earth to the planet takes 10 years for the twin inside the spaceship, how many
-					years will it take for the twin on Earth?
-					<br />
-				</p>
-				<input class="textAns" id="4" type="text" name="question4" />
-
-				<h3>Question 5</h3>
-				<p>
-					When reunited, how much older will the twin on Earth be compared to the twin who travelled through
-					space?
-				</p>
-				<input class="textAns" id="5" type="text" name="question5" />
-				<input class="submit" id="submit" type="submit" value="Submit" />
-			</div>
-		</form>
-		<div class="rocket rocket1">
-			<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
-		</div>
-	</body>
-</html>
+		<h3>Question 5</h3>
+		<p>
+			When reunited, how much older will the twin on Earth be compared to the twin who travelled through
+			space?
+		</p>
+		<input class="textAns" id="5" type="text" name="question5" />
+		<input class="submit" id="submit" type="submit" value="Submit" />
+	</div>
+</form>
+<div class="rocket rocket1">
+	<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
+</div>
+<div class="pageArrow pageArrowDown" style="left: 28%">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="pageArrow pageArrowDown" style="right: 28%">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+{% endblock %}
