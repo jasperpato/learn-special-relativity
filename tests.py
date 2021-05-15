@@ -56,7 +56,7 @@ class UsersTest(unittest.TestCase):
         t2 = TestAttempt(testId = 2, student = u1)
         t3 = TestAttempt(testId = 3, student = u1)
 
-        test1u2 = TestAttempt(testId = 1, score = 100,student = u2)
+        test1u2 = TestAttempt(student = u2)
         test2u2 = TestAttempt(testId = 2, score = 100,student = u2)
         test3u2 = TestAttempt(testId = 3, score = 100,student = u2)
 
@@ -69,9 +69,9 @@ class UsersTest(unittest.TestCase):
         db.session.add(test2u2)
         db.session.add(test3u2)
         db.session.commit()
-        t1.addTestScore(10)
-        t2.addTestScore(55)
-        t1_1.addTestScore(100)
+        t1.addTestScore(1,10)
+        t2.addTestScore(2, 55)
+        t1_1.addTestScore(1,100)
         test = u1.testAttempts.all()
         for i in test:
             print(i)
