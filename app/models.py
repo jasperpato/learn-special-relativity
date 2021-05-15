@@ -40,8 +40,9 @@ class TestAttempt(db.Model):
     def __repr__(self):
         return '<Test {}; Score {}>'.format(self.testId, self.score)
     
-    def addTestScore(self, score):
-        if score >= 0 and score <= 100:
+    def addTestScore(self, testNum, score):
+        if testNum in (1,2,3) and score >= 0 and score <= 100:
+            self.testId = testNum
             self.score = score
             
     def checkCorrectScore(self,inputScore):
