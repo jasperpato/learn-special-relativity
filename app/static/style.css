@@ -1,5 +1,5 @@
 :root {
-	--background: url("backgrounds/BackgroundBlue.jpg");
+	--background: url('backgrounds/BackgroundBlue.jpg');
 	--colour1: #00eeff;
 	--colour2: #1da9eb;
 	--colour3: #5b7e8e;
@@ -28,7 +28,7 @@ a {
 #title {
 	margin-top: 10%;
 	margin-bottom: 10%;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	text-shadow: var(--colour1) 1px 0 10px;
 	font-size: 500%;
 	font-weight: bold;
@@ -40,16 +40,18 @@ a {
 }
 
 .about {
-	background: rgba(0, 0, 0, 0.55);
+	background: rgba(0, 0, 0, 0.5);
 	margin: auto;
-	padding: 45px;
+	margin-top: 200px;
+	padding: 50px;
+	text-align: justify;
 	max-width: 1000px;
 	border-top: 5px solid var(--colour1);
 	z-index: 6;
 }
 
 .alert {
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	position: relative;
 	display: flex;
 	float: top;
@@ -88,7 +90,7 @@ header {
 
 header .logo {
 	color: #fff;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	height: 40px;
 	line-height: 50px;
 	font-size: 30px;
@@ -207,7 +209,7 @@ header nav ul li a.active {
 	}
 }
 #progressbar::before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -217,7 +219,7 @@ header nav ul li a.active {
 	filter: blur(10px);
 }
 #progressbar::after {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -287,7 +289,7 @@ header nav ul li a.active {
 	color: #23dbd2;
 	font-size: 12px;
 }
-.loginBox input[type="submit"] {
+.loginBox input[type='submit'] {
 	background: transparent;
 	border: none;
 	outline: none;
@@ -345,7 +347,7 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard .learnBox .learnContent {
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	padding: 20px;
 	text-align: center;
 }
@@ -366,7 +368,7 @@ header nav ul li a.active {
 }
 
 .learnContainer .learnCard .learnBox .learnContent p {
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	font-size: 16px;
 	font-weight: 300;
 	color: white;
@@ -443,7 +445,7 @@ header nav ul li a.active {
 
 .progressContainer .progressCard h4 {
 	margin-top: 20px;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	text-shadow: var(--colour1) 1px 0 10px;
 	position: relative;
 	z-index: 100;
@@ -459,7 +461,7 @@ header nav ul li a.active {
 
 .progressPercent .progressNumber {
 	position: absolute;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	top: 0;
 	left: 0;
 	width: 100%;
@@ -486,7 +488,7 @@ header nav ul li a.active {
 	transform: translateX(-50%);
 	text-align: center;
 	padding: 30px 20px 10px;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	background: var(--colour1);
 	border-radius: 10px;
 	font-weight: 800;
@@ -662,7 +664,7 @@ svg circle:nth-child(2) {
 }
 
 .rocket::before {
-	content: "";
+	content: '';
 	position: absolute;
 	bottom: -80px;
 	left: 50%;
@@ -675,7 +677,7 @@ svg circle:nth-child(2) {
 /*Stats*/
 /*----------------------------------------------------------------------------------------------------------*/
 .chooseTestTable {
-	font-family: "orbitron";
+	font-family: 'orbitron';
 	margin: auto;
 	margin-top: 100px;
 	margin-bottom: 50px;
@@ -698,6 +700,46 @@ svg circle:nth-child(2) {
 
 .chooseTestTable td:last-of-type {
 	border: none;
+}
+
+/*Colour buttons*/
+/*----------------------------------------------------------------------------------------------------------*/
+.colourButton {
+	color: white;
+	width: 125px;
+	font-family: 'orbitron';
+	margin: auto;
+	background: var(--colour3);
+	text-align: center;
+	top: 50%;
+}
+
+.colourButtons {
+	/*position: relative;
+	display: flex;*/
+	width: 50%;
+	height: 100px;
+	justify-content: center;
+	/*align-items: center;*/
+	text-align: center;
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgba(0, 0, 0, 0.5);
+	border: var(--colour1) 4px solid;
+}
+
+.changeColour {
+	display: block;
+	margin: 4px;
+	align-items: center;
+	font-family: 'Orbitron';
+	text-align: center;
+}
+
+.lock {
+	width: 10px;
+	margin: auto;
 }
 
 /*Lesson Boxes*/
@@ -723,7 +765,7 @@ svg circle:nth-child(2) {
 
 .lessonBox h2 {
 	font-size: 40px;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	margin: 0 0 10px;
 	padding: 0;
 	color: #fff;
@@ -799,7 +841,7 @@ svg circle:nth-child(2) {
 }
 
 .pageButton:before {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -821,7 +863,7 @@ svg circle:nth-child(2) {
 }
 
 .pageButton:after {
-	content: "";
+	content: '';
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -848,7 +890,7 @@ svg circle:nth-child(2) {
 }
 
 .takeTest h3 {
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	text-align: center;
 }
 
@@ -951,7 +993,7 @@ svg circle:nth-child(2) {
 	cursor: pointer;
 	color: var(--colour2);
 	position: absolute;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	text-shadow: var(--colour2) 1px 0 10px;
 	bottom: 72%;
 	left: 85%;
@@ -961,7 +1003,7 @@ svg circle:nth-child(2) {
 	cursor: pointer;
 	color: var(--colour2);
 	position: absolute;
-	font-family: "Orbitron";
+	font-family: 'Orbitron';
 	text-shadow: var(--colour2) 1px 0 10px;
 	bottom: 72%;
 	right: 85%;
@@ -1062,13 +1104,13 @@ svg circle:nth-child(2) {
 }
 
 .quizBox h2 {
-	font-family: "orbitron";
+	font-family: 'orbitron';
 	text-align: center;
 }
 
 .quizBox h3 {
 	margin-top: 30px;
-	font-family: "orbitron";
+	font-family: 'orbitron';
 	color: var(--colour2);
 	font-size: medium;
 }
@@ -1088,41 +1130,8 @@ svg circle:nth-child(2) {
 	display: block;
 	margin-top: 30px;
 	background: linear-gradient(90deg, var(--colour1), var(--colour2));
-	font-family: "orbitron";
+	font-family: 'orbitron';
 	font-size: medium;
 	color: white;
 	border: none;
-}
-
-/*Colour buttons*/
-/*----------------------------------------------------------------------------------------------------------*/
-.colourButton {
-	font-family: "orbitron";
-	margin: auto;
-	background: var(--colour3);
-	text-align: center;
-	top: 50%;
-}
-
-.colourButtons {
-	position: relative;
-	display: flex;
-	width: 50%;
-	height: 100px;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	margin: 20px;
-	margin-left: auto;
-	margin-right: auto;
-	background: rgba(0, 0, 0, 0.5);
-	border: var(--colour1) 4px solid;
-}
-
-.changeColour {
-	display: block;
-	margin: 4px;
-	align-items: center;
-	font-family: "Orbitron";
-	text-align: center;
 }
