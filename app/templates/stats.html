@@ -1,0 +1,72 @@
+{% extends "base.html" %}{% block title %}LSR - Lesson 2{% endblock %} {% block content %}
+
+<div class="progressContainer">
+	<div class="progressCard">
+		<h4>Your Top Score</h4>
+		<div class="progressBox">
+			<div>
+				<div class="progressPercent">
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle
+							cx="70"
+							cy="70"
+							r="70"
+							style="stroke-dashoffset: calc(440px - (440px * {{ bestAttempt1 }}) / 100)"
+						></circle>
+					</svg>
+					<div class="progressNumber">
+						<h2>{{ bestAttempt1 }}<span>%</span></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="progressText">Test 1</div>
+	</div>
+	<div class="progressCard">
+		<h4>Your Top Score</h4>
+		<div class="progressBox">
+			<div>
+				<div class="progressPercent">
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle
+							cx="70"
+							cy="70"
+							r="70"
+							style="stroke-dashoffset: calc(440px - (440px * {{ bestAttempt2 }}) / 100)"
+						></circle>
+					</svg>
+					<div class="progressNumber">
+						<h2>{{ bestAttempt2 }}<span>%</span></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="progressText">Test 2</div>
+	</div>
+	<div class="progressCard">
+		<h4>Your Top Score</h4>
+		<div class="progressBox">
+			<div>
+				<div class="progressPercent">
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle
+							cx="70"
+							cy="70"
+							r="70"
+							style="stroke-dashoffset: calc(440px - (440px * {{ bestAttempt3 }}) / 100)"
+						></circle>
+					</svg>
+					<div class="progressNumber">
+						<h2>{{ bestAttempt3 }}<span>%</span></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="progressText">Test 3</div>
+	</div>
+</div>
+
+{endblock}
