@@ -230,23 +230,15 @@ class SystemTest(unittest.TestCase):
         self.driver.get('http://127.0.0.1:5000/stats')
         blue_theme = self.driver.find_element_by_id("Blue")
         blue_theme.click()
-        submit_colour1 = self.driver.find_element_by_id("submit")
-        submit_colour1.click()
 
         green_theme = self.driver.find_element_by_id("Green")
         green_theme.click()
-        submit_colour2 = self.driver.find_element_by_id("submit")
-        submit_colour2.click()
 
         Red_theme = self.driver.find_element_by_id("Red")
-        Red_theme.click()
-        submit_colour3 = self.driver.find_element_by_id("submit")
-        submit_colour3.click()
+        Red_theme.click()       
 
         Purple_theme = self.driver.find_element_by_id("Purple")
         Purple_theme.click()
-        submit_colour4 = self.driver.find_element_by_id("submit")
-        submit_colour4.click()
         
 
     
