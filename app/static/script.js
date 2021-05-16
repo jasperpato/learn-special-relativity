@@ -280,11 +280,27 @@ function hoverBoxes(num) {
 function setTheme(theme) {
 	if (theme == "Green") {
 		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundGreen.jpg')");
+		document.documentElement.style.setProperty("--colour1", "#20df27");
+		document.documentElement.style.setProperty("--colour2", "#05ab48");
+		document.documentElement.style.setProperty("--colour3", "#7ca57e");
+		document.documentElement.style.setProperty("--boxShadow", "rgba(9, 241, 28, 0.75)");
 	} else if (theme == "Red") {
 		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundRed.jpg')");
+		document.documentElement.style.setProperty("--colour1", "#da1818");
+		document.documentElement.style.setProperty("--colour2", "#bd1010");
+		document.documentElement.style.setProperty("--colour3", "#a26363");
+		document.documentElement.style.setProperty("--boxShadow", "rgba(241, 32, 9, 0.75)");
 	} else if (theme == "Blue") {
 		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundBlue.jpg')");
+		document.documentElement.style.setProperty("--colour1", "#00eeff");
+		document.documentElement.style.setProperty("--colour2", "#1da9eb");
+		document.documentElement.style.setProperty("--colour3", "#5b7e8e");
+		document.documentElement.style.setProperty("--boxShadow", "rgba(9, 241, 203, 0.75)");
 	} else if (theme == "Purple") {
 		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundPurple.jpg')");
+		document.documentElement.style.setProperty("--colour1", "#9918da");
+		document.documentElement.style.setProperty("--colour2", "#6a0496");
+		document.documentElement.style.setProperty("--colour3", "#926e9a");
+		document.documentElement.style.setProperty("--boxShadow", "rgba(144, 9, 241, 0.75)");
 	}
 }

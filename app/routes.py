@@ -7,22 +7,13 @@ from .models import TestAttempt, User
 
 routes = Blueprint('routes', __name__)
 
-@routes.route('/', methods=['GET', 'POST'])
+@routes.route('/')
 def home():
     if current_user.is_authenticated:
         user = User.query.filter_by(id = current_user.id).first()
         theme = user.selected_theme()
     else:
         theme = "Blue"
-
-    if request.method == 'POST':
-        if current_user.is_authenticated:
-            user = User.query.filter_by(id = current_user.id).first()
-            user.set_theme(request.form.get("colour"))
-            theme = user.selected_theme()
-            db.session.commit()
-        else:
-            return redirect(url_for('auth.login'))
 
     return render_template('home.html', user=current_user, theme=theme)
 
@@ -34,15 +25,17 @@ def learn():
     bestAttempt2 = user.best_attempt(2)
     bestAttempt3 = user.best_attempt(3)
     theme = user.selected_theme()
+
     return render_template('learn.html', user=current_user, bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3, theme=theme)
 
-@routes.route('/stats')
+@routes.route('/stats', methods=['GET', 'POST'])
 def stats():
     if current_user.is_authenticated:
         user = User.query.filter_by(id = current_user.id).first()
         theme = user.selected_theme()
     else:
         theme = "Blue"
+
     testData = {}
     tests = TestAttempt.query.all()
     top = [0,0,0]
@@ -64,11 +57,20 @@ def stats():
     testData['bestAttempt1'] = '0'
     testData['bestAttempt2'] = '0'
     testData['bestAttempt3'] = '0'
+
     if current_user.is_authenticated:
-        user = User.query.filter_by(id = current_user.id).first()
         testData['bestAttempt1'] = str(user.best_attempt(1))
         testData['bestAttempt2'] = str(user.best_attempt(2))
         testData['bestAttempt3'] = str(user.best_attempt(3))
+    
+    if request.method == 'POST':
+        if current_user.is_authenticated:
+            user.set_theme(request.form.get("colour"))
+            theme = user.selected_theme()
+            db.session.commit()
+        else:
+            return redirect(url_for('auth.login'))
+
     return render_template('stats.html', user=current_user, testData = testData, theme=theme )
 
 @routes.route('/learn/lesson-1')
