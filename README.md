@@ -2,6 +2,8 @@
 
 ## Design 
 
+### Design Philosophy
+
 ### Front-end
 The space-theme asthetic is handled using CSS, inside the style.css file. CSS handles all the futuristic page transitions and the layout of the page. While HTML pages contain information about what should be displayed. The *home*, *learn*, *stats*, *login*, *tests* and *sign-up* pages are linked HTML sheets while inside *stats* pagination is used. Javascript functions are used to validate forms instead of the server, as well as to handle the animations and navigation bar. All Javascript functions are placed inside the script.js file.  
 ### Back-end
@@ -9,7 +11,7 @@ The website is run using a flask server. Flask is a micro framework for the back
 
 
 ## Intent 
-The intent of the LSR website is to teach the public what the special theory of relativity is. People are often confused about what relativity is and use the words 'special relativity' without knowing there scientific meaning. Special relativity is sometimes counterintuitive but with real world examples it is easy to understand. The website uses visuals, examples and quizzes to make learning hands on and memorable.
+The intent of the LSR website is to teach the public what the special theory of relativity is. People are often confused about what relativity is and use the words 'special relativity' without knowing there scientific meaning. Special relativity is sometimes counterintuitive but with real world examples it is easy to understand. People often find physics boring and hard to comprehend. To address this our website uses visuals, examples and quizzes to make learning engaging and memorable.
 
 ## Development 
 Make a virtual environment:
