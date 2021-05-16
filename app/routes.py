@@ -22,7 +22,28 @@ def learn():
 
 @routes.route('/stats')
 def stats():
-    return render_template('stats.html', user=current_user)
+    tests = TestAttempt.query.all()
+    top = [0,0,0]
+    sum = [0,0,0]
+    total = [0,0,0]
+    for t in tests:
+        id = t.testId - 1
+        if t.score > top[id]:
+            top[id] = t.score
+        sum[id] += t.score
+        total[id] += 1
+    bestAttempt1 = 0
+    bestAttempt2 = 0
+    bestAttempt3 = 0
+    if current_user.is_authenticated:
+        user = User.query.filter_by(id = current_user.id).first()
+        bestAttempt1 = user.best_attempt(1)
+        bestAttempt2 = user.best_attempt(2)
+        bestAttempt3 = user.best_attempt(3)
+    return render_template('stats.html', user=current_user, topScore1 = top[0], avScore1 = int(float(sum[0]) / total[0]),\
+                                                            topScore2 = top[1], avScore2 = int(float(sum[1]) / total[1]),\
+                                                            topScore3 = top[2], avScore3 = int(float(sum[2]) / total[2]),\
+                                                            bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3)
 
 @routes.route('/learn/lesson-1')
 @login_required
