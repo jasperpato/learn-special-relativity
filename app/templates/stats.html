@@ -62,52 +62,51 @@
 		</div>
 		<div class="progressText">Test 1</div>
 	</div>
-
+	{% endif %}
 	<h3 class="changeColour col-md-12">
 		{% if testData.bestAttempt1=='100' and testData.bestAttempt2=='100' and testData.bestAttempt3=='100' %}
-			Well Done! You have unlocked all colour themes!
-		{% else %}
-			Score 100% in the tests to unlock more colour themes!
-		{% endif %}
+		Well Done! You have unlocked all colour themes! {% else %} Score 100% in the tests to unlock more colour
+		themes! {% endif %}
 	</h3>
 
-	<table class="colourButtons"> <tr>
-	<td>
-		<form class="blueButton" action="" method="POST">
-			<button class="colourButton" name="colour" value="Blue" id="Blue">Blue</button>
-		</form>
-	</td>
-	<td>
-	{% if testData.bestAttempt1 == '100' %}
-		<form class="greenButton" action="" method="POST">
-			<button class="colourButton" name="colour" value="Green" id="Green">Green</button>
-		</form>
-	{% else %}
-	<i class="fa fa-lock lock"></i>
-	{% endif %}
-</td>
+	<table class="colourButtons">
+		<tr>
+			<td>
+				<form class="blueButton" action="" method="POST">
+					<button class="colourButton" name="colour" value="Blue" id="Blue">Blue</button>
+				</form>
+			</td>
+			<td>
+				{% if testData.bestAttempt1 == '100' %}
+				<form class="greenButton" action="" method="POST">
+					<button class="colourButton" name="colour" value="Green" id="Green">Green</button>
+				</form>
+				{% else %}
+				<i class="fa fa-lock lock"></i>
+				{% endif %}
+			</td>
 
-	<td>
-		{% if testData.bestAttempt2 == '100' %}
-		<form class="purpleButton" action="" method="POST">
-		<button class="colourButton" name="colour" value="Purple" id="Purple">Purple</button>
-	</form>
-	{% else %}
-	<i class="fa fa-lock lock"></i>
-	{% endif %}
-	</td>
-	
-	<td>
-		{% if testData.bestAttempt3 == '100' %}
-		<form class="redButton" action="" method="POST">
-		<button class="colourButton" name="colour" value="Red" id="Red">Red</button>
-	</form>
-	{% else %}
-		<i class="fa fa-lock lock"></i>
-	{% endif %}
-	</td>
-	</tr> </table>
+			<td>
+				{% if testData.bestAttempt2 == '100' %}
+				<form class="purpleButton" action="" method="POST">
+					<button class="colourButton" name="colour" value="Purple" id="Purple">Purple</button>
+				</form>
+				{% else %}
+				<i class="fa fa-lock lock"></i>
+				{% endif %}
+			</td>
+
+			<td>
+				{% if testData.bestAttempt3 == '100' %}
+				<form class="redButton" action="" method="POST">
+					<button class="colourButton" name="colour" value="Red" id="Red">Red</button>
+				</form>
+				{% else %}
+				<i class="fa fa-lock lock"></i>
+				{% endif %}
+			</td>
+		</tr>
+	</table>
 </div>
-	{% endif %}
-</div>
+
 {% endblock %}
