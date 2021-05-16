@@ -17,7 +17,7 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
 	</head>
-	<body onload="init();">
+	<body onload="init('{{theme}}');">
 		<div id="progressbar"></div>
 		<div id="scrollPath"></div>
 		<header>
@@ -36,26 +36,15 @@
 					{% endif %}
 				</ul>
 			</nav>
-			{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
-			message in messages %} {% if category == "error" %}
-			<div class="alert alert-danger alert-dismissable fade show" role="alert">
-				{{ message }}
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			{% else %}
-			<div class="alert alert-success alert-dismissable fade show" role="alert">
-				{{ message }}
-				<button type="button" class="close" data-dismiss="alert">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			{% endif %} {% endfor %} {% endif %} {% endwith %}
 			<div class="menu-toggle">
 				<i class="fa fa-bars" aria-hidden="true"></i>
 			</div>
 		</header>
-		{% block content %} {% endblock %}
+		{% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category,
+		message in messages %} {% if category == "error" %}
+		<div class="alert alert-danger fade show" role="alert">{{ message }}</div>
+		{% else %}
+		<div class="alert alert-success fade show" role="alert">{{ message }}</div>
+		{% endif %} {% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock %}
 	</body>
 </html>

@@ -1,9 +1,17 @@
+:root {
+	--background: url("backgrounds/BackgroundBlue.jpg");
+	--colour1: #00fff1;
+	--colourGradient: linear-gradient(90deg, #1da9eb, #0fe0be);
+	--boxShadow1: rgba(9, 241, 203, 0.6);
+	--boxShadow2: rgba(9, 241, 203, 0.9);
+}
+
 body {
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
 	color: #fff;
-	background-image: url("backgrounds/BackgroundBlue.jpg");
+	background-image: var(--background);
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
@@ -14,7 +22,7 @@ body {
 }
 
 a {
-	color: #0fe0be;
+	color: #24bacb;
 }
 
 #title {
@@ -32,12 +40,34 @@ a {
 }
 
 .about {
-	background: black;
+	background: rgba(0, 0, 0, 0.6);
 	margin: auto;
 	margin-top: 200px;
 	max-width: 1000px;
-	padding: 50px;
 	border-top: 5px solid #00fff1;
+}
+
+.alert {
+	font-family: "Orbitron";
+	position: relative;
+	display: flex;
+	float: top;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 5;
+	opacity: 0.9;
+	width: 30%;
+}
+
+.alert-success {
+	background: linear-gradient(90deg, #1da9eb, #0fe0be);
+}
+
+.alert-danger {
+	background: linear-gradient(#f34814, #f3d214);
 }
 
 /*Navigation Bar*/

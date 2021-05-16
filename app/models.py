@@ -9,6 +9,7 @@ class User(db.Model, UserMixin):
     username = db.Column(db.String(64), index=True, unique=True)
     password_hash = db.Column(db.String(128))
     testAttempts = db.relationship('TestAttempt', backref = "student", lazy = "dynamic")
+    theme = db.Column(db.String(64))
     
     def __repr__(self):
         return '<User {}>'.format(self.username)
@@ -26,6 +27,12 @@ class User(db.Model, UserMixin):
             if attempt.score > max:
                 max = attempt.score
         return max
+
+    def selected_theme(self):
+        return self.theme
+
+    def set_theme(self, theme):
+        self.theme = theme
     
 class TestAttempt(db.Model):
     id = db.Column(db.Integer, primary_key=True)

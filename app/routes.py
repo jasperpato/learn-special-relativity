@@ -7,9 +7,24 @@ from .models import TestAttempt, User
 
 routes = Blueprint('routes', __name__)
 
-@routes.route('/')
+@routes.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('home.html', user=current_user)
+    if current_user.is_authenticated:
+        user = User.query.filter_by(id = current_user.id).first()
+        theme = user.selected_theme()
+    else:
+        theme = "Blue"
+
+    if request.method == 'POST':
+        if current_user.is_authenticated:
+            user = User.query.filter_by(id = current_user.id).first()
+            user.set_theme(request.form.get("colour"))
+            theme = user.selected_theme()
+            db.session.commit()
+        else:
+            return redirect(url_for('auth.login'))
+
+    return render_template('home.html', user=current_user, theme=theme)
 
 @routes.route('/learn')
 @login_required
@@ -18,26 +33,35 @@ def learn():
     bestAttempt1 = user.best_attempt(1)
     bestAttempt2 = user.best_attempt(2)
     bestAttempt3 = user.best_attempt(3)
-    return render_template('learn.html', user=current_user, bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3)
+    theme = user.selected_theme()
+    return render_template('learn.html', user=current_user, bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3, theme=theme)
 
 @routes.route('/learn/lesson-1')
 @login_required
 def lesson1():
-    return render_template('lesson-1.html', user=current_user)
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    return render_template('lesson-1.html', user=current_user, theme=theme)
 
 @routes.route('/learn/lesson-2')
 @login_required
 def lesson2():
-    return render_template('lesson-2.html', user=current_user)
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    return render_template('lesson-2.html', user=current_user, theme=theme)
 
 @routes.route('/learn/lesson-3')
 @login_required
 def lesson3():
-    return render_template('lesson-3.html', user=current_user)
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    return render_template('lesson-3.html', user=current_user, theme=theme)
 
 @routes.route('/learn/test-1', methods=['GET', 'POST'])
 @login_required
 def test1():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
     if request.method == 'POST':
 
         correct_answers = ["B", "A", "B", "B", "4"]
@@ -55,11 +79,13 @@ def test1():
 
         return redirect(url_for('routes.learn'))
     
-    return render_template('test-1.html', user=current_user)
+    return render_template('test-1.html', user=current_user, theme=theme)
 
 @routes.route('/learn/test-2', methods=['GET', 'POST'])
 @login_required
 def test2():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
     if request.method == 'POST':
 
         correct_answers = ["A", "A", "B", "A", "A"]
@@ -76,11 +102,13 @@ def test2():
         flash(score)
 
         return redirect(url_for('routes.learn'))
-    return render_template('test-2.html', user=current_user)
+    return render_template('test-2.html', user=current_user, theme=theme)
 
 @routes.route('/learn/test-3', methods=['GET', 'POST'])
 @login_required
 def test3():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
     if request.method == 'POST':
 
         correct_answers = ['2', "A", "A", '20', '20']
@@ -97,4 +125,4 @@ def test3():
         flash(score)
 
         return redirect(url_for('routes.learn'))
-    return render_template('test-3.html', user=current_user)
+    return render_template('test-3.html', user=current_user, theme=theme)

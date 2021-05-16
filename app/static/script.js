@@ -1,8 +1,9 @@
-function init() {
+function init(theme) {
 	scroll();
 	dropMenu();
 	titleMove();
 	activateNavBar();
+	setTheme(theme);
 
 	let hr = window.location.href;
 	let title = document.getElementById("title").innerHTML;
@@ -47,6 +48,12 @@ function init() {
 		if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
 			$(".pageArrowDown").hide();
 		} else $(".pageArrowDown").show();
+	});
+
+	$(document).ready(function () {
+		setTimeout(function () {
+			$(".alert").fadeOut("slow");
+		}, 1600);
 	});
 }
 
@@ -217,5 +224,17 @@ function hoverBoxes(num) {
 		$("#lorentzLabel").mouseleave(function () {
 			$("#lorentz").toggle();
 		});
+	}
+}
+
+function setTheme(theme) {
+	if (theme == "Green") {
+		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundGreen.jpg')");
+	} else if (theme == "Red") {
+		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundRed.jpg')");
+	} else if (theme == "Blue") {
+		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundBlue.jpg')");
+	} else if (theme == "Purple") {
+		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundPurple.jpg')");
 	}
 }
