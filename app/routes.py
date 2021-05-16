@@ -118,6 +118,13 @@ def test1():
     
     return render_template('test-1.html', user=current_user, theme=theme)
 
+@routes.route('/learn/results-1')
+@login_required
+def results1():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    return render_template('results-1.html', user=current_user, theme=theme)
+
 @routes.route('/learn/test-2', methods=['GET', 'POST'])
 @login_required
 def test2():

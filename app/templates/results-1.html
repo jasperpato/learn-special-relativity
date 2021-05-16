@@ -1,0 +1,74 @@
+{% extends "base.html" %}{% block title %} LSR - Test 1{% endblock %} {% block content %}
+<form id="quiz">
+	<div class="quizBox">
+		<h2>Test 1 Results</h2>
+
+		<h3>Question 1</h3>
+		<p>
+			A spaceship is travelling towards a star at 100,000m/s. In the reference frame inside the spaceship, the
+			speed of the light rays from the star to the spaceship would be closest to…
+			<br />
+		</p>
+		<input id="1A" type="radio" name="question1" value="A" disabled />
+		<label for="1A"><span class="quizLetter" disabled>A</span> 299,892,458 m/s</label>
+
+		<input id="1B" type="radio" name="question1" value="B" disabled />
+		<label for="1B" disabled><span class="quizLetter">B</span> 299,792,458 m/s</label>
+		<br />
+		<input id="1C" type="radio" name="question1" value="C" disabled />
+		<label for="1C" disabled><span class="quizLetter">C</span> 299,692,458 m/s</label>
+
+		<input id="1D" type="radio" name="question1" value="D" disabled />
+		<label for="1D" disabled><span class="quizLetter">D</span> 299,992,458 m/s</label>
+
+		<h3>Question 2</h3>
+		<p>
+			A person running away from a light bulb and a person running towards a light bulb would measure the
+			speed of the emitted light to be…
+			<br />
+		</p>
+		<input id="2A" type="radio" name="question2" value="A" disabled />
+		<label for="2A" disabled><span class="quizLetter">A</span> The same</label>
+
+		<input id="2B" type="radio" name="question2" value="B" disabled />
+		<label for="2B" disabled><span class="quizLetter">B</span> Different</label>
+
+		<h3>Question 3</h3>
+		<p>
+			True or False? A person accelerating in their car can use the theory of special relativity to measure
+			space-time.
+			<br />
+		</p>
+		<input id="3A" type="radio" name="question3" value="A" disabled />
+		<label for="3A" disabled><span class="quizLetter">True</span></label>
+
+		<input id="3B" type="radio" name="question3" value="B" disabled />
+		<label for="3B" disabled><span class="quizLetter">False</span></label>
+
+		<h3>Question 4</h3>
+		<p>
+			True or false? The speed of a spaceship is the same in all reference frames.
+			<br />
+		</p>
+		<input id="4A" type="radio" name="question4" value="A" disabled />
+		<label for="4A" disabled><span class="quizLetter">True</span></label>
+
+		<input id="4B" type="radio" name="question4" value="B" disabled />
+		<label for="4B" disabled><span class="quizLetter">False</span></label>
+
+		<h3>Question 5</h3>
+		<p>Space-time permeates how many dimensions?</p>
+		<input class="textAns" id="5" type="text" name="question5" disabled />
+	</div>
+</form>
+<div class="pageArrow pageArrowDown" style="left: 28%">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="pageArrow pageArrowDown" style="right: 28%">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+{% endblock %}
