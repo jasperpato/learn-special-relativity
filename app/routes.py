@@ -50,8 +50,12 @@ def stats():
         sum[id] += t.score
         total[id] += 1
     for i in range(3):
-        testData['topScore' + str(i+1)] = str(top[i])
-        testData['avScore' + str(i+1)] = str(int(float(sum[i])/total[i]))
+        if total[i] > 0:
+            testData['topScore' + str(i+1)] = str(top[i])
+            testData['avScore' + str(i+1)] = str(int(float(sum[i])/total[i]))
+        else:
+            testData['topScore' + str(i+1)] = '0'
+            testData['avScore' + str(i+1)] = '0'
     testData['bestAttempt1'] = '0'
     testData['bestAttempt2'] = '0'
     testData['bestAttempt3'] = '0'
