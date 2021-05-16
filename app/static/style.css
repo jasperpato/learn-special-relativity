@@ -645,6 +645,34 @@ svg circle:nth-child(2) {
 	background: linear-gradient(#f34814, #f3d214, transparent);
 }
 
+/*Stats*/
+/*----------------------------------------------------------------------------------------------------------*/
+.chooseTestTable {
+	font-family: "orbitron";
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 100px;
+	width: 400px;
+	background: cadetblue;
+	text-align: center;
+}
+
+.chooseTest {
+	cursor: pointer;
+}
+
+.chooseActive {
+	background: linear-gradient(90deg, #1da9eb, #0fe0be);
+}
+
+.chooseTestTable td {
+	border-right: 3px solid #000;
+}
+
+.chooseTestTable td:last-of-type {
+	border: none;
+}
+
 /*Lesson Boxes*/
 /*----------------------------------------------------------------------------------------------------------*/
 

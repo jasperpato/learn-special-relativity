@@ -20,6 +20,10 @@ def learn():
     bestAttempt3 = user.best_attempt(3)
     return render_template('learn.html', user=current_user, bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3)
 
+@routes.route('/stats')
+def stats():
+    return render_template('stats.html', user=current_user)
+
 @routes.route('/learn/lesson-1')
 @login_required
 def lesson1():

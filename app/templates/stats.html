@@ -1,8 +1,16 @@
 {% extends "base.html" %}{% block title %}LSR - Lesson 2{% endblock %} {% block content %}
 
+<table class="chooseTestTable">
+	<tr>
+		<td class="chooseTest chooseActive">Test 1</td>
+		<td class="chooseTest">Test 2</td>
+		<td class="chooseTest">Test 3</td>
+	</tr>
+</table>
+
 <div class="progressContainer">
 	<div class="progressCard">
-		<h4>Your Top Score</h4>
+		<h4>Top Score</h4>
 		<div class="progressBox">
 			<div>
 				<div class="progressPercent">
@@ -24,7 +32,7 @@
 		<div class="progressText">Test 1</div>
 	</div>
 	<div class="progressCard">
-		<h4>Your Top Score</h4>
+		<h4>Average Score</h4>
 		<div class="progressBox">
 			<div>
 				<div class="progressPercent">
@@ -43,8 +51,9 @@
 				</div>
 			</div>
 		</div>
-		<div class="progressText">Test 2</div>
+		<div class="progressText">Test 1</div>
 	</div>
+	{% if user.is_authenticated %}
 	<div class="progressCard">
 		<h4>Your Top Score</h4>
 		<div class="progressBox">
@@ -67,6 +76,7 @@
 		</div>
 		<div class="progressText">Test 3</div>
 	</div>
+	{% endif %}
 </div>
 
-{endblock}
+{% endblock %}

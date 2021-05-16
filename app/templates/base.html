@@ -28,7 +28,7 @@
 				<ul>
 					<li><a class="navButton navHome" href="{{ url_for('routes.home')}}">Home</a></li>
 					<li><a class="navButton navLearn" href="{{ url_for('routes.learn')}}">Learn</a></li>
-					<li><a class="navButton navStats" href="#">Stats</a></li>
+					<li><a class="navButton navStats" href="{{ url_for('routes.stats')}}">Stats</a></li>
 					{% if user.is_authenticated %}
 					<li><a class="navButton navLogout" href="{{ url_for('auth.logout')}}">Logout</a></li>
 					{% else %}
