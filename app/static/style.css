@@ -64,7 +64,7 @@ a {
 	text-align: center;
 	margin-left: auto;
 	margin-right: auto;
-	z-index: 5;
+	z-index: 5000;
 	opacity: 0.9;
 	width: 30%;
 }
