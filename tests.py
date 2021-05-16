@@ -142,6 +142,84 @@ class UsersTest(unittest.TestCase):
         self.assertEqual(uba.best_attempt(2), 22)
         self.assertEqual(uba.best_attempt(3), 71)
     
+    def test_select_theme(self):
+        setThemeUser = User(username = 'themeTest')
+        setThemeUser.set_password('coolThemesdotcom')
+        db.session.add(setThemeUser)
+        db.session.commit()
+
+        setThemeUser.set_theme("Blue")
+        self.assertEqual(setThemeUser.theme,"Blue")
+        self.assertNotEqual(setThemeUser.theme,"Red")
+        self.assertNotEqual(setThemeUser.theme,"Green")
+        self.assertNotEqual(setThemeUser.theme,"Purple")
+
+        setThemeUser.set_theme("Green")
+        self.assertEqual(setThemeUser.theme,"Green")
+        self.assertNotEqual(setThemeUser.theme,"Blue")
+        self.assertNotEqual(setThemeUser.theme,"Purple")
+        self.assertNotEqual(setThemeUser.theme,"Red")
+
+        setThemeUser.set_theme("Red")
+        self.assertEqual(setThemeUser.theme,"Red")
+        self.assertNotEqual(setThemeUser.theme,"Purple")
+        self.assertNotEqual(setThemeUser.theme,"Green")
+        self.assertNotEqual(setThemeUser.theme,"Blue")
+
+
+        setThemeUser.set_theme("Purple")
+        self.assertEqual(setThemeUser.theme,"Purple")
+        self.assertNotEqual(setThemeUser.theme,"Green")
+        self.assertNotEqual(setThemeUser.theme,"Blue")
+        self.assertNotEqual(setThemeUser.theme,"Red")
+
+
+        
+
+
+
+    def test_selected_theme(self):
+        themeUser = User(username = 'themeTest')
+        themeUser.set_password('coolThemesdotcom')
+        db.session.add(themeUser)
+        db.session.commit()
+        themeUser.set_theme("Blue")
+        self.assertEqual(themeUser.selected_theme(),"Blue")
+        self.assertNotEqual(themeUser.selected_theme(),"Red")
+        self.assertNotEqual(themeUser.selected_theme(),"Green")
+        self.assertNotEqual(themeUser.selected_theme(),"Purple")
+
+        themeUser.set_theme("Red")
+        self.assertEqual(themeUser.selected_theme(),"Red")
+        self.assertNotEqual(themeUser.selected_theme(),"Blue")
+        self.assertNotEqual(themeUser.selected_theme(),"Green")
+        self.assertNotEqual(themeUser.selected_theme(),"Purple")
+
+        themeUser.set_theme("Green")
+        self.assertEqual(themeUser.selected_theme(),"Green")
+        self.assertNotEqual(themeUser.selected_theme(),"Blue")
+        self.assertNotEqual(themeUser.selected_theme(),"Red")
+        self.assertNotEqual(themeUser.selected_theme(),"Purple")
+
+        themeUser.set_theme("Purple")
+        self.assertEqual(themeUser.selected_theme(),"Purple")
+        self.assertNotEqual(themeUser.selected_theme(),"Blue")
+        self.assertNotEqual(themeUser.selected_theme(),"Red")
+        self.assertNotEqual(themeUser.selected_theme(),"Green")
+    
+    def test_select_theme_invalid_input(self):
+        invalidInput = User(username = 'invalidIputTest')
+        invalidInput.set_password('theSmoker??')
+        db.session.add(invalidInput)
+        db.session.commit()
+
+        invalidInput.set_theme("Blurple")
+        self.assertNotEqual(invalidInput.selected_theme(),"Blurple")
+        self.assertEqual(invalidInput.selected_theme(),None)
+
+        invalidInput.set_theme("")
+        self.assertNotEqual(invalidInput.selected_theme(),"")
+        self.assertEqual(invalidInput.selected_theme(),None)   
         
 
 if __name__ =='__main__':
