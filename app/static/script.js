@@ -6,75 +6,75 @@ function init(theme) {
 	setTheme(theme);
 
 	let hr = window.location.href;
-	let title = document.getElementById("title").innerHTML;
+	let title = document.getElementById('title').innerHTML;
 
-	if (title.includes("Test") || title.includes("Lesson")) {
+	if (title.includes('Test') || title.includes('Lesson')) {
 		let num = parseInt(title[title.length - 1]);
 
-		if (title.includes("Lesson")) {
+		if (title.includes('Lesson')) {
 			hoverBoxes(num);
 
 			let numPages = [2, 4, 3];
 
-			$("#prev").click(function () {
+			$('#prev').click(function () {
 				loadPrevPage(numPages[num - 1]);
 			});
-			$("#next").click(function () {
+			$('#next').click(function () {
 				loadNextPage(numPages[num - 1]);
 			});
 
-			$(".pageArrowLeftLabel").click(function () {
+			$('.pageArrowLeftLabel').click(function () {
 				window.location.href = hr.slice(0, hr.length - 1) + (num - 1);
 			});
 
-			$(".pageArrowRightLabel").click(function () {
+			$('.pageArrowRightLabel').click(function () {
 				window.location.href = hr.slice(0, hr.length - 1) + (num + 1);
 			});
 
-			if (title.includes("Lesson 2")) setInterval(animations, 1500);
+			if (title.includes('Lesson 2')) setInterval(animations, 1500);
 		} else {
-			document.getElementById("quiz").onsubmit = function () {
-				console.log("simmer");
+			document.getElementById('quiz').onsubmit = function () {
+				console.log('simmer');
 				scoreTest(num);
 			};
-			$(".quizBox").on("scroll", function () {
+			$('.quizBox').on('scroll', function () {
 				if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-					$(".pageArrowDown").hide();
-				} else $(".pageArrowDown").show();
+					$('.pageArrowDown').hide();
+				} else $('.pageArrowDown').show();
 			});
 		}
 	}
-	if (title.includes("Stats")) {
+	if (title.includes('Stats')) {
 		stats_init();
 	}
 
-	$(".logo").click(function () {
-		window.location.href = "http://127.0.0.1:5000";
+	$('.logo').click(function () {
+		window.location.href = 'http://127.0.0.1:5000';
 	});
 
 	$(document).ready(function () {
 		setTimeout(function () {
-			$(".alert").fadeOut("slow");
+			$('.alert').fadeOut('slow');
 		}, 1600);
 	});
 }
 
 function stats_init() {
-	$("#test1").click(function () {
+	$('#test1').click(function () {
 		displayStats(1);
 	});
-	$("#test2").click(function () {
+	$('#test2').click(function () {
 		displayStats(2);
 	});
-	$("#test3").click(function () {
+	$('#test3').click(function () {
 		displayStats(3);
 	});
 	displayStats(1);
 }
 
 function displayStats(testNum) {
-	document.getElementsByClassName("chooseActive")[0].classList.remove("chooseActive");
-	document.getElementById("test" + testNum).classList.add("chooseActive");
+	document.getElementsByClassName('chooseActive')[0].classList.remove('chooseActive');
+	document.getElementById('test' + testNum).classList.add('chooseActive');
 
 	let top = 0;
 	let av = 0;
@@ -92,40 +92,40 @@ function displayStats(testNum) {
 		av = testData.avScore3;
 		your = testData.bestAttempt3;
 	}
-	$("#topCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(top)) / 100.0 + "px"));
-	$("#topNum").html(top + "<span>%</span>");
+	$('#topCircle').css('stroke-dashoffset', '' + (440.0 - (440.0 * parseInt(top)) / 100.0 + 'px'));
+	$('#topNum').html(top + '<span>%</span>');
 
-	$("#avCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(av)) / 100.0 + "px"));
-	$("#avNum").html(av + "<span>%</span>");
+	$('#avCircle').css('stroke-dashoffset', '' + (440.0 - (440.0 * parseInt(av)) / 100.0 + 'px'));
+	$('#avNum').html(av + '<span>%</span>');
 
-	$("#yourCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(your)) / 100.0 + "px"));
-	$("#yourNum").html(your + "<span>%</span>");
+	$('#yourCircle').css('stroke-dashoffset', '' + (440.0 - (440.0 * parseInt(your)) / 100.0 + 'px'));
+	$('#yourNum').html(your + '<span>%</span>');
 
-	let texts = document.getElementsByClassName("progressText");
+	let texts = document.getElementsByClassName('progressText');
 	for (i = 0; i < texts.length; ++i) {
-		texts[i].innerHTML = "Test " + testNum;
+		texts[i].innerHTML = 'Test ' + testNum;
 	}
 }
 
 function validateSignUp() {
-	let username = document.getElementById("username").value;
-	let password = document.getElementById("password").value;
-	let passwordConfirm = document.getElementById("passwordConfirm").value;
-	let message = "";
+	let username = document.getElementById('username').value;
+	let password = document.getElementById('password').value;
+	let passwordConfirm = document.getElementById('passwordConfirm').value;
+	let message = '';
 	if (username.length < 4) {
-		message = "Username must be at least 4 characters";
+		message = 'Username must be at least 4 characters';
 	}
 	if (password.length < 7) {
-		message = "Password must be at least 7 characters";
+		message = 'Password must be at least 7 characters';
 	}
 	if (password != passwordConfirm) {
-		message = "Passwords do not match";
+		message = 'Passwords do not match';
 	}
 	if (message) {
-		document.getElementById("message").innerHTML = message;
-		$("#message").show();
+		document.getElementById('message').innerHTML = message;
+		$('#message').show();
 		setTimeout(function () {
-			$("#message").fadeOut("slow");
+			$('#message').fadeOut('slow');
 		}, 1600);
 		return false;
 	}
@@ -133,66 +133,66 @@ function validateSignUp() {
 }
 
 function scroll() {
-	let progress = document.getElementById("progressbar");
+	let progress = document.getElementById('progressbar');
 	let totalHeight = document.body.scrollHeight - window.innerHeight;
 	window.onscroll = function () {
-		progress.style.height = (window.pageYOffset / totalHeight) * 100 + "%";
+		progress.style.height = (window.pageYOffset / totalHeight) * 100 + '%';
 	};
 }
 
 function dropMenu() {
 	$(document).ready(function () {
-		$(".menu-toggle").click(function () {
-			$("nav").toggleClass("active");
+		$('.menu-toggle').click(function () {
+			$('nav').toggleClass('active');
 		});
 	});
 }
 
 function titleMove() {
-	$("body").mousemove(function (e) {
+	$('body').mousemove(function (e) {
 		var valueX = (e.pageX * -1) / 75;
 		var valueY = (e.pageY * -1) / 75;
 
-		$("#title").css({
-			transform: "translate(" + valueX + "px," + valueY + "px)",
+		$('#title').css({
+			transform: 'translate(' + valueX + 'px,' + valueY + 'px)',
 		});
 	});
 }
 
 function activateNavBar() {
-	let navButtons = [".navHome", ".navLearn", ".navStats", ".navLogout", ".navLogin"];
+	let navButtons = ['.navHome', '.navLearn', '.navStats', '.navLogout', '.navLogin'];
 
-	let title = document.getElementById("title").innerHTML;
+	let title = document.getElementById('title').innerHTML;
 
-	if (title.includes("Home")) {
-		$(navButtons[0]).addClass("active");
-	} else if (title.includes("Test") || title.includes("Lesson")) {
-		$(navButtons[1]).addClass("active");
-	} else if (title.includes("Stats")) {
-		$(navButtons[2]).addClass("active");
-	} else if (title.includes("Logout")) {
-		$(navButtons[3]).addClass("active");
-	} else if (title.includes("Login") || title.includes("Sign Up")) {
-		$(navButtons[4]).addClass("active");
+	if (title.includes('Home')) {
+		$(navButtons[0]).addClass('active');
+	} else if (title.includes('Test') || title.includes('Lesson')) {
+		$(navButtons[1]).addClass('active');
+	} else if (title.includes('Stats')) {
+		$(navButtons[2]).addClass('active');
+	} else if (title.includes('Logout')) {
+		$(navButtons[3]).addClass('active');
+	} else if (title.includes('Login') || title.includes('Sign Up')) {
+		$(navButtons[4]).addClass('active');
 	}
 }
 
 function animations() {
-	let img = $("#animate-1").find("img")[0];
+	let img = $('#animate-1').find('img')[0];
 	let len = img.id.length;
 	let num = parseInt(img.id[len - 1]);
 
 	// animation 1
 	img.id = img.id.slice(0, len - 1) + (3 - num);
-	img.src = img.src.slice(0, img.src.length - 5) + (3 - num) + ".png";
+	img.src = img.src.slice(0, img.src.length - 5) + (3 - num) + '.png';
 
 	// animation 2
-	img = $("#animate-2").find("img")[0];
+	img = $('#animate-2').find('img')[0];
 	len = img.id.length;
 	num = parseInt(img.id[len - 1]);
 
 	img.id = img.id.slice(0, len - 1) + ((num % 3) + 1);
-	img.src = img.src.slice(0, img.src.length - 5) + ((num % 3) + 1) + ".png";
+	img.src = img.src.slice(0, img.src.length - 5) + ((num % 3) + 1) + '.png';
 }
 
 function loadPrevPage(numPages) {
@@ -200,17 +200,17 @@ function loadPrevPage(numPages) {
 
 	// find visible page
 	for (pageNum; pageNum < numPages; ++pageNum) {
-		if ($("#l" + pageNum).is(":visible")) break;
+		if ($('#l' + pageNum).is(':visible')) break;
 	}
 
 	if (pageNum == 1) return;
-	if (pageNum == 2) $("#prev").toggle();
+	if (pageNum == 2) $('#prev').toggle();
 	if (pageNum == numPages) {
-		$("#next").toggle();
+		$('#next').toggle();
 		//$("#go-test-" + lessonNum).toggle();
 	}
-	$("#l" + pageNum).toggle();
-	$("#l" + (pageNum - 1)).toggle();
+	$('#l' + pageNum).toggle();
+	$('#l' + (pageNum - 1)).toggle();
 }
 
 function loadNextPage(numPages) {
@@ -218,92 +218,92 @@ function loadNextPage(numPages) {
 
 	// find visible page
 	for (pageNum; pageNum < numPages; ++pageNum) {
-		if ($("#l" + pageNum).is(":visible")) break;
+		if ($('#l' + pageNum).is(':visible')) break;
 	}
 
 	if (pageNum == numPages) return;
-	if (pageNum == 1) $("#prev").toggle();
+	if (pageNum == 1) $('#prev').toggle();
 	if (pageNum == numPages - 1) {
-		$("#next").toggle();
+		$('#next').toggle();
 		//$("#go-test-" + lessonNum).toggle();
 	}
-	$("#l" + pageNum).toggle();
-	$("#l" + (pageNum + 1)).toggle();
+	$('#l' + pageNum).toggle();
+	$('#l' + (pageNum + 1)).toggle();
 }
 
 function hoverBoxes(num) {
 	if (num == 1) {
-		$("#speedOfLightLabel").mouseenter(function () {
-			$("#speedOfLight").toggle();
+		$('#speedOfLightLabel').mouseenter(function () {
+			$('#speedOfLight').toggle();
 		});
-		$("#speedOfLightLabel").mouseleave(function () {
-			$("#speedOfLight").toggle();
+		$('#speedOfLightLabel').mouseleave(function () {
+			$('#speedOfLight').toggle();
 		});
-		$("#inertialLabel").mouseenter(function () {
-			$("#inertial").toggle();
+		$('#inertialLabel').mouseenter(function () {
+			$('#inertial').toggle();
 		});
-		$("#inertialLabel").mouseleave(function () {
-			$("#inertial").toggle();
+		$('#inertialLabel').mouseleave(function () {
+			$('#inertial').toggle();
 		});
-		$("#spaceTimeLabel").mouseenter(function () {
-			$("#spaceTime").toggle();
+		$('#spaceTimeLabel').mouseenter(function () {
+			$('#spaceTime').toggle();
 		});
-		$("#spaceTimeLabel").mouseleave(function () {
-			$("#spaceTime").toggle();
+		$('#spaceTimeLabel').mouseleave(function () {
+			$('#spaceTime').toggle();
 		});
 	} else if (num == 2) {
-		$("#trigLabel").mouseenter(function () {
-			$("#trig").toggle();
+		$('#trigLabel').mouseenter(function () {
+			$('#trig').toggle();
 		});
-		$("#trigLabel").mouseleave(function () {
-			$("#trig").toggle();
+		$('#trigLabel').mouseleave(function () {
+			$('#trig').toggle();
 		});
-		$("#timeLabel").mouseenter(function () {
-			$("#time").toggle();
+		$('#timeLabel').mouseenter(function () {
+			$('#time').toggle();
 		});
-		$("#timeLabel").mouseleave(function () {
-			$("#time").toggle();
+		$('#timeLabel').mouseleave(function () {
+			$('#time').toggle();
 		});
-		$("#dilationLabel").mouseenter(function () {
-			$("#dilation").toggle();
+		$('#dilationLabel').mouseenter(function () {
+			$('#dilation').toggle();
 		});
-		$("#dilationLabel").mouseleave(function () {
-			$("#dilation").toggle();
+		$('#dilationLabel').mouseleave(function () {
+			$('#dilation').toggle();
 		});
 	} else if (num == 3) {
-		$("#lorentzLabel").mouseenter(function () {
-			$("#lorentz").toggle();
+		$('#lorentzLabel').mouseenter(function () {
+			$('#lorentz').toggle();
 		});
-		$("#lorentzLabel").mouseleave(function () {
-			$("#lorentz").toggle();
+		$('#lorentzLabel').mouseleave(function () {
+			$('#lorentz').toggle();
 		});
 	}
 }
 
 function setTheme(theme) {
-	if (theme == "Green") {
-		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundGreen.jpg')");
-		document.documentElement.style.setProperty("--colour1", "#20df27");
-		document.documentElement.style.setProperty("--colour2", "#05ab48");
-		document.documentElement.style.setProperty("--colour3", "#7ca57e");
-		document.documentElement.style.setProperty("--boxShadow", "rgba(9, 241, 28, 0.75)");
-	} else if (theme == "Red") {
-		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundRed.jpg')");
-		document.documentElement.style.setProperty("--colour1", "#da1818");
-		document.documentElement.style.setProperty("--colour2", "#bd1010");
-		document.documentElement.style.setProperty("--colour3", "#a26363");
-		document.documentElement.style.setProperty("--boxShadow", "rgba(241, 32, 9, 0.75)");
-	} else if (theme == "Blue") {
-		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundBlue.jpg')");
-		document.documentElement.style.setProperty("--colour1", "#00eeff");
-		document.documentElement.style.setProperty("--colour2", "#1da9eb");
-		document.documentElement.style.setProperty("--colour3", "#5b7e8e");
-		document.documentElement.style.setProperty("--boxShadow", "rgba(9, 241, 203, 0.75)");
-	} else if (theme == "Purple") {
-		document.documentElement.style.setProperty("--background", "url('backgrounds/BackgroundPurple.jpg')");
-		document.documentElement.style.setProperty("--colour1", "#9918da");
-		document.documentElement.style.setProperty("--colour2", "#6a0496");
-		document.documentElement.style.setProperty("--colour3", "#926e9a");
-		document.documentElement.style.setProperty("--boxShadow", "rgba(144, 9, 241, 0.75)");
+	if (theme == 'Green') {
+		document.documentElement.style.setProperty('--background', "url('backgrounds/BackgroundGreen.jpg')");
+		document.documentElement.style.setProperty('--colour1', '#20df27');
+		document.documentElement.style.setProperty('--colour2', '#05ab48');
+		document.documentElement.style.setProperty('--colour3', '#7ca57e');
+		document.documentElement.style.setProperty('--boxShadow', 'rgba(9, 241, 28, 0.75)');
+	} else if (theme == 'Red') {
+		document.documentElement.style.setProperty('--background', "url('backgrounds/BackgroundRed.jpg')");
+		document.documentElement.style.setProperty('--colour1', '#da1818');
+		document.documentElement.style.setProperty('--colour2', '#bd1010');
+		document.documentElement.style.setProperty('--colour3', '#a26363');
+		document.documentElement.style.setProperty('--boxShadow', 'rgba(241, 32, 9, 0.75)');
+	} else if (theme == 'Blue') {
+		document.documentElement.style.setProperty('--background', "url('backgrounds/BackgroundBlue.jpg')");
+		document.documentElement.style.setProperty('--colour1', '#00eeff');
+		document.documentElement.style.setProperty('--colour2', '#1da9eb');
+		document.documentElement.style.setProperty('--colour3', '#5b7e8e');
+		document.documentElement.style.setProperty('--boxShadow', 'rgba(9, 241, 203, 0.75)');
+	} else if (theme == 'Purple') {
+		document.documentElement.style.setProperty('--background', "url('backgrounds/BackgroundPurple.jpg')");
+		document.documentElement.style.setProperty('--colour1', '#9918da');
+		document.documentElement.style.setProperty('--colour2', '#6a0496');
+		document.documentElement.style.setProperty('--colour3', '#926e9a');
+		document.documentElement.style.setProperty('--boxShadow', 'rgba(144, 9, 241, 0.75)');
 	}
 }

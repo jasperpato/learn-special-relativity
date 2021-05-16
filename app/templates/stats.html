@@ -66,13 +66,13 @@
 	<h3 class="changeColour col-md-12">Score 100% in the tests to unlock more colour themes!</h3>
 	<table class="colourButtons"> <tr>
 	<td>
-		<form class="colourButton blueButton" action="" method="POST">
+		<form class="blueButton" action="" method="POST">
 			<button class="colourButton" name="colour" value="Blue" id="Blue">Blue</button>
 		</form>
 	</td>
 	<td>
 	{% if testData.bestAttempt1 == '100' %}
-		<form class="colourButton greenButton" action="" method="POST">
+		<form class="greenButton" action="" method="POST">
 			<button class="colourButton" name="colour" value="Green" id="Green">Green</button>
 		</form>
 	{% else %}

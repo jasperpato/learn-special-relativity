@@ -34,7 +34,7 @@ class User(db.Model, UserMixin):
     def set_theme(self, theme):
         if theme in ("Blue", "Green","Purple","Red"):
             self.theme = theme
-    
+
 class TestAttempt(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 

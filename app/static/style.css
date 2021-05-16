@@ -3,6 +3,10 @@
 	--colour1: #00eeff;
 	--colour2: #1da9eb;
 	--colour3: #5b7e8e;
+	--blue3: #1da9eb;
+	--red3: #bd1010;
+	--purple3: #6a0496;
+	--green3: #05ab48;
 	--boxShadow: rgba(9, 241, 203, 0.75);
 }
 
@@ -714,13 +718,23 @@ svg circle:nth-child(2) {
 	top: 50%;
 }
 
+.blueButton .colourButton {
+	background: var(--blue3);
+}
+.greenButton .colourButton {
+	background: var(--green3);
+}
+.purpleButton .colourButton {
+	background: var(--purple3);
+}
+.redButton .colourButton {
+	background: var(--red3);
+}
+
 .colourButtons {
-	/*position: relative;
-	display: flex;*/
 	width: 50%;
 	height: 100px;
 	justify-content: center;
-	/*align-items: center;*/
 	text-align: center;
 	margin: 20px;
 	margin-left: auto;
