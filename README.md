@@ -2,16 +2,19 @@
 
 ## Design 
 
-### Front-end
-HTML pages contain information about what should be displayed while the style.css sheet handles how it should be displayed. The *home*, *learn*, *stats*, *login*, *tests* and *sign-up* pages are linked HTML sheets while inside *stats* pagination is used. 
+### Design Philosophy
+We designed the website to be extremely engaging visually. The space aesthetic is not only visual but interative with futuristic page transitions, animations and paralax effects when the mouse moves. The website is designed to keep users interested in space and in special relativity. 
 
-All Javascript functions are placed in the script.js file. Javascript functions are used to validate forms instead of the server. 
+The website is also designed to be customisabe. As a reward for good test scores, a user is given the opportunity to change the theme to four different colours. This will make the user feel more connected to the site and more likely to tell people about it. 
+
+### Front-end
+The space-theme aesthetic is handled using CSS, inside the style.css file. CSS handles all the futuristic page transitions and the layout of the page. While HTML pages contain information about what should be displayed. The *home*, *learn*, *stats*, *login*, *tests* and *sign-up* pages are linked HTML sheets while inside *stats* pagination is used. Javascript functions are used to validate forms instead of the server, as well as to handle the animations and navigation bar. All Javascript functions are placed inside the script.js file.  
 ### Back-end
-The website is ran using a flask server. Flask is a micro framework for the backend of the website. Jinja is used inside the HTML so the display can adapt to server data as well as for running loops. Users are saved inside a SQLite database. The username, password, and scores of the user are saved. 
+The website is run using a flask server. Flask is a micro framework for the backend of the website. Jinja is used inside the HTML so the display can adapt to server data as well as for running loops. Users are saved inside a SQLite database. The username, password, and scores of the user are saved so progress can be encouraged.
 
 
 ## Intent 
-The intent of the LSR website is to teach the public what the special theory of relativity is. People are often confused about what relativity is and use the words 'special relativity' without knowing there scientific meaning. Special relativity is sometimes counterintuitive but with real world examples it is easy to understand. The website uses visuals, examples and quizzes to make learning hands on and memorable.
+The intent of the LSR website is to teach the public what the special theory of relativity is. People are often confused about what relativity is and use the words 'special relativity' without knowing there scientific meaning. Special relativity is sometimes counterintuitive but with real world examples it is easy to understand. People often find physics boring and hard to comprehend. To address this our website uses visuals, examples and quizzes to make learning engaging and memorable.
 
 ## Development 
 Make a virtual environment:
@@ -38,8 +41,24 @@ This will install the needed packages and start the server at http://127.0.0.1:5
 
 ## Running Tests
 ### Unit Test
+Open the root directory
+```
+$ pip3 install -r requirements.txt
+$ python tests.py
+```
 
 ### Selenium 
+Selenium needs a chromedriver to run. 
+Go to https://sites.google.com/a/chromium.org/chromedriver/downloads and download the chromedriver fitting your current chrome. 
+Move this chromedriver.exe to the *Website* folder.
+```
+$ pip3 install -r requirements.txt
+$ python main.py
+```
+Then in a separate terminal:
+```
+$ python systemtest.py
+```
 
 ## Authors
 * Jordan Hartley
