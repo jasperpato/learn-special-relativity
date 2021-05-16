@@ -3,7 +3,7 @@
 ## Design 
 
 ### Design Philosophy
-We designed the website to be extremely engaging visually. The space aesthetic is not only visual but interative with futuristic page transitions, animations and paralax effects when the mouse moves. The website is designed to keep users interested in space and so in special relativity. 
+We designed the website to be extremely engaging visually. The space aesthetic is not only visual but interative with futuristic page transitions, animations and paralax effects when the mouse moves. The website is designed to keep users interested in space and in special relativity. 
 
 The website is also designed to be customisabe. As a reward for good test scores, a user is given the opportunity to change the theme to four different colours. This will make the user feel more connected to the site and more likely to tell people about it. 
 
