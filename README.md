@@ -10,9 +10,14 @@
 
 pip3 install -r requirements.txt
 
-# Running Tests
+## Running Tests
+
+## Authors
+* Jordan Hartley
+* Jasper Paterson
+* Maxwell Dix-Matthews
 
 
 
-# References
+## References
 Albert Einstein photo ref: https://www.theguardian.com/books/2015/jun/12/five-reasons-we-should-celebrate-albert-einstein
