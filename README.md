@@ -3,9 +3,12 @@
 ## Design 
 
 ### Design Philosophy
+We designed the website to be extremely engaging visually. The space aesthetic is not only visual but interative with futuristic page transitions, animations and paralax effects when the mouse moves. The website is designed to keep users interested in space and so in special relativity. 
+
+The website is also designed to be customisabe. As a reward for good test scores, a user is given the opportunity to change the theme to four different colours. This will make the user feel more connected to the site and more likely to tell people about it. 
 
 ### Front-end
-The space-theme asthetic is handled using CSS, inside the style.css file. CSS handles all the futuristic page transitions and the layout of the page. While HTML pages contain information about what should be displayed. The *home*, *learn*, *stats*, *login*, *tests* and *sign-up* pages are linked HTML sheets while inside *stats* pagination is used. Javascript functions are used to validate forms instead of the server, as well as to handle the animations and navigation bar. All Javascript functions are placed inside the script.js file.  
+The space-theme aesthetic is handled using CSS, inside the style.css file. CSS handles all the futuristic page transitions and the layout of the page. While HTML pages contain information about what should be displayed. The *home*, *learn*, *stats*, *login*, *tests* and *sign-up* pages are linked HTML sheets while inside *stats* pagination is used. Javascript functions are used to validate forms instead of the server, as well as to handle the animations and navigation bar. All Javascript functions are placed inside the script.js file.  
 ### Back-end
 The website is run using a flask server. Flask is a micro framework for the backend of the website. Jinja is used inside the HTML so the display can adapt to server data as well as for running loops. Users are saved inside a SQLite database. The username, password, and scores of the user are saved so progress can be encouraged.
 
