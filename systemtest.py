@@ -3,7 +3,6 @@ from app import app, db
 from app.models import User, TestAttempt
 from selenium import webdriver
 from datetime import datetime
-from uuid import uuid4
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -11,13 +10,7 @@ class SystemTest(unittest.TestCase):
 
     def setUp(self):
         path_to_chrome = basedir + "\chromedriver"
-        print(path_to_chrome)
-        # self.driver = webdriver.Chrome(executable_path=r"C:\Users\maxdi\Downloads\chromedriver_win32\chromedriver") 
         self.driver = webdriver.Chrome(executable_path=path_to_chrome) 
-
-        # TODO need the line above to be constant, cannot have my own executable_path
-        # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'        
-        # db.create_all() 
         self.driver.get('http://127.0.0.1:5000/')
     
     def tearDown(self):
@@ -63,10 +56,6 @@ class SystemTest(unittest.TestCase):
         #Failed to make account
         self.assertEqual(self.driver.current_url,'http://127.0.0.1:5000/sign-up')
         self.assertNotEqual(self.driver.current_url,'http://127.0.0.1:5000/')
-
-
-
-
         
         
 
