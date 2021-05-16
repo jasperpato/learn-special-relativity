@@ -40,11 +40,12 @@ a {
 }
 
 .about {
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.55);
 	margin: auto;
-	margin-top: 200px;
+	padding: 45px;
 	max-width: 1000px;
 	border-top: 5px solid var(--colour1);
+	z-index: 6;
 }
 
 .alert {
@@ -295,11 +296,6 @@ header nav ul li a.active {
 	padding: 10px 20px;
 	cursor: pointer;
 	border-radius: 5px;
-}
-
-.signUpMessage {
-	color: red;
-	margin-bottom: 4px;
 }
 
 /*----------------------------------------------------------------------------------------------------------*/
@@ -1096,4 +1092,37 @@ svg circle:nth-child(2) {
 	font-size: medium;
 	color: white;
 	border: none;
+}
+
+/*Colour buttons*/
+/*----------------------------------------------------------------------------------------------------------*/
+.colourButton {
+	font-family: "orbitron";
+	margin: auto;
+	background: var(--colour3);
+	text-align: center;
+	top: 50%;
+}
+
+.colourButtons {
+	position: relative;
+	display: flex;
+	width: 50%;
+	height: 100px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgba(0, 0, 0, 0.5);
+	border: var(--colour1) 4px solid;
+}
+
+.changeColour {
+	display: block;
+	margin: 4px;
+	align-items: center;
+	font-family: "Orbitron";
+	text-align: center;
 }
