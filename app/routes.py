@@ -1,5 +1,5 @@
 from app.models import TestAttempt
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, jsonify
 from flask_login import login_required, current_user
 from . import db
 from .models import TestAttempt, User
@@ -35,6 +35,32 @@ def learn():
     bestAttempt3 = user.best_attempt(3)
     theme = user.selected_theme()
     return render_template('learn.html', user=current_user, bestAttempt1=bestAttempt1, bestAttempt2=bestAttempt2, bestAttempt3=bestAttempt3, theme=theme)
+
+@routes.route('/stats')
+def stats():
+    testData = {}
+    tests = TestAttempt.query.all()
+    top = [0,0,0]
+    sum = [0,0,0]
+    total = [0,0,0]
+    for t in tests:
+        id = t.testId - 1
+        if t.score > top[id]:
+            top[id] = t.score
+        sum[id] += t.score
+        total[id] += 1
+    for i in range(3):
+        testData['topScore' + str(i+1)] = str(top[i])
+        testData['avScore' + str(i+1)] = str(int(float(sum[i])/total[i]))
+    testData['bestAttempt1'] = '0'
+    testData['bestAttempt2'] = '0'
+    testData['bestAttempt3'] = '0'
+    if current_user.is_authenticated:
+        user = User.query.filter_by(id = current_user.id).first()
+        testData['bestAttempt1'] = str(user.best_attempt(1))
+        testData['bestAttempt2'] = str(user.best_attempt(2))
+        testData['bestAttempt3'] = str(user.best_attempt(3))
+    return render_template('stats.html', user=current_user, testData = testData )
 
 @routes.route('/learn/lesson-1')
 @login_required
