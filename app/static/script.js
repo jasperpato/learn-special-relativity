@@ -36,18 +36,68 @@ function init() {
 				console.log("simmer");
 				scoreTest(num);
 			};
+			$(".quizBox").on("scroll", function () {
+				if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
+					$(".pageArrowDown").hide();
+				} else $(".pageArrowDown").show();
+			});
 		}
+	}
+	if(title.includes("Stats")) {
+		stats_init();
 	}
 
 	$(".logo").click(function () {
 		window.location.href = "http://127.0.0.1:5000";
 	});
+}
 
-	$(".quizBox").on("scroll", function () {
-		if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
-			$(".pageArrowDown").hide();
-		} else $(".pageArrowDown").show();
+function stats_init() {
+	$("#test1").click(function () {
+		displayStats(1);
 	});
+	$("#test2").click(function () {
+		displayStats(2);
+	});
+	$("#test3").click(function () {
+		displayStats(3);
+	});
+	displayStats(1);
+}
+
+function displayStats(testNum) {
+	document.getElementsByClassName("chooseActive")[0].classList.remove("chooseActive");
+	document.getElementById("test" + testNum).classList.add("chooseActive");
+
+	let top = 0;
+	let av = 0;
+	let your = 0;
+	if (testNum == 1) {
+		top = testData.topScore1;
+		av = testData.avScore1;
+		your = testData.bestAttempt1;
+	} else if (testNum == 2) {
+		top = testData.topScore2;
+		av = testData.avScore2;
+		your = testData.bestAttempt2;
+	} else if (testNum == 3) {
+		top = testData.topScore3;
+		av = testData.avScore3;
+		your = testData.bestAttempt3;
+	}
+	$("#topCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(top) / 100.0) + "px"));
+	$("#topNum").html(top + '<span>%</span>');
+
+	$("#avCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(av) / 100.0) + "px"));
+	$("#avNum").html(av + '<span>%</span>');
+
+	$("#yourCircle").css("stroke-dashoffset", "" + (440.0 - (440.0 * parseInt(your) / 100.0) + "px"));
+	$("#yourNum").html(your + '<span>%</span>');
+
+	let texts = document.getElementsByClassName("progressText");
+	for (i = 0; i < texts.length; ++i) {
+		texts[i].innerHTML = "Test " + testNum;
+	}
 }
 
 function validateSignUp() {

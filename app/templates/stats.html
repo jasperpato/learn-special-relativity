@@ -1,13 +1,14 @@
-{% extends "base.html" %}{% block title %}LSR - Lesson 2{% endblock %} {% block content %}
-
+{% extends "base.html" %}{% block title %}LSR - Stats{% endblock %} {% block content %}
+<script>
+	let testData = JSON.parse('{{ testData | tojson | safe }}');
+</script>
 <table class="chooseTestTable">
 	<tr>
-		<td class="chooseTest chooseActive">Test 1</td>
-		<td class="chooseTest">Test 2</td>
-		<td class="chooseTest">Test 3</td>
+		<td class="chooseTest chooseActive" id="test1">Test 1</td>
+		<td class="chooseTest" id="test2">Test 2</td>
+		<td class="chooseTest" id="test3">Test 3</td>
 	</tr>
 </table>
-
 <div class="progressContainer">
 	<div class="progressCard">
 		<h4>Top Score</h4>
@@ -16,15 +17,10 @@
 				<div class="progressPercent">
 					<svg>
 						<circle cx="70" cy="70" r="70"></circle>
-						<circle
-							cx="70"
-							cy="70"
-							r="70"
-							style="stroke-dashoffset: calc(440px - (440px * {{ topScore1 }}) / 100)"
-						></circle>
+						<circle id="topCircle" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="progressNumber">
-						<h2>{{ topScore1 }}<span>%</span></h2>
+						<h2 id="topNum"></h2>
 					</div>
 				</div>
 			</div>
@@ -38,15 +34,10 @@
 				<div class="progressPercent">
 					<svg>
 						<circle cx="70" cy="70" r="70"></circle>
-						<circle
-							cx="70"
-							cy="70"
-							r="70"
-							style="stroke-dashoffset: calc(440px - (440px * {{ avScore1 }}) / 100)"
-						></circle>
+						<circle id="avCircle" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="progressNumber">
-						<h2>{{ avScore1 }}<span>%</span></h2>
+						<h2 id="avNum"></h2>
 					</div>
 				</div>
 			</div>
@@ -61,15 +52,10 @@
 				<div class="progressPercent">
 					<svg>
 						<circle cx="70" cy="70" r="70"></circle>
-						<circle
-							cx="70"
-							cy="70"
-							r="70"
-							style="stroke-dashoffset: calc(440px - (440px * {{ bestAttempt3 }}) / 100)"
-						></circle>
+						<circle id="yourCircle" cx="70" cy="70" r="70"></circle>
 					</svg>
 					<div class="progressNumber">
-						<h2>{{ bestAttempt3 }}<span>%</span></h2>
+						<h2 id="yourNum"></h2>
 					</div>
 				</div>
 			</div>
@@ -78,5 +64,4 @@
 	</div>
 	{% endif %}
 </div>
-
 {% endblock %}
