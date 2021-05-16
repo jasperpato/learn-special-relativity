@@ -123,7 +123,10 @@ function validateSignUp() {
 	}
 	if (message) {
 		document.getElementById("message").innerHTML = message;
-		$("#message").toggle();
+		$("#message").show();
+		setTimeout(function () {
+			$("#message").fadeOut("slow");
+		}, 1600);
 		return false;
 	}
 	return true;
