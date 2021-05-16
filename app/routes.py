@@ -38,6 +38,11 @@ def learn():
 
 @routes.route('/stats')
 def stats():
+    if current_user.is_authenticated:
+        user = User.query.filter_by(id = current_user.id).first()
+        theme = user.selected_theme()
+    else:
+        theme = "Blue"
     testData = {}
     tests = TestAttempt.query.all()
     top = [0,0,0]
@@ -64,7 +69,7 @@ def stats():
         testData['bestAttempt1'] = str(user.best_attempt(1))
         testData['bestAttempt2'] = str(user.best_attempt(2))
         testData['bestAttempt3'] = str(user.best_attempt(3))
-    return render_template('stats.html', user=current_user, testData = testData )
+    return render_template('stats.html', user=current_user, testData = testData, theme=theme )
 
 @routes.route('/learn/lesson-1')
 @login_required
