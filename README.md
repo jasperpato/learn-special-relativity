@@ -3,6 +3,7 @@
 ## Design 
 
 ## Intent 
+The intent of the LSR website is to teach the public what the special theory of relativity is. People are often confused about what relativity is and use the words 'special relativity' without knowing there scientific meaning. Special relativity is sometimes counterintuitive but with real world examples it is easy to understand. The website uses visuals, examples and quizzes to make learning hands on and interactive.
 
 ## Development 
 
