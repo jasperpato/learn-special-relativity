@@ -8,9 +8,13 @@ from uuid import uuid4
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 class SystemTest(unittest.TestCase):
-    driver = None
+
     def setUp(self):
-        self.driver = webdriver.Chrome(executable_path=r"C:\Users\maxdi\Downloads\chromedriver_win32\chromedriver") 
+        path_to_chrome = basedir + "\chromedriver"
+        print(path_to_chrome)
+        # self.driver = webdriver.Chrome(executable_path=r"C:\Users\maxdi\Downloads\chromedriver_win32\chromedriver") 
+        self.driver = webdriver.Chrome(executable_path=path_to_chrome) 
+
         # TODO need the line above to be constant, cannot have my own executable_path
         # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite://'        
         # db.create_all() 
