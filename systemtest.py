@@ -151,7 +151,6 @@ class SystemTest(unittest.TestCase):
         time.sleep(1)
         user_signup_sheet = self.driver.find_element_by_id("username")
         user_signup_sheet.send_keys(eventid)
-        # time.sleep(10)
         self.driver.implicitly_wait(5)
 
         user_password = self.driver.find_element_by_id("password")
@@ -216,6 +215,55 @@ class SystemTest(unittest.TestCase):
         submit_button = self.driver.find_element_by_name("")
         submit_button.click()
 
+        self.driver.get('http://127.0.0.1:5000/learn/test-1')
+        ans1_to_q1 = self.driver.find_element_by_id("1B")
+        ans1_to_q2 = self.driver.find_element_by_id("2A")
+        ans1_to_q3 = self.driver.find_element_by_id("3B")
+        ans1_to_q4 = self.driver.find_element_by_id("4B")
+        ans1_to_q5 = self.driver.find_element_by_id("5")
+        submit_t1 = self.driver.find_element_by_id("submit")
+
+        ans1_to_q1.click()
+        ans1_to_q2.click()
+        ans1_to_q3.click()
+        ans1_to_q4.click()
+        ans1_to_q5.send_keys("4")
+        submit_t1.click()
+        self.driver.implicitly_wait(5)
+
+        self.driver.get('http://127.0.0.1:5000/learn/test-2')
+        ans2_to_q1 = self.driver.find_element_by_id("1A")
+        ans2_to_q2 = self.driver.find_element_by_id("2A")
+        ans2_to_q3 = self.driver.find_element_by_id("3B")
+        ans2_to_q4 = self.driver.find_element_by_id("4A")
+        ans2_to_q5 = self.driver.find_element_by_id("5A")
+        submit_t2 = self.driver.find_element_by_id("submit")
+
+        ans2_to_q1.click()
+        ans2_to_q2.click()
+        ans2_to_q3.click()
+        ans2_to_q4.click()
+        ans2_to_q5.click()
+        submit_t2.click()
+        self.driver.implicitly_wait(5)
+
+
+        self.driver.get('http://127.0.0.1:5000/learn/test-3')
+        ans3_to_q1 = self.driver.find_element_by_id("1")
+        ans3_to_q2 = self.driver.find_element_by_id("2A")
+        ans3_to_q3 = self.driver.find_element_by_id("3A")
+        ans3_to_q4 = self.driver.find_element_by_id("4")
+        ans3_to_q5 = self.driver.find_element_by_id("5")
+        submit_t3 = self.driver.find_element_by_id("submit")
+
+        ans3_to_q1.send_keys("2")
+        ans3_to_q2.click()
+        ans3_to_q3.click()
+        ans3_to_q4.send_keys("20")
+        ans3_to_q5.send_keys("20")
+        submit_t3.click()
+        self.driver.implicitly_wait(5)
+
         self.driver.get('http://127.0.0.1:5000/stats')
 
         green_theme = self.driver.find_element_by_id("Green")
@@ -233,8 +281,6 @@ class SystemTest(unittest.TestCase):
         blue_theme = self.driver.find_element_by_id("Blue")
         blue_theme.click()
         time.sleep(1)
-        
-
     
     def test_complete_operation(self):
         self.driver.get('http://127.0.0.1:5000/sign-up')
