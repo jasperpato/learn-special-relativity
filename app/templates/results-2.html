@@ -1,9 +1,13 @@
-{% extends "base.html" %}{% block title %}LSR - Test 2 {% endblock %} {% block content %}
-<form id="quiz" action="{{ url_for('routes.results2') }}" method="POST">
+{% extends "base.html" %}{% block title %} LSR - Test 2 Results{% endblock %} {% block content %}
+<script>
+	let answers = JSON.parse('{{ answers | tojson | safe }}');
+	let correct = JSON.parse('{{ correct | tojson | safe }}');
+</script>
+<form id="quiz">
 	<div class="quizBox">
-		<h2>Test 2</h2>
+		<h2>Test 2 Results</h2>
 
-		<h3>Question 1</h3>
+		<h3>Question 1<span id="mark1"></span></h3>
 		<p>
 			True or false? The light beam travelled a larger distance in the reference frame outside of the train
 			than in the reference frame inside the train.
@@ -15,7 +19,7 @@
 		<input id="1B" type="radio" name="question1" value="B" />
 		<label for="1B"><span class="quizLetter">False</span></label>
 
-		<h3>Question 2</h3>
+		<h3>Question 2<span id="mark2"></span></h3>
 		<p>
 			In which reference frame did time flow slower throughout the journey of the light beam?
 			<br />
@@ -26,7 +30,7 @@
 		<input id="2B" type="radio" name="question2" value="B" />
 		<label for="2B"><span class="quizLetter">B</span> Outside the train</label>
 
-		<h3>Question 3</h3>
+		<h3>Question 3<span id="mark3"></span></h3>
 		<p>
 			If time flows slower in observer X’s frame of reference compared to observer Y, would X age faster or
 			slower than Y?
@@ -38,7 +42,7 @@
 		<input id="3B" type="radio" name="question3" value="B" />
 		<label for="3B"><span class="quizLetter">B</span> Slower</label>
 
-		<h3>Question 4</h3>
+		<h3>Question 4<span id="mark4"></span></h3>
 		<p>
 			True or False? Considering γ >= 1, the proper time interval is always the smallest time interval that
 			can be observed between two events.
@@ -50,7 +54,7 @@
 		<input id="4B" type="radio" name="question4" value="B" />
 		<label for="4B"><span class="quizLetter">False</span></label>
 
-		<h3>Question 5</h3>
+		<h3>Question 5<span id="mark5"></span></h3>
 		<p>
 			If we performed this train experiment and measured time passing on extremely precise instruments, would
 			we really observe time passing at difference rates depending on relative speeds?
@@ -60,18 +64,23 @@
 
 		<input id="5B" type="radio" name="question5" value="B" />
 		<label for="5B"><span class="quizLetter">B</span> No, this is only theoretical</label>
-
-		<input class="submit" id="submit" type="submit" value="Submit" />
 	</div>
 </form>
-<div class="pageArrow pageArrowDown" style="left: 100px">
-	<span></span>
-	<span></span>
-	<span></span>
-</div>
-<div class="pageArrow pageArrowDown" style="right: 100px">
-	<span></span>
-	<span></span>
-	<span></span>
-</div>
+<h2 class="pageArrowRightLabel">Lesson 3</h2>
+<a href="{{ url_for('routes.lesson3') }}">
+	<div class="pageArrow pageArrowRight">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
+<h2 class="pageArrowLeftLabel">Lesson 2</h2>
+
+<a href="{{ url_for('routes.lesson2') }}">
+	<div class="pageArrow pageArrowLeft">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
 {% endblock %}

@@ -33,11 +33,35 @@ function init(theme) {
 			});
 
 			if (title.includes('Lesson 2')) setInterval(animations, 1500);
+		} else if (title.includes('1 Results')) {
+			$('.pageArrowLeftLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/learn/lesson-1';
+			});
+			$('.pageArrowRightLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/learn/lesson-2';
+			});
+			fillResults1();
+		} else if (title.includes('2 Results')) {
+			$('.pageArrowLeftLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/learn/lesson-2';
+			});
+			$('.pageArrowRightLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/learn/lesson-3';
+			});
+			fillResults2();
+		} else if (title.includes('3 Results')) {
+			$('.pageArrowLeftLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/learn/lesson-3';
+			});
+			$('.pageArrowRightLabel').click(function () {
+				window.location.href = 'http://127.0.0.1:5000/stats';
+			});
+			fillResults3();
 		} else {
-			document.getElementById('quiz').onsubmit = function () {
-				console.log('simmer');
-				scoreTest(num);
-			};
+			$(window).resize(function () {
+				if (window.innerWidth < 1000) $('.pageArrowDown').hide();
+				else $('.pageArrowDown').show();
+			});
 			$('.quizBox').on('scroll', function () {
 				if ($(this).scrollTop() + $(this).innerHeight() >= $(this)[0].scrollHeight) {
 					$('.pageArrowDown').hide();
@@ -73,6 +97,7 @@ function stats_init() {
 	displayStats(1);
 }
 
+// testData received in script from server
 function displayStats(testNum) {
 	document.getElementsByClassName('chooseActive')[0].classList.remove('chooseActive');
 	document.getElementById('test' + testNum).classList.add('chooseActive');
@@ -106,6 +131,106 @@ function displayStats(testNum) {
 	for (i = 0; i < texts.length; ++i) {
 		texts[i].innerHTML = 'Test ' + testNum;
 	}
+}
+
+// answers received in script from server
+function fillResults1() {
+	if (answers[1] != null) document.getElementById('1' + answers[1]).checked = true;
+
+	if (answers[1] == correct[1]) $('#mark1').html('<i class="fa fa-check check"></i>');
+	else $('#mark1').html('<i class="fa fa-times times"></i>');
+
+	if (answers[2] != null) document.getElementById('2' + answers[2]).checked = true;
+
+	if (answers[2] == correct[2]) $('#mark2').html('<i class="fa fa-check check"></i>');
+	else $('#mark2').html('<i class="fa fa-times times"></i>');
+
+	if (answers[3] != null) document.getElementById('3' + answers[3]).checked = true;
+
+	if (answers[3] == correct[3]) $('#mark3').html('<i class="fa fa-check check"></i>');
+	else $('#mark3').html('<i class="fa fa-times times"></i>');
+
+	if (answers[4] != null) document.getElementById('4' + answers[4]).checked = true;
+
+	if (answers[4] == correct[4]) $('#mark4').html('<i class="fa fa-check check"></i>');
+	else $('#mark4').html('<i class="fa fa-times times"></i>');
+
+	document.getElementById('5').value = answers[5];
+	if (answers[5] == correct[5]) $('#mark5').html('<i class="fa fa-check check"></i>');
+	else $('#mark5').html('<i class="fa fa-times times"></i>');
+}
+
+// answers received in script from server
+function fillResults2() {
+	if (answers[1] != null) document.getElementById('1' + answers[1]).checked = true;
+	if (answers[1] == correct[1]) $('#mark1').html('<i class="fa fa-check check"></i>');
+	else $('#mark1').html('<i class="fa fa-times times"></i>');
+
+	if (answers[2] != null) document.getElementById('2' + answers[2]).checked = true;
+	if (answers[2] == correct[2]) $('#mark2').html('<i class="fa fa-check check"></i>');
+	else $('#mark2').html('<i class="fa fa-times times"></i>');
+
+	if (answers[3] != null) document.getElementById('3' + answers[3]).checked = true;
+	if (answers[3] == correct[3]) $('#mark3').html('<i class="fa fa-check check"></i>');
+	else $('#mark3').html('<i class="fa fa-times times"></i>');
+
+	if (answers[4] != null) document.getElementById('4' + answers[4]).checked = true;
+	if (answers[4] == correct[4]) $('#mark4').html('<i class="fa fa-check check"></i>');
+	else $('#mark4').html('<i class="fa fa-times times"></i>');
+
+	if (answers[5] != null) document.getElementById('5' + answers[5]).checked = true;
+	if (answers[5] == correct[4]) $('#mark5').html('<i class="fa fa-check check"></i>');
+	else $('#mark5').html('<i class="fa fa-times times"></i>');
+}
+
+// answers received in script from server
+function fillResults3() {
+	document.getElementById('1').value = answers[1];
+	if (answers[1] == correct[1]) $('#mark1').html('<i class="fa fa-check check"></i>');
+	else $('#mark1').html('<i class="fa fa-times times"></i>');
+
+	if (answers[2] != null) document.getElementById('2' + answers[2]).checked = true;
+	if (answers[2] == correct[2]) $('#mark2').html('<i class="fa fa-check check"></i>');
+	else $('#mark2').html('<i class="fa fa-times times"></i>');
+
+	if (answers[3] != null) document.getElementById('3' + answers[3]).checked = true;
+	if (answers[3] == correct[3]) $('#mark3').html('<i class="fa fa-check check"></i>');
+	else $('#mark3').html('<i class="fa fa-times times"></i>');
+
+	document.getElementById('4').value = answers[4];
+	if (answers[4] == correct[4]) $('#mark4').html('<i class="fa fa-check check"></i>');
+	else $('#mark4').html('<i class="fa fa-times times"></i>');
+
+	document.getElementById('5').value = answers[5];
+	if (answers[5] == correct[5]) $('#mark5').html('<i class="fa fa-check check"></i>');
+	else $('#mark5').html('<i class="fa fa-times times"></i>');
+}
+
+// answers received in script from server
+function fillResults1() {
+	if (answers[1] != null) document.getElementById('1' + answers[1]).checked = true;
+
+	if (answers[1] == correct[1]) $('#mark1').html('<i class="fa fa-check check"></i>');
+	else $('#mark1').html('<i class="fa fa-times times"></i>');
+
+	if (answers[2] != null) document.getElementById('2' + answers[2]).checked = true;
+
+	if (answers[2] == correct[2]) $('#mark2').html('<i class="fa fa-check check"></i>');
+	else $('#mark2').html('<i class="fa fa-times times"></i>');
+
+	if (answers[3] != null) document.getElementById('3' + answers[3]).checked = true;
+
+	if (answers[3] == correct[3]) $('#mark3').html('<i class="fa fa-check check"></i>');
+	else $('#mark3').html('<i class="fa fa-times times"></i>');
+
+	if (answers[4] != null) document.getElementById('4' + answers[4]).checked = true;
+
+	if (answers[4] == correct[4]) $('#mark4').html('<i class="fa fa-check check"></i>');
+	else $('#mark4').html('<i class="fa fa-times times"></i>');
+
+	document.getElementById('5').value = answers[5];
+	if (answers[5] == correct[5]) $('#mark5').html('<i class="fa fa-check check"></i>');
+	else $('#mark5').html('<i class="fa fa-times times"></i>');
 }
 
 function validateSignUp() {

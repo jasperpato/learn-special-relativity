@@ -94,79 +94,93 @@ def lesson3():
     theme = user.selected_theme()
     return render_template('lesson-3.html', user=current_user, theme=theme)
 
-@routes.route('/learn/test-1', methods=['GET', 'POST'])
+@routes.route('/learn/test-1')
 @login_required
 def test1():
     user = User.query.filter_by(id = current_user.id).first()
     theme = user.selected_theme()
-    if request.method == 'POST':
-
-        correct_answers = ["B", "A", "B", "B", "4"]
-        score = 0;
-
-        for i in range(len(correct_answers)):
-            if request.form.get('question'+str(i+1)) == correct_answers[i]:
-              score += 1
-            
-        score = int(score / len(correct_answers) * 100)
-        new_test_attempt = TestAttempt(testId=1, score=score, user_id=current_user.id)
-        db.session.add(new_test_attempt)
-        db.session.commit()
-        flash(score)
-
-        return redirect(url_for('routes.learn'))
     
     return render_template('test-1.html', user=current_user, theme=theme)
 
-@routes.route('/learn/results-1')
+@routes.route('/learn/results-1', methods=['POST'])
 @login_required
 def results1():
     user = User.query.filter_by(id = current_user.id).first()
     theme = user.selected_theme()
-    return render_template('results-1.html', user=current_user, theme=theme)
+    correct_answers = {1:"B", 2:"A", 3:"B", 4:"B", 5:"4"}
+    score = 0
+    answers = {}
 
-@routes.route('/learn/test-2', methods=['GET', 'POST'])
+    for i in range(1,6):
+        a = request.form.get( 'question' + str(i) )
+        answers[ str(i) ] = a
+        if a == correct_answers[i]:
+            score += 1
+            
+    score = int(score / len(correct_answers) * 100)
+    new_test_attempt = TestAttempt(testId=1, score=score, user_id=current_user.id)
+    db.session.add(new_test_attempt)
+    db.session.commit()
+    flash(score)
+
+    return render_template('results-1.html', user=current_user, theme=theme, answers=answers, correct=correct_answers)
+
+@routes.route('/learn/test-2')
 @login_required
 def test2():
     user = User.query.filter_by(id = current_user.id).first()
     theme = user.selected_theme()
-    if request.method == 'POST':
-
-        correct_answers = ["A", "A", "B", "A", "A"]
-        score = 0;
-
-        for i in range(len(correct_answers)):
-            if request.form.get('question'+str(i+1)) == correct_answers[i]:
-              score += 1
-            
-        score = int(score / len(correct_answers) * 100)
-        new_test_attempt = TestAttempt(testId=2, score=score, user_id=current_user.id)
-        db.session.add(new_test_attempt)
-        db.session.commit()
-        flash(score)
-
-        return redirect(url_for('routes.learn'))
     return render_template('test-2.html', user=current_user, theme=theme)
+
+@routes.route('/learn/results-2', methods=['POST'])
+@login_required
+def results2():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    correct_answers = {1:"A", 2:"A", 3:"B", 4:"A", 5:"A"}
+    score = 0
+    answers = {}
+
+    for i in range(1,6):
+        a = request.form.get( 'question' + str(i) )
+        answers[ str(i) ] = a
+        if a == correct_answers[i]:
+            score += 1
+            
+    score = int(score / len(correct_answers) * 100)
+    new_test_attempt = TestAttempt(testId=2, score=score, user_id=current_user.id)
+    db.session.add(new_test_attempt)
+    db.session.commit()
+    flash(score)
+
+    return render_template('results-2.html', user=current_user, theme=theme, answers=answers, correct=correct_answers)
 
 @routes.route('/learn/test-3', methods=['GET', 'POST'])
 @login_required
 def test3():
     user = User.query.filter_by(id = current_user.id).first()
     theme = user.selected_theme()
-    if request.method == 'POST':
-
-        correct_answers = ['2', "A", "A", '20', '20']
-        score = 0;
-
-        for i in range(len(correct_answers)):
-            if request.form.get('question'+str(i+1)) == correct_answers[i]:
-              score += 1
-        
-        score = int(score / len(correct_answers) * 100)
-        new_test_attempt = TestAttempt(testId=3, score=score, user_id=current_user.id)
-        db.session.add(new_test_attempt)
-        db.session.commit()
-        flash(score)
-
-        return redirect(url_for('routes.learn'))
     return render_template('test-3.html', user=current_user, theme=theme)
+
+@routes.route('/learn/results-3', methods=['POST'])
+@login_required
+def results3():
+    user = User.query.filter_by(id = current_user.id).first()
+    theme = user.selected_theme()
+    correct_answers = {1:"2", 2:"A", 3:"A", 4:"20", 5:"20"}
+    score = 0;
+    answers = {}
+
+    for i in range(1,6):
+        a = request.form.get( 'question' + str(i) )
+        answers[ str(i) ] = a
+        if a == correct_answers[i]:
+            score += 1
+            
+    score = int(score / len(correct_answers) * 100)
+    new_test_attempt = TestAttempt(testId=3, score=score, user_id=current_user.id)
+    db.session.add(new_test_attempt)
+    db.session.commit()
+    flash(score)
+
+    return render_template('results-3.html', user=current_user, theme=theme, answers=answers, correct=correct_answers)

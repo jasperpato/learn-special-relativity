@@ -1,16 +1,20 @@
-{% extends "base.html" %}{% block title %} LSR - Test 3{% endblock %} {% block content %}
-<form id="quiz" action="{{ url_for('routes.results3') }}" method="POST">
+{% extends "base.html" %}{% block title %} LSR - Test 3 Results{% endblock %} {% block content %}
+<script>
+	let answers = JSON.parse('{{ answers | tojson | safe }}');
+	let correct = JSON.parse('{{ correct | tojson | safe }}');
+</script>
+<form id="quiz">
 	<div class="quizBox">
-		<h2>Test 3</h2>
+		<h2>Test 3 Results</h2>
 
-		<h3>Question 1</h3>
+		<h3>Question 1<span id="mark1"></span></h3>
 		<p>
 			For v=0.866c, what is the value of the Lorentz factor as an integer?
 			<br />
 		</p>
 		<input class="textAns" id="1" type="text" name="question1" autocomplete="off" />
 
-		<h3>Question 2</h3>
+		<h3>Question 2<span id="mark2"></span></h3>
 		<p>
 			The duration of the journey from Earth to the planet is the time interval between two events: the
 			spaceship leaving Earth and the spaceship arriving on the other planet. Which observer witnesses these
@@ -23,7 +27,7 @@
 		<input id="2B" type="radio" name="question2" value="B" />
 		<label for="2B"><span class="quizLetter">B</span> Twin on Earth</label>
 
-		<h3>Question 3</h3>
+		<h3>Question 3<span id="mark3"></span></h3>
 		<p>
 			During the journey from the planet back to Earth, which twin observes proper time?
 			<br />
@@ -34,7 +38,7 @@
 		<input id="3B" type="radio" name="question3" value="B" />
 		<label for="3B"><span class="quizLetter">B</span> Twin on Earth</label>
 
-		<h3>Question 4</h3>
+		<h3>Question 4<span id="mark4"></span></h3>
 		<p>
 			If the journey from Earth to the planet takes 10 years for the twin inside the spaceship, how many years
 			will it take for the twin on Earth?
@@ -42,26 +46,29 @@
 		</p>
 		<input class="textAns" id="4" type="text" name="question4" autocomplete="off" />
 
-		<h3>Question 5</h3>
+		<h3>Question 5<span id="mark5"></span></h3>
 		<p>
 			When reunited, how much older will the twin on Earth be compared to the twin who travelled through
 			space?
 		</p>
 		<input class="textAns" id="5" type="text" name="question5" autocomplete="off" />
-		<input class="submit" id="submit" type="submit" value="Submit" />
 	</div>
 </form>
-<div class="rocket rocket1">
-	<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
-</div>
-<div class="pageArrow pageArrowDown" style="left: 100px">
-	<span></span>
-	<span></span>
-	<span></span>
-</div>
-<div class="pageArrow pageArrowDown" style="right: 100px">
-	<span></span>
-	<span></span>
-	<span></span>
-</div>
+<h2 class="pageArrowRightLabel">Stats</h2>
+<a href="{{ url_for('routes.stats') }}">
+	<div class="pageArrow pageArrowRight">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
+<h2 class="pageArrowLeftLabel">Lesson 3</h2>
+
+<a href="{{ url_for('routes.lesson3') }}">
+	<div class="pageArrow pageArrowLeft">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
 {% endblock %}

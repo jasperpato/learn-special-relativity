@@ -1,5 +1,5 @@
 {% extends "base.html" %}{% block title %} LSR - Test 1{% endblock %} {% block content %}
-<form id="quiz" method="POST">
+<form id="quiz" action="{{ url_for('routes.results1') }}" method="POST">
 	<div class="quizBox">
 		<h2>Test 1</h2>
 
@@ -9,6 +9,8 @@
 			speed of the light rays from the star to the spaceship would be closest to…
 			<br />
 		</p>
+		<input type="radio" name="question1" value="" style="display: none" disabled checked />
+
 		<input id="1A" type="radio" name="question1" value="A" />
 		<label for="1A"><span class="quizLetter">A</span> 299,892,458 m/s</label>
 
@@ -27,6 +29,8 @@
 			speed of the emitted light to be…
 			<br />
 		</p>
+		<input type="radio" name="question2" value="" style="display: none" disabled checked />
+
 		<input id="2A" type="radio" name="question2" value="A" />
 		<label for="2A"><span class="quizLetter">A</span> The same</label>
 
@@ -39,6 +43,8 @@
 			space-time.
 			<br />
 		</p>
+		<input type="radio" name="question3" value="" style="display: none" disabled checked />
+
 		<input id="3A" type="radio" name="question3" value="A" />
 		<label for="3A"><span class="quizLetter">True</span></label>
 
@@ -50,6 +56,8 @@
 			True or false? The speed of a spaceship is the same in all reference frames.
 			<br />
 		</p>
+		<input type="radio" name="question4" value="" style="display: none" disabled checked />
+
 		<input id="4A" type="radio" name="question4" value="A" />
 		<label for="4A"><span class="quizLetter">True</span></label>
 
@@ -62,12 +70,12 @@
 		<input class="submit" id="submit" type="submit" value="Submit" />
 	</div>
 </form>
-<div class="pageArrow pageArrowDown" style="left: 20%">
+<div class="pageArrow pageArrowDown" style="left: 100px">
 	<span></span>
 	<span></span>
 	<span></span>
 </div>
-<div class="pageArrow pageArrowDown" style="right: 20%">
+<div class="pageArrow pageArrowDown" style="right: 100px">
 	<span></span>
 	<span></span>
 	<span></span>

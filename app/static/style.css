@@ -1161,3 +1161,15 @@ svg circle:nth-child(2) {
 	color: white;
 	border: none;
 }
+
+.check {
+	font-size: 1.2em;
+	color: greenyellow;
+	padding-left: 15px;
+}
+
+.times {
+	font-size: 1.2em;
+	color: red;
+	padding-left: 15px;
+}
