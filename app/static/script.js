@@ -1,12 +1,13 @@
 function init(theme) {
 	scroll();
 	dropMenu();
-	titleMove();
 	activateNavBar();
 	setTheme(theme);
 
 	let hr = window.location.href;
 	let title = document.getElementById('title').innerHTML;
+
+	if (title.includes('Home')) titleMove();
 
 	if (title.includes('Test') || title.includes('Lesson')) {
 		let num = parseInt(title[title.length - 1]);
@@ -153,7 +154,7 @@ function titleMove() {
 		var valueX = (e.pageX * -1) / 75;
 		var valueY = (e.pageY * -1) / 75;
 
-		$('#title').css({
+		$('#homeTitle').css({
 			transform: 'translate(' + valueX + 'px,' + valueY + 'px)',
 		});
 	});
