@@ -85,6 +85,6 @@ $ python3 systemtest.py
 
 ## References
 
-Albert Einstein photo ref: https://www.theguardian.com/books/2015/jun/12/five-reasons-we-should-celebrate-albert-einstein
+Albert Einstein photo ref: MPI/Getty Images
 Diagrams by Jasper Paterson and Simon Dransfield
 Background art by Jordan Hartley
