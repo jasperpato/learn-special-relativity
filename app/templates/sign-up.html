@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}LSR - Sign Up{% endblock %}
+{% block body %}<body onload="init_login('{{theme}}')">{% endblock %}
+{% block content %}
+<div id="message" class="alert alert-danger fade show" role="alert" style="display: none;"></div>
+<div class="loginBox">
+  <h2>Sign up</h2>
+  <form onsubmit="return validateSignUp()" method="POST">
+    <div class="inputBox">
+      <input type="text" name="username" id="username" value="{{request.form.username}}" required="" autocomplete="off"/>
+      <label for="username">Username</label>
+    </div>
+    <div class="inputBox">
+      <input type="Password" name="password" id="password" value="{{request.form.password}}" required=""/>
+      <label for="password">Password</label>
+    </div>
+    <div class="inputBox">
+      <input type="Password" name="passwordConfirm" id="passwordConfirm" value="{{request.form.password}}" required="" />
+      <label for="passwordConfirm">Confirm Password</label>
+    </div>
+    <input type="submit" name="" value="Sign Up" />
+  </form><br />
+  <p>Already have an account? <a href="{{ url_for('auth.login')}}">Click here to login.</a></p>
+</div>
+{% endblock %}

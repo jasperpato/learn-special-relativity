@@ -1,0 +1,1182 @@
+:root {
+	--background: url('backgrounds/BackgroundBlue.jpg');
+	/* --colour1: #00eeff;
+	--colour2: #1da9eb;
+	--colour3: #5b7e8e; */
+	--colour1: grey;
+	--colour2: grey;
+	--colour3: grey;
+	--blue3: #1da9eb;
+	--red3: #bd1010;
+	--purple3: #6a0496;
+	--green3: #05ab48;
+	--boxShadow: rgba(9, 241, 203, 0.75);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	color: #fff;
+	background-image: var(--background);
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	padding-right: 10px;
+	padding-bottom: 50px;
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+a {
+	color: var(--colour1);
+}
+
+div#back {
+	width: fit-content;
+	margin: auto;
+	font-size: 1em;
+	background: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 3px 3px;
+	margin-top: 10px;
+}
+
+div#back a {
+	text-decoration: none;
+	color: white;
+}
+
+h1 {
+	cursor:default;
+	margin-top: 10%;
+	margin-bottom: 10%;
+	font-family: 'Orbitron';
+	text-shadow: var(--colour1) 1px 0 10px;
+	font-size: 500%;
+	font-weight: bold;
+	color: #fff;
+	text-decoration: wavy;
+	text-align: center;
+	padding-top: 2em;
+	padding-bottom: 1.2em;
+}
+
+.about {
+	background: rgba(0, 0, 0, 0.5);
+	margin: auto;
+	margin-top: 200px;
+	padding: 50px;
+	text-align: justify;
+	max-width: 1000px;
+	border-top: 5px solid var(--colour1);
+	z-index: 6;
+}
+
+.alert {
+	font-family: 'Orbitron';
+	position: relative;
+	display: flex;
+	float: top;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
+	z-index: 5000;
+	opacity: 0.9;
+	width: 30%;
+}
+
+.alert-success {
+	background: rgb(70, 70, 70);
+	color: #fff;
+}
+
+.alert-danger {
+	background: linear-gradient(#f34814, #f3d214);
+}
+
+/*Navigation Bar*/
+/*----------------------------------------------------------------------------------------------------------*/
+header {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 0 100px;
+	background: linear-gradient(#262626, #161616);
+	width: 100%;
+	box-sizing: border-box;
+	opacity: 0.9;
+	z-index: 1000;
+}
+
+header .logo {
+	color: #fff;
+	font-family: 'Orbitron';
+	height: 40px;
+	line-height: 50px;
+	font-size: 30px;
+	float: left;
+	font-weight: bolder;
+	letter-spacing: 3px;
+	cursor: pointer;
+}
+
+.logopic {
+	height: 38px;
+}
+
+header nav {
+	float: right;
+}
+
+header nav ul {
+	margin: 0;
+	padding: 0;
+	display: flex;
+}
+
+header nav ul li {
+	list-style: none;
+}
+header nav ul li a {
+	height: 50px;
+	line-height: 50px;
+	padding: 0 20px;
+	color: #fff;
+	text-decoration: none;
+	display: block;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+header nav ul li:last-of-type a {
+	border-left: 6px double var(--boxShadow);
+}
+
+header nav ul li a:hover,
+header nav ul li a.active {
+	color: #fff;
+	background: linear-gradient(90deg, var(--colour1), var(--colour2));
+}
+
+.menu-toggle {
+	color: #fff;
+	float: right;
+	line-height: 50px;
+	font-size: 24px;
+	cursor: pointer;
+	display: none;
+}
+
+@media (max-width: 991px) {
+	header {
+		padding: 0 20px;
+	}
+	.menu-toggle {
+		display: block;
+	}
+	header nav {
+		position: absolute;
+		width: 100%;
+		height: 100vh;
+		background: #333;
+		top: 50px;
+		left: -100%;
+		transition: 0.5s;
+	}
+	header nav.active {
+		left: 0;
+	}
+	header nav ul {
+		display: block;
+		text-align: center;
+	}
+	header nav ul li a {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+	}
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Scrollbar*/
+/*----------------------------------------------------------------------------------------------------------*/
+::-webkit-scrollbar {
+	width: 0;
+}
+
+#scrollPath {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+#progressbar {
+	position: fixed;
+	top: 0;
+	right: 0;
+	width: 10px;
+	background: linear-gradient(to top, var(--colour1), var(--colour2));
+	animation: progressbarAnimate 5s linear infinite;
+}
+@keyframes progressbarAnimate {
+	0%,
+	100% {
+		filter: hue-rotate(0deg);
+	}
+	50% {
+		filter: hue-rotate(34deg);
+	}
+}
+#progressbar::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, var(--colour1), var(--colour2));
+	filter: blur(10px);
+}
+#progressbar::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to top, var(--colour1), var(--colour2));
+	filter: blur(30px);
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Log in*/
+/*----------------------------------------------------------------------------------------------------------*/
+.loginBox {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 400px;
+	padding: 40px;
+	padding-bottom: 15px;
+	background: rgba(0, 0, 0, 0.8);
+	box-sizing: border-box;
+	box-shadow: 0 0 205px var(--boxShadow);
+	border-radius: 10px;
+}
+
+.loginBox h2 {
+	margin: 0 0 30px;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+}
+
+.loginBox .inputBox {
+	position: relative;
+}
+
+.loginBox .inputBox input {
+	width: 100%;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	margin-bottom: 30px;
+	border: none;
+	border-bottom: 1px solid var(--colour2);
+	outline: none;
+	background: transparent;
+}
+
+.loginBox .inputBox label {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 10px 0;
+	font-size: 16px;
+	color: #fff;
+	letter-spacing: 1px;
+	pointer-events: none;
+	transition: 0.5s;
+}
+
+.loginBox .inputBox input:focus ~ label,
+.loginBox .inputBox input:valid ~ label {
+	top: -20px;
+	left: 0;
+	color: #23dbd2;
+	font-size: 12px;
+}
+.loginBox input[type='submit'] {
+	background: transparent;
+	border: none;
+	outline: none;
+	color: #fff;
+	background: linear-gradient(90deg, var(--colour1), var(--colour2));
+	padding: 10px 20px;
+	cursor: pointer;
+	border-radius: 5px;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Learning selection page*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.learnContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	min-height: 470px;
+	margin: 40px 0;
+	margin-bottom: 0;
+}
+
+.learnContainer .learnCard {
+	position: relative;
+	min-width: 320px;
+	height: 370px;
+	box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2), inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+		5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+	border-radius: 15px;
+	margin: 30px;
+	background: #2a2b2f;
+	opacity: 0.88;
+}
+
+.learnContainer .learnCard .learnBox {
+	position: absolute;
+	top: 20px;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	background: #2a2b2f;
+	border: 2px solid #1e1f23;
+	border-radius: 15px;
+	box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+	transition: 0.5s;
+	overflow: hidden;
+}
+
+.learnContainer .learnCard .learnBox:hover {
+	transform: translateY(-20px);
+	box-shadow: 0 40px 70px rgba(0, 0, 0, 0.5);
+}
+
+.learnContainer .learnCard .learnBox .learnContent {
+	font-family: 'Orbitron';
+	padding: 20px;
+	text-align: center;
+}
+
+.learnContainer .learnCard .learnBox .learnContent h2 {
+	position: absolute;
+	top: -10px;
+	right: 30px;
+	font-size: 8em;
+	color: rgba(255, 255, 255, 0.05);
+}
+
+.learnContainer .learnCard .learnBox .learnContent h3 {
+	font-size: 1.8em;
+	color: white;
+	z-index: 1;
+	transition: 0.5s;
+}
+
+.learnContainer .learnCard .learnBox .learnContent p {
+	font-family: 'Orbitron';
+	font-size: 16px;
+	font-weight: 300;
+	color: white;
+	z-index: 1;
+	transition: 0.5s;
+}
+
+.learnContainer .learnCard .learnBox .learnContent a {
+	position: relative;
+	display: inline-block;
+	padding: 8px 20px;
+	background: #000;
+	margin-top: 30px;
+	border-radius: 20px;
+	text-decoration: none;
+	font-weight: 400;
+	color: #fff;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.learnContainer .learnCard .learnBox .learnContent a {
+	background: var(--colour1);
+}
+/*----------------------------------------------------------------------------------------------------------*/
+
+/*Learn progress*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.progressContainer {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	margin: 40px 0;
+	margin-top: 0;
+}
+
+.progressContainer .progressCard {
+	position: relative;
+	width: 250px;
+	height: 300px;
+	text-align: center;
+	z-index: 10;
+	margin-left: 65px;
+	margin-right: 65px;
+	margin-bottom: 75px;
+}
+
+.progressContainer .progressCard .progressBox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(15px);
+	border: 1px solid rgba(255, 255, 255, 0.1);
+	z-index: 10;
+	border-radius: 10px;
+}
+
+.progressContainer .progressCard h4 {
+	margin-top: 20px;
+	font-family: 'Orbitron';
+	text-shadow: var(--colour1) 1px 0 10px;
+	position: relative;
+	z-index: 100;
+}
+
+.progressPercent {
+	position: relative;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	z-index: 100;
+}
+
+.progressPercent .progressNumber {
+	position: absolute;
+	font-family: 'Orbitron';
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.progressPercent .progressNumber h2 {
+	color: #fff;
+	font-weight: 700;
+	font-size: 45px;
+}
+
+.progressPercent .progressNumber h2 span {
+	font-size: 24px;
+}
+
+.progressText {
+	position: absolute;
+	bottom: -42px;
+	left: 50%;
+	transform: translateX(-50%);
+	text-align: center;
+	padding: 30px 20px 10px;
+	font-family: 'Orbitron';
+	background: var(--colour1);
+	border-radius: 10px;
+	font-weight: 800;
+	font-size: 18px;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+	z-index: 1;
+	pointer-events: none;
+	transition: bottom 0.5s, z-index 0s, transform 0.5s, padding 0.5s;
+	transition-delay: 0.5s, 0.5s, 0s, 0.5s;
+	color: #fff;
+}
+
+.progressCard:hover .progressText {
+	transition-delay: 0s, 0.5s, 0.5s, 0s;
+	bottom: -70px;
+	z-index: 11;
+	transform: translateX(-50%) translateY(-50px);
+	padding: 10px 20px 10px;
+}
+
+.progressCard .progressText {
+	background: var(--colour1);
+}
+
+svg {
+	position: relative;
+	width: 150px;
+	height: 150px;
+}
+
+svg circle {
+	width: 100%;
+	height: 100%;
+	fill: none;
+	stroke-width: 10;
+	stroke: rgba(255, 255, 255, 0.05);
+	transform: translate(5px, 5px);
+	stroke-linecap: round;
+}
+
+svg circle:nth-child(2) {
+	stroke: #fff;
+	stroke-dasharray: 440px;
+	stroke-dashoffset: 80px;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Rocket*/
+/*----------------------------------------------------------------------------------------------------------*/
+
+.rocketIcon {
+	max-height: 28px;
+}
+
+.rocket {
+	position: absolute;
+}
+
+.rocket1 {
+	animation: rocketShake1 0.2s ease infinite, rocketTranslate1 22s;
+	animation-fill-mode: forwards;
+	z-index: -1;
+}
+
+.rocket2 {
+	animation: rocketShake2 0.2s ease infinite, rocketTranslate2 22s;
+	animation-fill-mode: forwards;
+}
+
+.rocket3 {
+	animation: rocketShake3 0.2s ease infinite, rocketTranslate3 22s;
+	animation-fill-mode: forwards;
+	z-index: -2;
+}
+
+.rocket4 {
+	animation: rocketShake4 0.2s ease infinite, rocketTranslate4 22s;
+	animation-fill-mode: forwards;
+	z-index: -2;
+}
+
+@keyframes rocketTranslate1 {
+	0% {
+		left: 0;
+		bottom: 0;
+	}
+	100% {
+		left: 130%;
+		bottom: 130%;
+	}
+}
+
+@keyframes rocketTranslate2 {
+	0% {
+		right: 0;
+		bottom: 0;
+	}
+	100% {
+		right: 130%;
+		bottom: 130%;
+	}
+}
+
+@keyframes rocketTranslate3 {
+	0% {
+		top: 0;
+		left: 0;
+	}
+	100% {
+		top: 130%;
+		left: 130%;
+	}
+}
+
+@keyframes rocketTranslate4 {
+	0% {
+		top: 40%;
+		right: 0;
+	}
+	100% {
+		top: 130%;
+		right: 130%;
+	}
+}
+
+@keyframes rocketShake1 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(48deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(48deg);
+	}
+}
+
+@keyframes rocketShake2 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(-48deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(-48deg);
+	}
+}
+
+@keyframes rocketShake3 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(125deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(125deg);
+	}
+}
+
+@keyframes rocketShake4 {
+	0%,
+	100% {
+		transform: translateY(-2px) rotate(235deg);
+	}
+	50% {
+		transform: translateY(2px) rotate(235deg);
+	}
+}
+
+.rocket::before {
+	content: '';
+	position: absolute;
+	bottom: -80px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 4px;
+	height: 80px;
+	background: linear-gradient(#f34814, #f3d214, transparent);
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Stats Page */
+/*----------------------------------------------------------------------------------------------------------*/
+.chooseTestTable {
+	font-family: 'orbitron';
+	margin: auto;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	width: 400px;
+	background: var(--colour3);
+	text-align: center;
+}
+
+.chooseTest a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: inherit;
+}
+
+.chooseActive {
+	background: linear-gradient(90deg, var(--colour1), var(--colour2));
+}
+
+.chooseTestTable td {
+	border-right: 3px solid #000;
+}
+
+.chooseTestTable td:last-of-type {
+	border: none;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/*Colour buttons*/
+/*----------------------------------------------------------------------------------------------------------*/
+.colourButton {
+	color: white;
+	width: 100px;
+	font-family: 'orbitron';
+	margin: auto;
+	background: var(--colour3);
+	text-align: center;
+	top: 50%;
+}
+
+.BlueButton {
+	background: var(--blue3);
+}
+.GreenButton {
+	background: var(--green3);
+}
+.PurpleButton {
+	background: var(--purple3);
+}
+.RedButton {
+	background: var(--red3);
+}
+
+.colourButtons {
+	width: 50%;
+	height: 100px;
+	justify-content: center;
+	text-align: center;
+	margin: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgba(0, 0, 0, 0.5);
+	border: var(--colour1) 4px solid;
+}
+
+.colourButtons td {
+	width: 25%;
+}
+
+.changeColour {
+	display: block;
+	margin: 4px;
+	align-items: center;
+	font-family: 'Orbitron';
+	text-align: center;
+}
+
+.lock {
+	color: var(--colour1);
+	font-size: 2em;
+	margin: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Lesson Boxes */
+/*----------------------------------------------------------------------------------------------------------*/
+
+.lessonBox {
+	margin: auto;
+	margin-top: 60px;
+	width: 650px;
+	height: 580px;
+	transition: 0.5s;
+	border: 1px solid#fff;
+	background: rgba(0.3, 0.3, 0.3, 0.3);
+	padding: 20px;
+	text-align: justify;
+	box-shadow: 0 0 205px var(--boxShadow);
+}
+
+.lessonBox:hover {
+	transform: scale(1.02);
+	box-shadow: 0 0 205px var(--boxShadow);
+}
+
+.lessonBox h2 {
+	font-size: 40px;
+	font-family: 'Orbitron';
+	margin: 0 0 10px;
+	padding: 0;
+	color: #fff;
+}
+
+.lessonBox p {
+	font-size: 16px;
+	margin: 0;
+	padding: 0;
+	color: #fff;
+}
+
+.lessonBox a,
+.lessonBox a:hover {
+	color: var(--colour2);
+}
+.hoverBoxLabel {
+	cursor: alias;
+	color: var(--colour2);
+	position: relative;
+}
+
+.hoverBox {
+	position: absolute;
+	width: 270px;
+	top: 100%;
+	left: 50%;
+	margin-left: -60px;
+	padding: 12px;
+	text-align: justify;
+	background-color: rgba(0, 0, 0, 0.85);
+	color: white;
+	border: 3px solid var(--colour2);
+
+	z-index: 5;
+}
+
+.diagramBox {
+	width: 500px;
+	margin: auto;
+}
+
+.diagram {
+	width: 500px;
+	margin: auto;
+	padding: 5%;
+}
+
+.switchPages {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Lesson Next/Prev Page Buttons */
+/*----------------------------------------------------------------------------------------------------------*/
+
+.pageButton {
+	position: relative;
+	width: 300px;
+	padding: 8px 10px;
+	margin: 15px;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #fff;
+	letter-spacing: 2px;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.pageButton:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(90deg, var(--colour1), var(--colour2));
+	z-index: -1;
+	transition: transform 0.5s;
+	transform-origin: bottom right;
+	transform: scale(0);
+	box-shadow: 0 0 205px rgba(9, 241, 203, 0);
+}
+
+.pageButton:hover:before {
+	transition: transform 0.5s;
+	transform-origin: top left;
+	transform: scale(1);
+	box-shadow: 0 0 205px var(--boxShadow);
+}
+
+.pageButton:after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0.3, 0.3, 0.3, 0.6);
+	border: 2px solid #fff;
+	box-sizing: border-box;
+	z-index: -2;
+	transition: transform 0.5s;
+	transform-origin: top left;
+	box-shadow: 0 0 205px rgba(9, 241, 203, 0);
+	transform: scale(1);
+}
+
+.pageButton:hover:after {
+	transform: scale(0);
+}
+
+.takeTest {
+	display: block;
+	margin: 10px;
+	align-items: center;
+}
+
+.takeTest h3 {
+	font-family: 'Orbitron';
+	text-align: center;
+}
+
+.takeTest a {
+	text-decoration: none;
+}
+
+.takeTest .pageButton {
+	text-align: center;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Lesson Page Arrows */
+/*----------------------------------------------------------------------------------------------------------*/
+
+.pageArrow {
+	position: absolute;
+	width: 110px;
+	height: 110px;
+	transform: translateY(-80px) translateX(-50%) rotate(45deg);
+	opacity: 0.85;
+}
+
+.pageArrow span {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 100%;
+	border-bottom: 6px solid var(--colour2);
+	border-right: 6px solid var(--colour2);
+	animation: pageArrowAnimate 1.5s linear infinite;
+	opacity: 0;
+}
+
+.pageArrow span:nth-child(1) {
+	transform: translate(-30px, -30px);
+	animation-delay: -0.4s;
+}
+
+.pageArrow span:nth-child(2) {
+	transform: translate(0, 0);
+	animation-delay: -0.2s;
+}
+
+.pageArrow span:nth-child(3) {
+	transform: translate(30px, 30px);
+	animation-delay: 0s;
+}
+
+@keyframes pageArrowAnimate {
+	0% {
+		top: -5px;
+		left: -5px;
+		opacity: 0;
+	}
+	25% {
+		top: 0;
+		left: 0;
+		opacity: 1;
+	}
+	50%,
+	100% {
+		top: 5px;
+		left: 5px;
+		opacity: 0;
+	}
+}
+
+.pageArrowRight {
+	transform: rotate(315deg);
+	bottom: 50%;
+	left: 85%;
+}
+
+.pageArrowLeft {
+	transform: rotate(135deg);
+	bottom: 50%;
+	right: 85%;
+}
+
+.pageArrowDown {
+	bottom: 48%;
+	width: 30px;
+	height: 30px;
+}
+
+.pageArrowDown:nth-child(1) {
+	right: 25%;
+}
+
+.pageArrowDown:nth-child(2) {
+	left: 25%;
+}
+
+.pageArrowRightLabel {
+	cursor: pointer;
+	color: var(--colour2);
+	position: absolute;
+	font-family: 'Orbitron';
+	text-shadow: var(--colour2) 1px 0 10px;
+	bottom: 72%;
+	left: 85%;
+}
+
+.pageArrowLeftLabel {
+	cursor: pointer;
+	color: var(--colour2);
+	position: absolute;
+	font-family: 'Orbitron';
+	text-shadow: var(--colour2) 1px 0 10px;
+	bottom: 72%;
+	right: 85%;
+}
+
+@media (max-width: 991px) {
+	.pageArrowLeftLabel {
+		display: none;
+	}
+
+	.pageArrowRightLabel {
+		display: none;
+	}
+
+	.pageArrowLeft {
+		display: none;
+	}
+
+	.pageArrowRight {
+		display: none;
+	}
+}
+
+/*----------------------------------------------------------------------------------------------------------*/
+/* Quiz pages */
+/*----------------------------------------------------------------------------------------------------------*/
+
+.questionContainer {
+	position: relative;
+	display: flex;
+	width: 50%;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 15px;
+	margin: 60px;
+	margin-left: auto;
+	margin-right: auto;
+	background: rgba(53, 53, 53, 0.8);
+	border: #000 10px solid;
+}
+
+.questionContainer p {
+	color: #fff;
+	font-size: 20px;
+	font-weight: 500;
+	margin-bottom: 5px;
+	padding-right: 20px;
+}
+
+.questionContainer label {
+	position: relative;
+}
+
+.questionContainer label input {
+	appearance: none;
+	-webkit-apppearance: none;
+	cursor: pointer;
+}
+
+.questionContainer label .fa {
+	position: relative;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	margin: 0 4px;
+	color: rgba(126, 126, 126, 0.44);
+	font-size: 16px;
+	border-radius: 50%;
+	cursor: pointer;
+	box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.8);
+}
+
+.questionContainer label .fa:hover {
+	box-shadow: -1px -1px 3px rgba(255, 255, 255, 0.1), -2px -2px 6px rgba(0, 0, 0, 0.8),
+		inset -2px -2px 10px rgba(255, 255, 255, 0.05), inset -2px -2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.questionContainer label input:checked ~ .fa {
+	color: var(--colour1);
+	box-shadow: inset -1px -1px 3px rgba(255, 255, 255, 0.1), inset -2px -2px 6px rgba(0, 0, 0, 1);
+	text-shadow: 0 0 5px var(--colour1), 0 0 20px var(--colour1);
+}
+
+.quizBox {
+	margin: auto;
+	margin-top: 60px;
+	width: 650px;
+	transition: 0.5s;
+	border: 1px solid#fff;
+	background: rgba(0.3, 0.3, 0.3, 0.3);
+	padding: 20px;
+	height: 580px;
+	text-align: justify;
+	box-shadow: 0 0 205px var(--boxShadow);
+	overflow: hidden;
+	overflow-y: scroll;
+}
+
+.quizBox h2 {
+	font-family: 'orbitron';
+	text-align: center;
+}
+
+.quizBox h3 {
+	margin-top: 30px;
+	font-family: 'orbitron';
+	color: var(--colour2);
+	font-size: medium;
+}
+
+.quizLetter {
+	color: var(--colour2);
+	font-weight: bolder;
+}
+
+.textAns {
+	width: 50px;
+}
+
+.submit {
+	width: 100px;
+	margin: auto;
+	display: block;
+	margin-top: 30px;
+	background: linear-gradient(90deg, var(--colour1), var(--colour2));
+	font-family: 'orbitron';
+	font-size: medium;
+	color: white;
+	border: none;
+}
+
+.check {
+	font-size: 1.2em;
+	color: greenyellow;
+	padding-left: 15px;
+}
+
+.times {
+	font-size: 1.2em;
+	color: red;
+	padding-left: 15px;
+}

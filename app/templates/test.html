@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+{% block title %} LSR - Test {{test_number}}{% endblock %}
+{% block body %}<body onload="init_test('{{theme}}')">{% endblock %}
+{% block content %}
+<form id="quiz" action="{{ url_for('routes.results') }}" method="POST">
+	<input name="test_number" type="hidden" value="{{test_number}}">
+    <div class="quizBox">
+		<h2>Test {{test_number}}</h2>
+        {% for q in questions %}
+        <h3>Question {{q.number}}</h3>
+		<p>{{q.text}}<br /></p>
+        <input type="radio" name="{{q.number}}" value="" style="display: none" disabled checked />
+        {% for i, (l, a) in enumerate(zip(('A','B','C','D'), number_sorted(q.answers))) %}
+		<input id="{{q.number}}{{a.number}}" type="radio" name="{{q.number}}" value="{{a.number}}" />
+		<label for="{{q.number}}{{a.number}}"><span class="quizLetter">{{l}} </span>{{a.text}}</label>
+        {% if i < len(q.answers) and i % 2 == 1 %}<br>{% endif %}
+        {% else %}
+        <input class="textAns" id="{{q.number}}" type="text" name="{{q.number}}" autocomplete="off" />
+        {% endfor %}
+        {% endfor %}
+		<input class="submit" id="submit" type="submit" value="Submit" />
+	</div>
+</form>
+<div class="pageArrow pageArrowDown" style="left: 100px">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="pageArrow pageArrowDown" style="right: 100px">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}LSR - Learn{% endblock %}
+{% block body %}<body onload="init_learn('{{theme}}')">{% endblock %}
+{% block content %}
+<div class="learnContainer">
+	{% for i, t in ((1, 'The Theory'), (2, 'The Train'), (3, 'The Spaceship')) %}
+	<div class="learnCard">
+		<div class="learnBox">
+			<div class="learnContent">
+				<h2>0{{i}}</h2>
+				<h3>{{t}}</h3>
+				<a href="{{ url_for('routes.lesson' + str(i)) }}">Go to Lesson</a>
+				<a href="{{ url_for('routes.test', test_number=i) }}">Test Yourself</a>
+			</div>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="progressContainer">
+	{% for i in range(3) %}
+	<div class="progressCard">
+		<h4>Your Top Score</h4>
+		<div class="progressBox">
+			<div>
+				<div class="progressPercent">
+					<svg>
+						<circle cx="70" cy="70" r="70"></circle>
+						<circle
+							id="circle{{i}}"
+							cx="70"
+							cy="70"
+							r="70"
+							style="stroke-dashoffset: calc(440px - 440px * {{attempts[i]}} / 100)">
+						</circle>
+					</svg>
+					<div class="progressNumber">
+						<h2>{{attempts[i]}}<span>%</span></h2>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="progressText">Test {{i+1}}</div>
+	</div>
+	{% endfor %}
+</div>
+<div class="rocket rocket4">
+	<img src="{{ url_for('static', filename='pictures/rocket.png') }}" class="rocketIcon" />
+</div>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}LSR - Lesson 3{% endblock %}
+{% block body %}<body onload="init_lesson('{{theme}}', 3)">{% endblock %}
+{% block content %}
+<div class="lessonBox">
+	<h2>Lesson 3</h2>
+	<div id="l1" style="display: block">
+		<p>
+			If we performed this experiment on a real train, we would not be able to observe a difference in the
+			elapsed time for both observers. This is because trains do not travel fast enough to create a noticeable
+			dilation of time.
+			<br /><br />
+			Test this yourself by plugging in the average speed of a train into the
+			<span class="hoverBoxLabel" id="lorentzLabel"
+				>Lorentz factor
+				<span class="hoverBox" id="lorentz" style="display: none">
+					The Lorentz factor<br />γ = 1 / sqrt( 1 - v^2 / c^2 )<br />
+					is a quantity dependent on the relative speed v between observers, found in the time dilation
+					formula t<sub>1</sub> = γ * t<sub>0</sub>
+				</span>
+			</span>
+			in a calculator. The result should show up as 1 (but with enough decimal places, it would be ever so
+			slightly higher). <br /><br />
+			In this final lesson we will explore an example of time dilation in space travel.
+		</p>
+	</div>
+	<div id="l2" style="display: none">
+		<p>
+			Consider a set of twins, one on a space ship that travels from Earth to another planet and back again,
+			and the other left standing on Earth.
+			<br /><br />
+			The observer on Earth experiences themselves as stationary while their twin is moving away from them,
+			and so believes that they are observing proper time. Therefore time must be dilating for their twin, who
+			would return from their journey having aged far less than the observer who stayed on Earth.
+			<br /><br />
+			However due to relative motion, the twin on the spaceship believes it is themselves and their spaceship
+			that is stationary while the Earth and their twin zoom away behind them.
+			<br /><br />
+			They would predict that it is the observer on Earth who would be younger when they reunite. The twins
+			can’t both be younger than the other, giving rise to the twins paradox.
+		</p>
+	</div>
+	<div id="l3" style="display: none">
+		<p>
+			It is not a true paradox because only the observer on Earth is correct. The error lies in the fact that
+			the spaceship’s motion is not constant — it must stop, turn around, and travel with a different velocity
+			to get back to Earth again.
+			<br /><br />
+			To discover more about this phenomena simply search for 'the twins paradox'.
+			<br /><br />
+			<a href="{{ url_for('routes.test', test_number=3) }}"> In the test</a> for this section you will be briefly guided
+			through what really occurred during this experiment.
+		</p>
+	</div>
+</div>
+<div class="row switchPages">
+	<div id="prev" class="pageButton" style="display: none">PREV</div>
+	<div id="next" class="pageButton" style="display: block">NEXT</div>
+</div>
+<div class="takeTest">
+	<h3>Think you're ready? Test your knowledge!</h3>
+	<a href="{{ url_for('routes.test', test_number=3) }}"><div class="pageButton">LESSON 3 TEST</div></a>
+</div>
+<a href="{{ url_for('routes.lesson2') }}">
+	<h2 class="pageArrowLeftLabel">Lesson 2</h2>
+	<div class="pageArrow pageArrowLeft">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
+{% endblock %}
