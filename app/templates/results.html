@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}LSR - Test {{test_number}} Results{% endblock %}
+{% block body %}<body onload="init_learn('{{theme}}')">{% endblock %}
+{% block content %}
+	<div class="quizBox">
+		<h2>Test {{test_number}}</h2>
+        {% for i, q in enumerate(questions) %}
+        <h3>Question {{q.number}} <i class="fa fa-{{'check check' if correct[i] else 'times times'}}"></i></h3>
+		<p>{{q.text}}<br /></p>
+        {% endfor %}
+	</div>
+</form>
+<div class="pageArrow pageArrowDown" style="left: 100px">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+<div class="pageArrow pageArrowDown" style="right: 100px">
+	<span></span>
+	<span></span>
+	<span></span>
+</div>
+{% endblock %}

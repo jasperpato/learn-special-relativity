@@ -17,13 +17,15 @@
 		/>
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}" />
 	</head>
-	<body onload="init('{{theme}}');">
+	{% block body %}<!-- <body onload="init('{{theme}}')"> -->{% endblock %}
 		<div id="progressbar"></div>
 		<div id="scrollPath"></div>
 		<header>
+			<a href="{{ url_for('routes.home') }}">
 			<div class="logo">
 				<img src="{{ url_for('static', filename='pictures/logoi.png') }}" class="logopic" /> LSR
 			</div>
+			</a>
 			<nav>
 				<ul>
 					<li><a class="navButton navHome" href="{{ url_for('routes.home')}}">Home</a></li>
@@ -46,5 +48,6 @@
 		{% else %}
 		<div class="alert alert-success fade show" role="alert">{{ message }}</div>
 		{% endif %} {% endfor %} {% endif %} {% endwith %} {% block content %} {% endblock %}
+	<div id="back"><a href="https://jasperpato.online">Back to Site</a></div>
 	</body>
 </html>

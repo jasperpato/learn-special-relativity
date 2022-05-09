@@ -1,110 +1,70 @@
-{% extends "base.html" %}{% block title %}LSR - Stats{% endblock %} {% block content %}
-<script>
-	let testData = JSON.parse('{{ testData | tojson | safe }}');
-</script>
+{% extends "base.html" %}
+{% block title %}LSR - Stats{% endblock %}
+{% block body %}<body onload="init_stats('{{theme}}')">{% endblock %}
+{% block content %}
 <table class="chooseTestTable">
 	<tr>
-		<td class="chooseTest chooseActive" id="test1">Test 1</td>
-		<td class="chooseTest" id="test2">Test 2</td>
-		<td class="chooseTest" id="test3">Test 3</td>
+		{% for i in range(1,4) %}
+		<td class="chooseTest {{'chooseActive' if i==test_number}}">
+			<a href="{{ url_for('routes.stats', test_number=i) }}">Test {{i}}</a>
+		</td>
+		{% endfor %}
 	</tr>
 </table>
 <div class="progressContainer">
+	{% for i, t in ((0, 'Your Top Score'), (1, 'Your First Score'), (2, 'Average First Score')) %}
+	{% if i == 2 or user.is_authenticated %}
 	<div class="progressCard">
-		<h4>Top Score</h4>
+		<h4>{{t}}</h4>
 		<div class="progressBox">
 			<div>
 				<div class="progressPercent">
 					<svg>
 						<circle cx="70" cy="70" r="70"></circle>
-						<circle id="topCircle" cx="70" cy="70" r="70"></circle>
+						<circle
+							id="circle{{i}}"
+							cx="70"
+							cy="70"
+							r="70"
+							style="stroke-dashoffset: calc(440px - 440px * {{scores[i]}} / 100)">
+						</circle>
 					</svg>
-					<div class="progressNumber">
-						<h2 id="topNum"></h2>
-					</div>
+					<div class="progressNumber"><h2>{{scores[i]}}</h2></div>
 				</div>
 			</div>
 		</div>
-		<div class="progressText">Test 1</div>
-	</div>
-	<div class="progressCard">
-		<h4>Average Score</h4>
-		<div class="progressBox">
-			<div>
-				<div class="progressPercent">
-					<svg>
-						<circle cx="70" cy="70" r="70"></circle>
-						<circle id="avCircle" cx="70" cy="70" r="70"></circle>
-					</svg>
-					<div class="progressNumber">
-						<h2 id="avNum"></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="progressText">Test 1</div>
-	</div>
-	{% if user.is_authenticated %}
-	<div class="progressCard">
-		<h4>Your Top Score</h4>
-		<div class="progressBox">
-			<div>
-				<div class="progressPercent">
-					<svg>
-						<circle cx="70" cy="70" r="70"></circle>
-						<circle id="yourCircle" cx="70" cy="70" r="70"></circle>
-					</svg>
-					<div class="progressNumber">
-						<h2 id="yourNum"></h2>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="progressText">Test 1</div>
+		<div class="progressText">Test {{test_number}}</div>
 	</div>
 	{% endif %}
+	{% endfor %}
 </div>
 <h3 class="changeColour col-md-12">
-	{% if testData.bestAttempt1=='100' and testData.bestAttempt2=='100' and testData.bestAttempt3=='100' %} Well
-	Done! You have unlocked all colour themes! {% else %} Score 100% in the tests to unlock more colour themes!
+	{% if unlocked_all and user.is_authenticated %}
+	Well Done! You have unlocked all colour themes!
+	{% else %}
+	Score 100% in the tests to unlock more colour themes!
 	{% endif %}
 </h3>
-
 <table class="colourButtons">
 	<tr>
 		<td>
-			<form class="blueButton" action="" method="POST">
-				<button class="colourButton" name="colour" value="Blue" id="Blue">Blue</button>
-			</form>
-		</td>
-		<td>
-			{% if testData.bestAttempt1 == '100' %}
-			<form class="greenButton" action="" method="POST">
-				<button class="colourButton" name="colour" value="Green" id="Green">Green</button>
+			{% if user.is_authenticated %}
+			<form action="" method="POST">
+				<button class="colourButton BlueButton" name="colour" value="Blue" id="Blue">Blue</button>
 			</form>
 			{% else %}
-			<i class="fa fa-lock lock"></i>
+			<button class="colourButton BlueButton" name="colour" value="Blue" id="Blue">Blue</button>
 			{% endif %}
 		</td>
-
+		{% for i, c in ((0, 'Green'), (1, 'Purple'), (2, 'Red')) %}
 		<td>
-			{% if testData.bestAttempt2 == '100' %}
-			<form class="purpleButton" action="" method="POST">
-				<button class="colourButton" name="colour" value="Purple" id="Purple">Purple</button>
+			{% if unlocked[i] and user.is_authenticated %}
+			<form action="" method="POST">
+				<button class="colourButton {{c}}Button" name="colour" value="{{c}}" id="{{c}}">{{c}}</button>
 			</form>
-			{% else %}
-			<i class="fa fa-lock lock"></i>
-			{% endif %}
+			{% else %}<i class="fa fa-lock lock"></i>{% endif %}
 		</td>
-		<td>
-			{% if testData.bestAttempt3 == '100' %}
-			<form class="redButton" action="" method="POST">
-				<button class="colourButton" name="colour" value="Red" id="Red">Red</button>
-			</form>
-			{% else %}
-			<i class="fa fa-lock lock"></i>
-			{% endif %}
-		</td>
+		{% endfor %}
 	</tr>
 </table>
 {% endblock %}

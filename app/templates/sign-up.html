@@ -1,4 +1,7 @@
-{% extends "base.html" %}{% block title %}LSR - Sign Up{% endblock %} {% block content %}
+{% extends "base.html" %}
+{% block title %}LSR - Sign Up{% endblock %}
+{% block body %}<body onload="init_login('{{theme}}')">{% endblock %}
+{% block content %}
 <div id="message" class="alert alert-danger fade show" role="alert" style="display: none;"></div>
 <div class="loginBox">
   <h2>Sign up</h2>

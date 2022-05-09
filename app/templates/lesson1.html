@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% block title %}LSR - Lesson 1{% endblock %}
+{% block body %}<body onload="init_lesson('{{theme}}', 1)">{% endblock %}
+{% block content %}
+<div class="lessonBox">
+	<h2>Lesson 1</h2>
+	<div id="l1" style="display: block">
+		<p>
+			The theory of special relativity was developed by Albert Einstein in 1905. It is based on the assumption
+			that the
+			<span class="hoverBoxLabel" id="speedOfLightLabel"
+				>speed of light
+				<span class="hoverBox" id="speedOfLight" style="display: none"
+					>The speed of light is constant at 299,792,458 m/s.</span
+				></span
+			>
+			is observed to be the same no matter the relative motion between the observer and the light source.
+			<br /><br />
+			The theory of special relativity holds within and between
+			<span class="hoverBoxLabel" id="inertialLabel"
+				>inertial frames of reference
+				<span class="hoverBox" id="inertial" style="display: none; width: 350px"
+					>An inertial frame of reference is a ‘place’ such as on Earth or inside a rocket ship in which all
+					of Newton’s laws are valid. Inside an inertial frame of reference an object with no forces acting on
+					it will travel at a constant velocity in a straight line.
+				</span> </span
+			>. We will only consider objects that have constant relative speeds — no acceleration is involved.
+		</p>
+		<div class="diagramBox">
+			<img class="diagram" alt="einstein" src="{{ url_for('static', filename='pictures/einstein.jpeg') }}" />
+		</div>
+	</div>
+	<div id="l2" style="display: none">
+		<p>
+			The assumption that the speed of light is constant in all reference frames implies that other
+			quantities, that might ordinarily appear to be constant, are actually relative between observers within
+			different reference frames.
+			<br /><br />
+			To preserve a constant speed of light between observers moving at a relative speed,
+			<span class="hoverBoxLabel" id="spaceTimeLabel"
+				>space-time
+				<span class="hoverBox" id="spaceTime" style="display: none; width: 350px"
+					>Space-time refers to the 4-dimensional expanse that consists of up/down, left/right, in/out and
+					also the one-dimensional flow of time from past towards future. It is the combination of space and
+					time into one ‘place’ that objects can exist within.</span
+				>
+			</span>
+			must appear different to each of them. In the following lesson we will use examples to present this.
+			<br /><br />
+			<a href="{{ url_for('routes.test', test_number=1) }}">Take the test</a> for this section.
+		</p>
+	</div>
+</div>
+<div class="row switchPages">
+	<div id="prev" class="pageButton" style="display: none">PREV</div>
+	<div id="next" class="pageButton" style="display: block">NEXT</div>
+</div>
+<div class="takeTest">
+	<h3>Think you're ready? Test your knowledge!</h3>
+	<a href="{{ url_for('routes.test', test_number=1) }}"><div class="pageButton">LESSON 1 TEST</div></a>
+</div>
+<a href="{{ url_for('routes.lesson2') }}">
+<h2 class="pageArrowRightLabel">Lesson 2</h2>
+	<div class="pageArrow pageArrowRight">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+</a>
+{% endblock %}
